@@ -27,7 +27,7 @@ export class InputText extends React.Component<IInputTextProps,IState> {
                         type="text"
                         hintText={this.props.hintText}
                         floatingLabelText={this.props.floatingLabelText}
-                        onChange={this.props.onChangeText.bind(this)}/>
+                        onChange={this.props.onChangeText}/>
                 </MuiThemeProvider>
             </div>
         );

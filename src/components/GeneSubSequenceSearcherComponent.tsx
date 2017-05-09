@@ -2,13 +2,10 @@ import * as React from "react";
 import {InputText} from "./InputText";
 
 import {FormattedDate, FormattedMessage, FormattedRelative} from "react-intl";
-import {MessagesConstants} from "../i18n/MessagesConstants";
-import {GeneSubSequenceSearcherDTO} from "../domain/GeneSubSequenceSearcherDTO";
 import {ButtonSearch} from "../components/ButtonSearch";
 
 export interface IGeneSubSequenceSearcherComponent {
-    geneSubSequenceSearcher: GeneSubSequenceSearcherDTO;
-    onChangeText: (event) => any;
+    onChangeText: (event: object, newValue: string) => any;
     dnaSubSequenceNameHintText: string;
     dnaSubSequenceFloatingLabelText: string;
 
@@ -29,11 +26,6 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
     public constructor(props: IGeneSubSequenceSearcherComponent) {
         super(props);
     }
-
-    /**
-     *  <fieldset>
-     <legend><FormattedMessage id={MessagesConstants.SEARCH_DNA_SUBSEQUENCES_IN_GENES}/></legend>
-     * */
 
 
     public render(){

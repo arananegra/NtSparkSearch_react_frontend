@@ -6,5 +6,5 @@ export default combineReducers <IReducers> ({
 });
 
 export interface IReducers {
-    HeatMapPageReducer: SubSequenceSearchPageState;
+    SubSequenceSearchPageReducer: SubSequenceSearchPageState;
 }

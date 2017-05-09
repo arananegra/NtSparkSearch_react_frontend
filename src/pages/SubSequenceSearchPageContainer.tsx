@@ -14,6 +14,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export const SubSequenceSearchPageContainer = connect(
-mapStateToProp,
-mapDispatchToProps
+    mapStateToProp,
+    mapDispatchToProps
 )(injectIntl(SubSequenceSearchPage));

@@ -7,10 +7,8 @@ import {IntlProvider, intlReducer} from "react-intl-redux";
 import {addLocaleData} from "react-intl";
 import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
-import * as arabic from "react-intl/locale-data/ar";
-import * as brahmi from "react-intl/locale-data/br"
 
-addLocaleData([...spanish, ...english, ...arabic, ...brahmi]);
+addLocaleData([...spanish, ...english]);
 
 const reducer = combineReducers({
     reducers, 
@@ -30,7 +28,6 @@ public render(): JSX.Element {
         <Provider store={store}>
           <IntlProvider>
               <div className="container-fluid">
-        
                   {this.props.children}
               </div>
           </IntlProvider>

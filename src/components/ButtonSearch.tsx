@@ -21,10 +21,6 @@ export class ButtonSearch extends React.Component<IButtonSearch, IState> {
 
     public render() {
 
-        const customStyle = () => {
-            margin: 12;
-        }
-
         return (
             <div>
                 <MuiThemeProvider>

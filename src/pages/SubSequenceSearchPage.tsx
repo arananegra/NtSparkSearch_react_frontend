@@ -7,6 +7,7 @@ import {GeneSearchPageDTO} from "../domain/GeneSearchPageDTO";
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;
     initializeSubSequenceGeneListFound: () => any;
+    intl: any;
 }
 
 export interface ISubSequenceSearchPageState {
@@ -22,7 +23,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
         this.props.initializeSubSequenceGeneListFound();
     }
 
-    private onDnaSubSequenceUserInput(event) {
+    private onDnaSubSequenceUserInput(event: object, newValue: string) {
 
     }
 
@@ -32,7 +33,6 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
             <div className="container-fluid">
                 <div className="row gene-searcher-component">
                     <GeneSubSequenceSearcherComponent
-                        geneList={this.props.geneSearcherPage._geneSubSequenceSearcher._geneList}
                         onChangeText={this.onDnaSubSequenceUserInput.bind(this)}
                         dnaSubSequenceNameHintText={this.props.intl.formatMessage({id: MessagesConstants.INPUT_DNA_HINT_TEXT})}
                         dnaSubSequenceFloatingLabelText={this.props.intl.formatMessage({id: MessagesConstants.INPUT_DNA_FLOATING_TEXT})}
