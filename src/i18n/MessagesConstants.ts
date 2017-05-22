@@ -18,8 +18,8 @@ export class MessagesConstants {
     };
 
     public static enGbMessages = {
-        searchDnaSubSequencesInGenes: "Subsequences DNA Searcher",
-        dnaSearchInputHintText: "Input the sequence",
+        searchDnaSubSequencesInGenes: "DNA subsequence searcher",
+        dnaSearchInputHintText: "Input sequence",
         dnaSearchInputFloatingText: "DNA sequence",
         noDataToShow: "No data to show",
         search: "Search",

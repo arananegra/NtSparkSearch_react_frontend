@@ -1,15 +1,16 @@
 {
-  "name": "react_tuto",
+  "name": "ntsparksearch_frontend",
   "version": "1.0.0",
-  "description": "tutorial react",
+  "description": "Frontend of ntsparksearch FDP",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Alicia Fernandez Rovira",
+  "author": "Alvaro Gómez Jáuregui",
   "license": "ISC",
   "dependencies": {
     "@types/react-intl-redux": "^0.1.2",
+    "babel-core": "^6.24.1",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
@@ -23,6 +24,7 @@
     "react-redux": "^5.0.4",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {

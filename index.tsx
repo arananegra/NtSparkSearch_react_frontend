@@ -1,11 +1,3 @@
-/**
- * Created with JetBrains WebStorm.
- * User: alicia
- * Date: 20/04/17
- * Time: 12:31
- * To change this template use File | Settings | File Templates.
- */
-
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
@@ -32,7 +24,7 @@ class Index {
 
     private setInitialLanguage() {
         let languageBS = new LanguageBS();
-        languageBS.changeSpanishLanguage();
+        languageBS.changeEnglishLanguage();
     }
 }
 
