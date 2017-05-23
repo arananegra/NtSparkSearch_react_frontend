@@ -1,0 +1,102 @@
+.glyphicon {
+  color: $dashboard-top-component-title-color;
+  font-size: 16px;
+}
+
+.panel-default {
+  border-color: #4493AA;
+  border: 0px 0px 0px 3px;
+  border-radius: 0;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.panel {
+  background-color: #2e3338;
+  margin-top: 10px;
+}
+
+.form-control.app-input-form:first-child {
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.card {
+  clear: left;
+}
+
+/*.app-input-form {
+ // height: 30px;
+  max-width: 200px;
+  size: 4px;
+  width: 50px;
+  //color: red;
+  border-radius: 5px;
+  //margin-left: 5px;
+  //float: right;
+}*/
+
+.input-group-addon {
+  color: $dashboard-top-component-title-color;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.input-group .form-control {
+  position: inherit;
+}
+
+.group-span-input {
+  display: inline;
+}
+
+.group-span-input span {
+  float: left;
+  clear: left;
+}
+
+/** All inputs of type text inside the group-span-input container */
+.group-span-input input[type*="text"]  {
+  float: left;
+  margin-left: 180px;
+
+  max-width: 200px;
+  size: 4px;
+}
+
+/** Select input */
+.group-span-input select  {
+  float: left;
+  margin-left: 180px;
+
+  max-width: 200px;
+  size: 4px;
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-appear.example-appear-active {
+  opacity: 0.01;
+  transition: opacity 2000ms ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 2000ms ease-in;
+}

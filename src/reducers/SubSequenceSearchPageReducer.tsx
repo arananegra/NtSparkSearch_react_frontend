@@ -40,6 +40,8 @@ export class SubSequenceSearchPageState {
         singleHeader._value = "Result";
         singleHeader._width = "100";
         this._geneSearcherPage._geneTableResultHeaderColumns.push(singleHeader);
+
+        this._geneSearcherPage._showModalDialogSearchRequest = false;
     }
 }
 
@@ -91,9 +93,19 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
             singleSequenceGene._haveSequence = 1;
             initialSubSequenceSearchPage._geneSubSequenceResultFound.push(singleSequenceGene);
 
+            initialSubSequenceSearchPage._showModalDialogSearchRequest = false;
+
             newState = objectAssign({}, state, {_geneSearcherPage: initialSubSequenceSearchPage});
             return newState;
 
+        case ActionConstants.SHOW_MODAL_DIALOG_SEARCH_REQUEST:
+            let newPage = objectAssign({}, state._geneSearcherPage, {});
+
+            newPage._showModalDialogSearchRequest = action['showModalDialog'];
+
+            newState = objectAssign({}, state, {_geneSearcherPage: newPage});
+
+            return newState;
         default: 
            return state;
     }

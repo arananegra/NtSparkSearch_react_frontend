@@ -3,7 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export interface IButtonSearch {
-    onSearchButtonPressed?: (value) => any;
+    onSearchButtonPressed: (value) => any;
     label: string;
     value: string;
 }

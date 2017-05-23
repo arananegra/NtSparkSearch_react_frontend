@@ -7,6 +7,7 @@ import {IntlProvider, intlReducer} from "react-intl-redux";
 import {addLocaleData} from "react-intl";
 import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
+import {NavigationBarComponent} from "./NavigationBarComponent";
 
 addLocaleData([...spanish, ...english]);
 
@@ -28,6 +29,7 @@ public render(): JSX.Element {
         <Provider store={store}>
           <IntlProvider>
               <div className="container-fluid">
+                  <NavigationBarComponent/>
                   {this.props.children}
               </div>
           </IntlProvider>

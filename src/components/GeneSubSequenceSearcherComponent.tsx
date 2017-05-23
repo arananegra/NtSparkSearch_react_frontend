@@ -14,6 +14,8 @@ export interface IGeneSubSequenceSearcherComponent {
 
     buttonSearchLabel: string;
     buttonSearchValue: string;
+
+    onSearchButtonPressed: (event: any) => any;
  }
 
 export interface IUserDetailComponentState {
@@ -49,7 +51,8 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
 
                                 <div className="col-md-1 sequence-search-page-button-searcher">
                                     <ButtonSearch label={this.props.buttonSearchLabel}
-                                                  value={this.props.buttonSearchValue}/>
+                                                  value={this.props.buttonSearchValue}
+                                                  onSearchButtonPressed={this.props.onSearchButtonPressed} />
                                 </div>
                             </div>
                         </form>
