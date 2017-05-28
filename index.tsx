@@ -35,7 +35,7 @@ class Index {
 
     private setInitialLanguage() {
         let languageBS = new LanguageBS();
-        languageBS.changeSpanishLanguage();
+        languageBS.changeEnglishLanguage();
     }
 }
 

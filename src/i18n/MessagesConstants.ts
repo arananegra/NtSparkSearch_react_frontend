@@ -6,6 +6,8 @@ export class MessagesConstants {
     public static SEARCH: string = "search";
     public static GENES: string = "genes";
     public static GENES_PATTERN: string = "genesPattern";
+    public static SEARCH_PAGE : string = "searchDnaPage";
+    public static PROCESS_PAGE : string = "processFilePage";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -14,16 +16,20 @@ export class MessagesConstants {
         noDataToShow: "No hay datos que mostrar",
         search: "Buscar",
         genes: "Genes",
-        genesPattern: "Ej.: 434,3,21"
+        genesPattern: "Ej.: 434,3,21",
+        searchDnaPage: "Buscar Secuencia",
+        processFilePage: "Procesar Archivo"
     };
 
     public static enGbMessages = {
-        searchDnaSubSequencesInGenes: "Subsequences DNA Searcher",
+        searchDnaSubSequencesInGenes: "DNA Subsequence Searcher",
         dnaSearchInputHintText: "Input the sequence",
-        dnaSearchInputFloatingText: "DNA sequence",
+        dnaSearchInputFloatingText: "DNA sequence to search",
         noDataToShow: "No data to show",
         search: "Search",
         genes: "Genes",
-        genesPattern: "Ex.: 32,65,322"
+        genesPattern: "Ex.: 32,65,322",
+        searchDnaPage: "Search Sequence",
+        processFilePage: "Process file"
     };
 }

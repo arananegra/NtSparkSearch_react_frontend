@@ -6,7 +6,7 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import {injectIntl} from "react-intl";
 const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const SearchDnaSequences = <FindInPage/>;
@@ -14,13 +14,14 @@ const UploadFilesToProcess = <UploadFiles/>;
 
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../common/RoutesConstants";
-
+import {MessagesConstants} from "../i18n/MessagesConstants";
 
 /**
  * A simple example of `BottomNavigation`, with three labels and icons
  * provided. The selected `BottomNavigationItem` is determined by application
  * state (for instance, by the URL).
  */
+
 export class NavigationBarComponent extends React.Component<{}, {}> {
     state = {
         selectedIndex: 0,
@@ -34,7 +35,7 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
             browserHistory.push(RoutesConstants.UPLOAD_FILES_ROUTE_PATH);
         }
 
-    }
+    };
 
     public render() {
         return (
@@ -42,9 +43,9 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
                 <MuiThemeProvider>
                     <Paper zDepth={2}>
                         <BottomNavigation selectedIndex={this.state.selectedIndex}>
-                            <span className="application-title">Veritas Gene Finder</span>
+                            <span className="application-title">NT Spark Searcher</span>
                             <BottomNavigationItem
-                                label="Buscar Secuencia"
+                                label="Buscar Subsequencia"
                                 icon={SearchDnaSequences}
                                 onTouchTap={() => this.select(1)}
                             />

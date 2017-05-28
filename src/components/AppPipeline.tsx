@@ -8,6 +8,7 @@ import {addLocaleData} from "react-intl";
 import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
 import {NavigationBarComponent} from "./NavigationBarComponent";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 addLocaleData([...spanish, ...english]);
 
@@ -16,9 +17,11 @@ const reducer = combineReducers({
     intl: intlReducer
 });
 
-export const store = createStore(
-    reducer,
-    applyMiddleware(ReduxThunk["default"])
+const middlewares = [ReduxThunk["default"]];
+
+export const store = createStore(reducer,
+    composeWithDevTools(
+        applyMiddleware(...middlewares)),
 );
 
 export class AppPipeline extends React.Component<{}, {}> {
