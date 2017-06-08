@@ -30,14 +30,14 @@ export class SubSequenceSearchPageState {
         singleHeader = new TableHeaderColumnDTO();
         singleHeader._isKey = true;
         singleHeader._columnName = "Gen";
-        singleHeader._value = "Gen";
+        //singleHeader._value = "Gen";
         singleHeader._width = "100";
         this._geneSearcherPage._geneTableResultHeaderColumns.push(singleHeader);
 
         singleHeader = new TableHeaderColumnDTO();
         singleHeader._isKey = false;
         singleHeader._columnName = "Result";
-        singleHeader._value = "Result";
+        //singleHeader._value = "Result";
         singleHeader._width = "100";
         this._geneSearcherPage._geneTableResultHeaderColumns.push(singleHeader);
 
@@ -67,14 +67,14 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
             singleHeader = new TableHeaderColumnDTO();
             singleHeader._isKey = true;
             singleHeader._columnName = "_geneId";
-            singleHeader._value = "Gen";
+            //singleHeader._value = "Gen";
             singleHeader._width = "100";
             initialSubSequenceSearchPage._geneTableResultHeaderColumns.push(singleHeader);
 
             singleHeader = new TableHeaderColumnDTO();
             singleHeader._isKey = false;
             singleHeader._columnName = "_haveSequence";
-            singleHeader._value = "Result";
+            //singleHeader._value = "Result";
             singleHeader._width = "100";
             initialSubSequenceSearchPage._geneTableResultHeaderColumns.push(singleHeader);
 

@@ -2,11 +2,13 @@ import * as React from "react";
 import {GeneSubsequenceResultDTO} from "../domain/GeneSubsequenceResultDTO";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import {TableHeaderColumnDTO} from "../domain/TableHeaderColumnDTO";
+import {MessagesConstants} from "../i18n/MessagesConstants";
 
 export interface ITableProps {
     columnList: Array<TableHeaderColumnDTO>;
     dataList: Array<GeneSubsequenceResultDTO>;
     noDataText: string;
+    intl: any;
 }
 
 export interface IState {
@@ -40,7 +42,7 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
                         dataSort={true}
                         dataField={column._columnName}
                         width={column._width}>
-                        {column._value}
+                        {this.props.intl.formatMessage({id: MessagesConstants.GENE_COLUMN_NAME})}
                     </TableHeaderColumn>);
                 } else {
                     columnList.push(<TableHeaderColumn
@@ -48,7 +50,7 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
                         dataSort={true}
                         dataField={column._columnName}
                         width={column._width}>
-                        {column._value}
+                        {this.props.intl.formatMessage({id: MessagesConstants.RESULT_COLUMN_NAME})}
                     </TableHeaderColumn>);
                 }
             });
