@@ -9,6 +9,7 @@ import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
 import {NavigationBarComponent} from "./NavigationBarComponent";
 import { composeWithDevTools } from 'redux-devtools-extension';
+import logger from 'redux-logger'
 
 addLocaleData([...spanish, ...english]);
 
@@ -17,7 +18,7 @@ const reducer = combineReducers({
     intl: intlReducer
 });
 
-const middlewares = [ReduxThunk["default"]];
+const middlewares = [ReduxThunk["default"],logger];
 
 export const store = createStore(reducer,
     composeWithDevTools(
