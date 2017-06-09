@@ -9,12 +9,12 @@ import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearchPageC
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
 import {RoutesConstants} from "./src/common/RoutesConstants";
 import {UploadFilesToProcessingPage} from "./src/pages/UploadFilesToProcessingPage";
-import {TestAxiosQDAO} from "./src/access-data/dao/TestAxiosQDAO";
+//import {TestAxiosQDAO} from "./src/access-data/dao/TestAxiosQDAO";
 
 class Index {
     public constructor() {
 
-        let testDao = new TestAxiosQDAO();
+/*        let testDao = new TestAxiosQDAO();
 
         console.log("WTF!!!");
 
@@ -23,9 +23,9 @@ class Index {
                 geneDataList.map((singleGene) => {
                    console.log(singleGene);
                 });
-            });
+            });*/
 
-        /*injectTapEventPlugin();
+        injectTapEventPlugin();
 
         this.setInitialLanguage();
 
@@ -43,7 +43,6 @@ class Index {
                <Start/>,
             document.getElementById('root')
         );
-   */
     }
 
     private setInitialLanguage() {

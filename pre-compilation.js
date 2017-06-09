@@ -6,14 +6,14 @@ let CleanWebpackPlugin = require('clean-webpack-plugin');
 
 let basePath = __dirname;
 
-module.exports = function (env) {
+module.exports = function(env) {
     return {
         context: path.join(basePath, 'src'),
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx']
         },
 
-        target: "node",
+        target: "web",
 
         node: {
             fs: "empty",
@@ -75,8 +75,8 @@ module.exports = function (env) {
                     loader: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
                         use: [
-                            {loader: 'css-loader',},
-                            {loader: 'sass-loader',},
+                            { loader: 'css-loader', },
+                            { loader: 'sass-loader', },
                         ],
                     })
                 },
@@ -109,14 +109,14 @@ module.exports = function (env) {
             ]
         },
         plugins: [
-            // new CleanWebpackPlugin(['./dist'], {
-            //     //root: basePath,
-            //     verbose: true,   // Write logs to console
-            //     dry: false,     // Use boolean "true" to test/emulate delete. (will not remove files).
-            //                     // (Default: "false", remove files)
-            //     watch: false     // If true, remove files on recompile. (Default: false)
-            //     //exclude: ['RunExpress.js']
-            // }),
+            new CleanWebpackPlugin(['./dist'], {
+                //root: basePath,
+                verbose: true,   // Write logs to console
+                dry: false,     // Use boolean "true" to test/emulate delete. (will not remove files).
+                                // (Default: "false", remove files)
+                watch: true     // If true, remove files on recompile. (Default: false)
+                //exclude: ['RunExpress.js']
+            }),
             //Generate index.html in /dist => https://github.com/ampedandwired/html-webpack-plugin
 
             new webpack.optimize.CommonsChunkPlugin({

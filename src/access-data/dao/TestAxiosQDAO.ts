@@ -1,8 +1,6 @@
 import axios from 'axios';
 import * as Q from "q";
 import {GeneDTO} from "../../domain/GeneDTO";
-import  {AxiosRequestConfig} from "axios";
-import {AxiosConfigurationDTO} from "../../domain/AxiosConfigurationDTO";
 
 export class TestAxiosQDAO {
     constructor() {
