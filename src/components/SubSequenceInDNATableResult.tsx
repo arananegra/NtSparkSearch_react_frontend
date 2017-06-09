@@ -28,9 +28,11 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
 
                 <FormattedMessage
                     id={MessagesConstants.GENE_COLUMN_NAME}/> { start } <FormattedMessage
-                id={MessagesConstants.GENE_PAGINATION_TO}/> { to }, <FormattedMessage
-                id={MessagesConstants.GENE_PAGINATION_OF}/> { total }&nbsp;                 <FormattedMessage
-                id={MessagesConstants.GENE_PAGINATION_ROWS}/>
+                    id={MessagesConstants.GENE_PAGINATION_TO}/> { to }, <FormattedMessage
+                    id={MessagesConstants.GENE_PAGINATION_OF}/> { total }
+                    &nbsp;
+                <FormattedMessage
+                    id={MessagesConstants.GENE_PAGINATION_ROWS}/>
 
             </p>
         );

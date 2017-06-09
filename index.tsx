@@ -9,8 +9,7 @@ import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearchPageC
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
 import {RoutesConstants} from "./src/common/RoutesConstants";
 import {UploadFilesToProcessingPage} from "./src/pages/UploadFilesToProcessingPage";
-//import {TestAxiosQDAO} from "./src/access-data/dao/TestAxiosQDAO";
-
+//import { HashRouter } from 'react-router-dom'
 class Index {
     public constructor() {
 
