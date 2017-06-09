@@ -2,17 +2,30 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 
+
 import {AppPipeline} from "./src/components/AppPipeline";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
 import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearchPageContainer";
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
 import {RoutesConstants} from "./src/common/RoutesConstants";
 import {UploadFilesToProcessingPage} from "./src/pages/UploadFilesToProcessingPage";
+import {TestAxiosQDAO} from "./src/access-data/dao/TestAxiosQDAO";
 
 class Index {
     public constructor() {
 
-        injectTapEventPlugin();
+        let testDao = new TestAxiosQDAO();
+
+        console.log("WTF!!!");
+
+        testDao.testingAxiosQ()
+            .then((geneDataList) => {
+                geneDataList.map((singleGene) => {
+                   console.log(singleGene);
+                });
+            });
+
+        /*injectTapEventPlugin();
 
         this.setInitialLanguage();
 
@@ -30,7 +43,7 @@ class Index {
                <Start/>,
             document.getElementById('root')
         );
-   
+   */
     }
 
     private setInitialLanguage() {

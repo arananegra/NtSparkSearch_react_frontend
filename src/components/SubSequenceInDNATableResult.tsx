@@ -3,6 +3,7 @@ import {GeneSubsequenceResultDTO} from "../domain/GeneSubsequenceResultDTO";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import {TableHeaderColumnDTO} from "../domain/TableHeaderColumnDTO";
 import {MessagesConstants} from "../i18n/MessagesConstants";
+import {FormattedMessage} from "react-intl";
 
 export interface ITableProps {
     columnList: Array<TableHeaderColumnDTO>;
@@ -24,11 +25,16 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
     private renderShowsTotal(start, to, total) {
         return (
             <p>
-                From { start } To { to }, of { total }&nbsp; Rows
+
+                <FormattedMessage
+                    id={MessagesConstants.GENE_COLUMN_NAME}/> { start } <FormattedMessage
+                id={MessagesConstants.GENE_PAGINATION_TO}/> { to }, <FormattedMessage
+                id={MessagesConstants.GENE_PAGINATION_OF}/> { total }&nbsp;                 <FormattedMessage
+                id={MessagesConstants.GENE_PAGINATION_ROWS}/>
+
             </p>
         );
     }
-
 
     buildTableColumn() {
         let columnList = [];
@@ -63,12 +69,12 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
         let extraRowOptionsConfiguration;
 
         /*if (this.props.customPaginationTable === null) {
-            extraRowOptionsConfiguration = {
-                noDataText: this.props.noDataText
-            };
-        } else {
-            extraRowOptionsConfiguration = this.props.customPaginationTable;
-        }*/
+         extraRowOptionsConfiguration = {
+         noDataText: this.props.noDataText
+         };
+         } else {
+         extraRowOptionsConfiguration = this.props.customPaginationTable;
+         }*/
 
         extraRowOptionsConfiguration = {
             noDataText: this.props.noDataText
