@@ -2,7 +2,7 @@ import * as React from "react";
 import {InputText} from "./InputText";
 
 import {FormattedDate, FormattedMessage, FormattedRelative} from "react-intl";
-import {ButtonSearch} from "../components/ButtonSearch";
+import {ButtonSearchComponent} from "./ButtonSearchComponent";
 
 export interface IGeneSubSequenceSearcherComponent {
     onChangeText: (event: object, newValue: string) => any;
@@ -50,9 +50,9 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
                         </div>
 
                         <div className="col-md-1 sequence-search-page-button-searcher">
-                            <ButtonSearch label={this.props.buttonSearchLabel}
-                                          value={this.props.buttonSearchValue}
-                                          onSearchButtonPressed={this.props.onSearchButtonPressed}/>
+                            <ButtonSearchComponent label={this.props.buttonSearchLabel}
+                                                   value={this.props.buttonSearchValue}
+                                                   onSearchButtonPressed={this.props.onSearchButtonPressed}/>
                         </div>
                     </div>
                 </form>

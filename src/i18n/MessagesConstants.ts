@@ -14,6 +14,8 @@ export class MessagesConstants {
     public static GENE_PAGINATION_TO :string = "genePaginationTo";
     public static GENE_PAGINATION_OF :string = "genePaginationOf";
     public static GENE_PAGINATION_ROWS :string = "genePaginationRows";
+    public static UPLOAD_BUTTON_EXCEL :string = "uploadButtonExcel";
+    public static UPLOAD_BUTTON_FASTA :string = "uploadButtonFasta";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -30,7 +32,9 @@ export class MessagesConstants {
         genePaginationFrom: "Desde ",
         genePaginationTo: " a ",
         genePaginationOf: " de un total de ",
-        genePaginationRows: " filas"
+        genePaginationRows: " filas",
+        uploadButtonExcel: "Pulsa aquí para subir un archivo excel",
+        uploadButtonFasta: "Pulsa aquí para subir un archivo en formato fasta"
     };
 
     public static enGbMessages = {
@@ -48,6 +52,8 @@ export class MessagesConstants {
         genePaginationFrom: "From ",
         genePaginationTo: " to ",
         genePaginationOf: " of ",
-        genePaginationRows: " rows"
+        genePaginationRows: " rows",
+        uploadButtonExcel: "Click here to upload a file in excel format",
+        uploadButtonFasta: "Click here to upload a file in fasta format"
     };
 }

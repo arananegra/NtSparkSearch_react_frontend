@@ -19,13 +19,22 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
 
     }
 
+// <RaisedButton label={<FormattedMessage
+//     id={MessagesConstants.UPLOAD_BUTTON_EXCEL}/>}
+// value={<FormattedMessage
+//     id={MessagesConstants.UPLOAD_BUTTON_EXCEL}/>}
+// primary={true}
+// onClick={this.props.onSearchButtonPressedUploadExcel}/>
+
     public render() {
         return (
             <div className="container-fluid">
                 <div>
                     <NavigationBarComponent/>
                 </div>
-                <UploadFastaExcelComponent/>
+                <div>
+                    <UploadFastaExcelComponent/>
+                </div>
             </div>
         );
     }
