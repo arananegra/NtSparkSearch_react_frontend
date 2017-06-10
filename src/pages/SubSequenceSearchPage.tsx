@@ -63,16 +63,15 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
     public render() {
         return (
             <div className="container-fluid">
+                <div>
+                    <NavigationBarComponent/>
+                </div>
                 <CSSTransitionGroup
                     transitionName="subsequence-search-page-transition"
                     transitionAppear={true}
                     transitionAppearTimeout={5000}
                     transitionEnterTimeout={5000}
                     transitionLeaveTimeout={5000}>
-                    <div>
-                        <NavigationBarComponent
-                            intl={this.props.intl}/>
-                    </div>
                     <div className="row gene-searcher-component">
                         <GeneSubSequenceSearcherComponent
                             onChangeText={this.onDnaSubSequenceUserInput.bind(this)}
