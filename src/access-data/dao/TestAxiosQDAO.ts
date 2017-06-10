@@ -41,4 +41,16 @@ export class TestAxiosQDAO {
 
     }
 
+    public testSimpleAxios() {
+        return axios({
+            method: 'GET',
+            url: "http://0.0.0.0:5000/",
+            timeout: 1000
+        }).then((response) => {
+            if (response) {
+                console.log("", response.data);
+                return response.data.security.toString;
+            }
+        });
+    }
 }

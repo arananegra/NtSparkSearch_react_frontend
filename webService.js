@@ -16,8 +16,8 @@ class webService {
             timeout: 1000
         }).then((response) => {
             if (response) {
-                console.log("", response.data);
-                return response.data;
+                console.log("", response.data.security.toString());
+                return response.data.security;
 
                 //console.log(deferred.resolve(response.data));
             }
