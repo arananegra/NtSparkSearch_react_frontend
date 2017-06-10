@@ -48,8 +48,8 @@ export class TestAxiosQDAO {
             timeout: 1000
         }).then((response) => {
             if (response) {
-                console.log("", response.data);
-                return response.data.security.toString;
+                console.log("", response.data.security.toString());
+                return response.data.security.toString();
             }
         });
     }
