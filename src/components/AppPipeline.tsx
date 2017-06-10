@@ -14,6 +14,7 @@ import {SubSequenceSearchPageContainer} from "../pages/SubSequenceSearchPageCont
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import {UploadFilesToProcessingPage} from "../pages/UploadFilesToProcessingPage";
 import {RoutesConstants} from "../common/RoutesConstants";
+import {UploadFileToProcessingPageContainer} from "../pages/UploadFileToProcessingPageContainer";
 
 addLocaleData([...spanish, ...english]);
 
@@ -50,7 +51,7 @@ export class AppPipeline extends React.Component<{}, {}> {
                         <div className="container-fluid">
                             {this.props.children}
                             <Route path="/" component={SubSequenceSearchPageContainer}/>
-                            <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH} component={UploadFilesToProcessingPage} />
+                            <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH} component={UploadFileToProcessingPageContainer} />
                         </div>
                     </Router>
                 </IntlProvider>
