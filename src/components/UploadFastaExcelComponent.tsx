@@ -28,7 +28,8 @@ export class UploadFastaExcelComponent extends React.Component<IUploadFastaExcel
                 <div className="header-separtion">
                     <div className="well">
                         <h2>
-                            Upload Excel File
+                            <FormattedMessage
+                                id={MessagesConstants.UPLOAD_TEXT_EXCEL}/>
                         </h2>
                         <MuiThemeProvider>
                             <RaisedButton className="row upload-button"
@@ -45,7 +46,8 @@ export class UploadFastaExcelComponent extends React.Component<IUploadFastaExcel
                 <div className="header-separtion">
                     <div className="well">
                         <h2>
-                            Upload Fasta File
+                            <FormattedMessage
+                                id={MessagesConstants.UPLOAD_TEXT_FASTA}/>
                         </h2>
                         <MuiThemeProvider>
                             <RaisedButton className="row upload-button"

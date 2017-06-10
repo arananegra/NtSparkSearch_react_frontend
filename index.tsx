@@ -5,7 +5,6 @@ import * as ReactDOM from "react-dom";
 import {AppPipeline} from "./src/components/AppPipeline";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
-//import { HashRouter } from 'react-router-dom'
 class Index {
     public constructor() {
 
