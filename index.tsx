@@ -1,14 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {Router, Route, IndexRoute, browserHistory} from "react-router";
 
 
 import {AppPipeline} from "./src/components/AppPipeline";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
-import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearchPageContainer";
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
-import {RoutesConstants} from "./src/common/RoutesConstants";
-import {UploadFilesToProcessingPage} from "./src/pages/UploadFilesToProcessingPage";
 //import { HashRouter } from 'react-router-dom'
 class Index {
     public constructor() {
@@ -46,7 +42,7 @@ class Index {
 
     private setInitialLanguage() {
         let languageBS = new LanguageBS();
-        languageBS.changeSpanishLanguage();
+        languageBS.changeEnglishLanguage();
     }
 }
 
