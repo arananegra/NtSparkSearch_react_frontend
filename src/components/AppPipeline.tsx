@@ -14,6 +14,8 @@ import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-rout
 import createHistory from 'history/createBrowserHistory'
 import {SubSequenceSearchPageContainer} from "../pages/SubSequenceSearchPageContainer";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
+import {UploadFilesToProcessingPage} from "../pages/UploadFilesToProcessingPage";
+import {RoutesConstants} from "../common/RoutesConstants";
 
 const history = createHistory();
 
@@ -53,6 +55,7 @@ export class AppPipeline extends React.Component<{}, {}> {
                         <div className="container-fluid">
                             {this.props.children}
                             <Route path="/" component={SubSequenceSearchPageContainer}/>
+                            <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH} component={UploadFilesToProcessingPage} />
                         </div>
                     </Router>
                 </IntlProvider>

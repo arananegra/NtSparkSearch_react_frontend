@@ -89,7 +89,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             onClick={this.manageOnClickModal.bind(this)}
                             dialogTitle="WTF In MoDaL!!!"/>
                     </div>
-                    <div className="row">
+                    <div className="row gene-result-component">
                         <SubSequenceInDNATableResult
                             columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
                             dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
