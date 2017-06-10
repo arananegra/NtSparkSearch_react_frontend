@@ -7,12 +7,10 @@ import {IntlProvider, intlReducer} from "react-intl-redux";
 import {addLocaleData} from "react-intl";
 import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
-import {NavigationBarComponent} from "./NavigationBarComponent";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import logger from 'redux-logger'
 import {SubSequenceSearchPageContainer} from "../pages/SubSequenceSearchPageContainer";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
-import {UploadFilesToProcessingPage} from "../pages/UploadFilesToProcessingPage";
 import {RoutesConstants} from "../common/RoutesConstants";
 import {UploadFileToProcessingPageContainer} from "../pages/UploadFileToProcessingPageContainer";
 
