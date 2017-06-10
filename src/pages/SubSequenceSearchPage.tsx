@@ -10,6 +10,7 @@ import {GeneSubSequenceSearcherModalRequestComponent} from "../components/GeneSu
 import {store} from "../components/AppPipeline";
 import {ShowModalDialogSearchRequestAction} from "../actions/ShowModalDialogSearchRequestAction";
 import {Constants} from "../common/Constants";
+import {NavigationBarComponent} from "../components/NavigationBarComponent";
 
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;
@@ -22,7 +23,7 @@ export interface ISubSequenceSearchPageState {
 }
 
 export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPageProps, ISubSequenceSearchPageState> {
-    public constructor(props: ISubSequenceSearchPageProps){
+    public constructor(props: ISubSequenceSearchPageProps) {
         super(props);
     }
 
@@ -59,7 +60,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
     }
 
 
-    public render(){
+    public render() {
         return (
             <div className="container-fluid">
                 <CSSTransitionGroup
@@ -68,6 +69,10 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                     transitionAppearTimeout={5000}
                     transitionEnterTimeout={5000}
                     transitionLeaveTimeout={5000}>
+                    <div>
+                        <NavigationBarComponent
+                            intl={this.props.intl}/>
+                    </div>
                     <div className="row gene-searcher-component">
                         <GeneSubSequenceSearcherComponent
                             onChangeText={this.onDnaSubSequenceUserInput.bind(this)}

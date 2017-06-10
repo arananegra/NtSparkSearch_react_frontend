@@ -15,6 +15,7 @@ const UploadFilesToProcess = <UploadFiles/>;
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../common/RoutesConstants";
 import {MessagesConstants} from "../i18n/MessagesConstants";
+import {Constants} from "../common/Constants"
 
 /**
  * A simple example of `BottomNavigation`, with three labels and icons
@@ -22,7 +23,11 @@ import {MessagesConstants} from "../i18n/MessagesConstants";
  * state (for instance, by the URL).
  */
 
-export class NavigationBarComponent extends React.Component<{}, {}> {
+export interface IPropsNavigationBarComponent {
+    intl: any;
+}
+
+export class NavigationBarComponent extends React.Component<IPropsNavigationBarComponent, {}> {
     state = {
         selectedIndex: 0,
     };
@@ -43,15 +48,15 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
                 <MuiThemeProvider>
                     <Paper zDepth={2}>
                         <BottomNavigation selectedIndex={this.state.selectedIndex}>
-                            <span className="application-title">NT Spark Searcher</span>
+                            <span className="application-title">{Constants.APP_NAME}</span>
                             <BottomNavigationItem
-                                label="Buscar Subsequencia"
+                                label={this.props.intl.formatMessage({id: MessagesConstants.SEARCH_PAGE})}
                                 icon={SearchDnaSequences}
                                 onTouchTap={() => this.select(1)}
                             />
 
                             <BottomNavigationItem
-                                label="Procesar Archivos"
+                                label={this.props.intl.formatMessage({id: MessagesConstants.PROCESS_PAGE})}
                                 icon={UploadFilesToProcess}
                                 onTouchTap={() => this.select(2)}
                             />
