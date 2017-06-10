@@ -2,6 +2,8 @@ import * as React from "react";
 import {GeneSubsequenceResultDTO} from "../domain/GeneSubsequenceResultDTO";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import {TableHeaderColumnDTO} from "../domain/TableHeaderColumnDTO";
+import {FormattedMessage} from "react-intl";
+import {MessagesConstants} from "../i18n/MessagesConstants";
 
 export interface ITableProps {
     columnList: Array<TableHeaderColumnDTO>;
@@ -22,7 +24,13 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
     private renderShowsTotal(start, to, total) {
         return (
             <p>
-                From { start } To { to }, of { total }&nbsp; Rows
+                <FormattedMessage
+                    id={MessagesConstants.GENE_COLUMN_NAME}/> { start } <FormattedMessage
+                id={MessagesConstants.GENE_PAGINATION_TO}/> { to }, <FormattedMessage
+                id={MessagesConstants.GENE_PAGINATION_OF}/> { total }
+                &nbsp;
+                <FormattedMessage
+                    id={MessagesConstants.GENE_PAGINATION_ROWS}/>
             </p>
         );
     }
@@ -40,7 +48,8 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
                         dataSort={true}
                         dataField={column._columnName}
                         width={column._width}>
-                        {column._value}
+                        {<FormattedMessage
+                            id={MessagesConstants.GENE_COLUMN_NAME}/>}
                     </TableHeaderColumn>);
                 } else {
                     columnList.push(<TableHeaderColumn
@@ -48,7 +57,8 @@ export class SubSequenceInDNATableResult extends React.Component<ITableProps, IS
                         dataSort={true}
                         dataField={column._columnName}
                         width={column._width}>
-                        {column._value}
+                        {<FormattedMessage
+                            id={MessagesConstants.RESULT_COLUMN_NAME}/>}
                     </TableHeaderColumn>);
                 }
             });

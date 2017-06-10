@@ -10,24 +10,19 @@ import * as english from "react-intl/locale-data/en";
 import {NavigationBarComponent} from "./NavigationBarComponent";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import logger from 'redux-logger'
-import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-router-redux'
-import createHistory from 'history/createBrowserHistory'
 import {SubSequenceSearchPageContainer} from "../pages/SubSequenceSearchPageContainer";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import {UploadFilesToProcessingPage} from "../pages/UploadFilesToProcessingPage";
 import {RoutesConstants} from "../common/RoutesConstants";
-
-const history = createHistory();
 
 addLocaleData([...spanish, ...english]);
 
 const reducer = combineReducers({
     reducers,
     intl: intlReducer,
-    router: routerReducer
 });
 
-const middlewares = [ReduxThunk["default"], logger, routerMiddleware(history)];
+const middlewares = [ReduxThunk["default"], logger];
 
 export const store = createStore(reducer,
     composeWithDevTools(
