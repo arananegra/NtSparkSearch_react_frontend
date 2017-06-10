@@ -13,6 +13,7 @@ import {SubSequenceSearchPageContainer} from "../pages/SubSequenceSearchPageCont
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import {RoutesConstants} from "../common/RoutesConstants";
 import {UploadFileToProcessingPageContainer} from "../pages/UploadFileToProcessingPageContainer";
+import {ManageAppPage} from "../pages/ManageAppPage";
 
 addLocaleData([...spanish, ...english]);
 
@@ -28,16 +29,6 @@ export const store = createStore(reducer,
         applyMiddleware(...middlewares)),
 );
 
-//<NavigationBarComponent/> esto va a cada container
-
-
-//         <Route path="/" component={AppPipeline}>
-//             <IndexRoute component={SubSequenceSearchPageContainer}/>
-//             <Route path={RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH} component={SubSequenceSearchPageContainer} />
-//             <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH} component={UploadFilesToProcessingPage} />
-//         </Route>
-
-
 export class AppPipeline extends React.Component<{}, {}> {
 
     public render(): JSX.Element {
@@ -52,6 +43,8 @@ export class AppPipeline extends React.Component<{}, {}> {
                             <Route path="/" component={SubSequenceSearchPageContainer}/>
                             <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH}
                                    component={UploadFileToProcessingPageContainer}/>
+                            <Route path={RoutesConstants.MANAGE_FILES_ROUTE_PATH}
+                                   component={ManageAppPage}/>
                         </div>
                     </Router>
                 </IntlProvider>

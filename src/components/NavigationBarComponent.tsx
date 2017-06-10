@@ -5,12 +5,14 @@ import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
+import ActionPermMedia from "material-ui/svg-icons/action/perm-media";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
 const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const SearchDnaSequences = <FindInPage/>;
 const UploadFilesToProcess = <UploadFiles/>;
+const ManageFiles = <ActionPermMedia/>;
 
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../common/RoutesConstants";
@@ -34,6 +36,8 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
             browserHistory.push(RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH);
         } else if (index == 2) {
             browserHistory.push(RoutesConstants.UPLOAD_FILES_ROUTE_PATH);
+        } else if (index ==3) {
+            browserHistory.push(RoutesConstants.MANAGE_FILES_ROUTE_PATH);
         }
 
     };
@@ -59,6 +63,12 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
                                 onTouchTap={() => this.select(2)}
                             />
 
+                            <BottomNavigationItem
+                                label={<FormattedMessage
+                                    id={MessagesConstants.MANAGE_APP_PAGE}/>}
+                                icon={ManageFiles}
+                                onTouchTap={() => this.select(3)}
+                            />
                         </BottomNavigation>
                     </Paper>
                 </MuiThemeProvider>

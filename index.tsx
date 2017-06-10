@@ -8,33 +8,12 @@ import {LanguageBS} from "./src/access-data/bs/LanguageBS";
 class Index {
     public constructor() {
 
-/*        let testDao = new TestAxiosQDAO();
-
-        console.log("WTF!!!");
-
-        testDao.testingAxiosQ()
-            .then((geneDataList) => {
-                geneDataList.map((singleGene) => {
-                   console.log(singleGene);
-                });
-            });*/
-
         injectTapEventPlugin();
 
         this.setInitialLanguage();
 
-        // const Start = () => (
-        //     <Router history={browserHistory}>
-        //         <Route path="/" component={AppPipeline}>
-        //             <IndexRoute component={SubSequenceSearchPageContainer}/>
-        //             <Route path={RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH} component={SubSequenceSearchPageContainer} />
-        //             <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH} component={UploadFilesToProcessingPage} />
-        //         </Route>
-        //     </Router>
-        // );
-
-             ReactDOM.render(
-               <AppPipeline/>,
+        ReactDOM.render(
+            <AppPipeline/>,
             document.getElementById('root')
         );
     }

@@ -8,6 +8,7 @@ export class MessagesConstants {
     public static GENES_PATTERN: string = "genesPattern";
     public static SEARCH_PAGE : string = "searchDnaPage";
     public static PROCESS_PAGE : string = "processFilePage";
+    public static MANAGE_APP_PAGE : string = "manageAppPage";
     public static RESULT_COLUMN_NAME :string = "resultColumnName";
     public static GENE_COLUMN_NAME :string = "geneColumnName";
     public static GENE_PAGINATION_FROM :string = "genePaginationFrom";
@@ -29,6 +30,7 @@ export class MessagesConstants {
         genesPattern: "Ej.: 434,3,21",
         searchDnaPage: "Buscar Secuencia",
         processFilePage: "Procesar Archivo",
+        manageAppPage : "Gestionar datos",
         resultColumnName: "Resultados",
         geneColumnName: "Gen",
         genePaginationFrom: "Desde ",
@@ -51,6 +53,7 @@ export class MessagesConstants {
         genesPattern: "Ex.: 32,65,322",
         searchDnaPage: "Search Sequence",
         processFilePage: "Process file",
+        manageAppPage : "Manage App files",
         resultColumnName: "Results",
         geneColumnName: "Gen",
         genePaginationFrom: "From ",
