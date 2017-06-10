@@ -6,7 +6,7 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {injectIntl} from "react-intl";
+import {FormattedMessage} from "react-intl";
 const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const SearchDnaSequences = <FindInPage/>;
@@ -23,11 +23,7 @@ import {Constants} from "../common/Constants"
  * state (for instance, by the URL).
  */
 
-export interface IPropsNavigationBarComponent {
-    intl: any;
-}
-
-export class NavigationBarComponent extends React.Component<IPropsNavigationBarComponent, {}> {
+export class NavigationBarComponent extends React.Component<{}, {}> {
     state = {
         selectedIndex: 0,
     };
@@ -50,13 +46,15 @@ export class NavigationBarComponent extends React.Component<IPropsNavigationBarC
                         <BottomNavigation selectedIndex={this.state.selectedIndex}>
                             <span className="application-title">{Constants.APP_NAME}</span>
                             <BottomNavigationItem
-                                label={this.props.intl.formatMessage({id: MessagesConstants.SEARCH_PAGE})}
+                                label={<FormattedMessage
+                                    id={MessagesConstants.SEARCH_PAGE}/>}
                                 icon={SearchDnaSequences}
                                 onTouchTap={() => this.select(1)}
                             />
 
                             <BottomNavigationItem
-                                label={this.props.intl.formatMessage({id: MessagesConstants.PROCESS_PAGE})}
+                                label={<FormattedMessage
+                                    id={MessagesConstants.PROCESS_PAGE}/>}
                                 icon={UploadFilesToProcess}
                                 onTouchTap={() => this.select(2)}
                             />

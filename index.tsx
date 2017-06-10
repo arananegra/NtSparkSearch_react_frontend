@@ -28,25 +28,25 @@ class Index {
 
         this.setInitialLanguage();
 
-        const Start = () => (
-            <Router history={browserHistory}>
-                <Route path="/" component={AppPipeline}>
-                    <IndexRoute component={SubSequenceSearchPageContainer}/>
-                    <Route path={RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH} component={SubSequenceSearchPageContainer} />
-                    <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH} component={UploadFilesToProcessingPage} />
-                </Route>
-            </Router>
-        );
+        // const Start = () => (
+        //     <Router history={browserHistory}>
+        //         <Route path="/" component={AppPipeline}>
+        //             <IndexRoute component={SubSequenceSearchPageContainer}/>
+        //             <Route path={RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH} component={SubSequenceSearchPageContainer} />
+        //             <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH} component={UploadFilesToProcessingPage} />
+        //         </Route>
+        //     </Router>
+        // );
 
              ReactDOM.render(
-               <Start/>,
+               <AppPipeline/>,
             document.getElementById('root')
         );
     }
 
     private setInitialLanguage() {
         let languageBS = new LanguageBS();
-        languageBS.changeEnglishLanguage();
+        languageBS.changeSpanishLanguage();
     }
 }
 

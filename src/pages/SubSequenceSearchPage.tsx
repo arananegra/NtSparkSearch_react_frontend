@@ -10,6 +10,7 @@ import {GeneSubSequenceSearcherModalRequestComponent} from "../components/GeneSu
 import {store} from "../components/AppPipeline";
 import {ShowModalDialogSearchRequestAction} from "../actions/ShowModalDialogSearchRequestAction";
 import {Constants} from "../common/Constants";
+import {NavigationBarComponent} from "../components/NavigationBarComponent";
 
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;
@@ -22,7 +23,7 @@ export interface ISubSequenceSearchPageState {
 }
 
 export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPageProps, ISubSequenceSearchPageState> {
-    public constructor(props: ISubSequenceSearchPageProps){
+    public constructor(props: ISubSequenceSearchPageProps) {
         super(props);
     }
 
@@ -59,9 +60,12 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
     }
 
 
-    public render(){
+    public render() {
         return (
             <div className="container-fluid">
+                <div>
+                    <NavigationBarComponent/>
+                </div>
                 <CSSTransitionGroup
                     transitionName="subsequence-search-page-transition"
                     transitionAppear={true}
@@ -84,7 +88,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             onClick={this.manageOnClickModal.bind(this)}
                             dialogTitle="WTF In MoDaL!!!"/>
                     </div>
-                    <div className="row">
+                    <div className="row gene-result-component">
                         <SubSequenceInDNATableResult
                             columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
                             dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}

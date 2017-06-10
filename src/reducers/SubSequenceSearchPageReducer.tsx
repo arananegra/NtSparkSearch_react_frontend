@@ -37,6 +37,7 @@ export class SubSequenceSearchPageState {
         singleHeader = new TableHeaderColumnDTO();
         singleHeader._isKey = false;
         singleHeader._columnName = "Result";
+
         //singleHeader._value = "Result";
         singleHeader._width = "100";
         this._geneSearcherPage._geneTableResultHeaderColumns.push(singleHeader);
