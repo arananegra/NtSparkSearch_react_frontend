@@ -50,7 +50,7 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
         return (
             <div className="navigation-bar-component">
                 <MuiThemeProvider>
-                    <Paper zDepth={2}>
+                    <Paper zDepth={2} canAutoPosition={true}>
                         <BottomNavigation selectedIndex={this.state.selectedIndex}>
                             <span className="application-title">{Constants.APP_NAME}</span>
                             <BottomNavigationItem

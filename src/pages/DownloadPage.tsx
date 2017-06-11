@@ -33,7 +33,7 @@ export class DownloadPage extends React.Component<IDownloadPageProps, IDownloadP
                 </div>
                 <div className="header-separtion-download-page">
                     <div className="col-md-6 well">
-                        <h2>
+                        <h2 className="h2-download-style">
                             <FormattedMessage
                                 id={MessagesConstants.UPLOAD_TEXT_EXCEL}/>
                         </h2>
@@ -51,7 +51,7 @@ export class DownloadPage extends React.Component<IDownloadPageProps, IDownloadP
 
                 <div className="header-separtion-download-page">
                     <div className="col-md-6 well">
-                        <h2>
+                        <h2 className="h2-download-style">
                             <FormattedMessage
                                 id={MessagesConstants.UPLOAD_TEXT_FASTA}/>
                         </h2>
