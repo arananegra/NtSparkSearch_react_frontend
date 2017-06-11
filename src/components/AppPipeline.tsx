@@ -14,6 +14,7 @@ import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import {RoutesConstants} from "../common/RoutesConstants";
 import {UploadFileToProcessingPageContainer} from "../pages/UploadFileToProcessingPageContainer";
 import {ManageAppPage} from "../pages/ManageAppPage";
+import {SettingsPage} from "../pages/SettingsPage";
 
 addLocaleData([...spanish, ...english]);
 
@@ -45,6 +46,8 @@ export class AppPipeline extends React.Component<{}, {}> {
                                    component={UploadFileToProcessingPageContainer}/>
                             <Route path={RoutesConstants.MANAGE_FILES_ROUTE_PATH}
                                    component={ManageAppPage}/>
+                            <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
+                                   component={SettingsPage}/>
                         </div>
                     </Router>
                 </IntlProvider>

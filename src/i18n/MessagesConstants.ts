@@ -7,8 +7,9 @@ export class MessagesConstants {
     public static GENES: string = "genes";
     public static GENES_PATTERN: string = "genesPattern";
     public static SEARCH_PAGE : string = "searchDnaPage";
-    public static PROCESS_PAGE : string = "processFilePage";
+    public static UPLOAD_PAGE : string = "uploadFilePage";
     public static MANAGE_APP_PAGE : string = "manageAppPage";
+    public static SETTINGS_PAGE : string = "settingsPage";
     public static RESULT_COLUMN_NAME :string = "resultColumnName";
     public static GENE_COLUMN_NAME :string = "geneColumnName";
     public static GENE_PAGINATION_FROM :string = "genePaginationFrom";
@@ -28,9 +29,10 @@ export class MessagesConstants {
         search: "Buscar",
         genes: "Genes",
         genesPattern: "Ej.: 434,3,21",
-        searchDnaPage: "Buscar Secuencia",
-        processFilePage: "Procesar Archivo",
-        manageAppPage : "Gestionar datos",
+        searchDnaPage: "Busqueda directa de secuencias",
+        uploadFilePage: "Subida de archivos",
+        manageAppPage : "Gestionar datos de aplicación",
+        settingsPage: "Ajustes",
         resultColumnName: "Resultados",
         geneColumnName: "Gen",
         genePaginationFrom: "Desde ",
@@ -51,9 +53,10 @@ export class MessagesConstants {
         search: "Search",
         genes: "Genes",
         genesPattern: "Ex.: 32,65,322",
-        searchDnaPage: "Search Sequence",
-        processFilePage: "Process file",
-        manageAppPage : "Manage App files",
+        searchDnaPage: "Direct sequence search",
+        uploadFilePage: "Upload files",
+        manageAppPage : "Manage app files",
+        settingsPage: "Settings",
         resultColumnName: "Results",
         geneColumnName: "Gen",
         genePaginationFrom: "From ",

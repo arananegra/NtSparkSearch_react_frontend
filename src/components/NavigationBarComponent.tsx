@@ -4,6 +4,7 @@ import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigati
 import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
+import Settings from 'material-ui/svg-icons/action/settings-applications'
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
 import ActionPermMedia from "material-ui/svg-icons/action/perm-media";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -13,6 +14,7 @@ const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const SearchDnaSequences = <FindInPage/>;
 const UploadFilesToProcess = <UploadFiles/>;
 const ManageFiles = <ActionPermMedia/>;
+const AppSettings = <Settings/>;
 
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../common/RoutesConstants";
@@ -36,8 +38,10 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
             browserHistory.push(RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH);
         } else if (index == 2) {
             browserHistory.push(RoutesConstants.UPLOAD_FILES_ROUTE_PATH);
-        } else if (index ==3) {
+        } else if (index == 3) {
             browserHistory.push(RoutesConstants.MANAGE_FILES_ROUTE_PATH);
+        } else if (index == 4) {
+            browserHistory.push(RoutesConstants.SETTINGS_ROUTE_PATH);
         }
 
     };
@@ -58,7 +62,7 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
 
                             <BottomNavigationItem
                                 label={<FormattedMessage
-                                    id={MessagesConstants.PROCESS_PAGE}/>}
+                                    id={MessagesConstants.UPLOAD_PAGE}/>}
                                 icon={UploadFilesToProcess}
                                 onTouchTap={() => this.select(2)}
                             />
@@ -68,6 +72,13 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
                                     id={MessagesConstants.MANAGE_APP_PAGE}/>}
                                 icon={ManageFiles}
                                 onTouchTap={() => this.select(3)}
+                            />
+
+                            <BottomNavigationItem
+                                label={<FormattedMessage
+                                    id={MessagesConstants.SETTINGS_PAGE}/>}
+                                icon={AppSettings}
+                                onTouchTap={() => this.select(4)}
                             />
                         </BottomNavigation>
                     </Paper>
