@@ -8,7 +8,7 @@ export class MessagesConstants {
     public static GENES_PATTERN: string = "genesPattern";
     public static SEARCH_PAGE : string = "searchDnaPage";
     public static UPLOAD_PAGE : string = "uploadFilePage";
-    public static MANAGE_APP_PAGE : string = "manageAppPage";
+    public static DOWNLOAD_PAGE : string = "downloadPage";
     public static SETTINGS_PAGE : string = "settingsPage";
     public static RESULT_COLUMN_NAME :string = "resultColumnName";
     public static GENE_COLUMN_NAME :string = "geneColumnName";
@@ -31,7 +31,7 @@ export class MessagesConstants {
         genesPattern: "Ej.: 434,3,21",
         searchDnaPage: "Busqueda directa de secuencias",
         uploadFilePage: "Subida de archivos",
-        manageAppPage : "Gestionar datos de aplicación",
+        downloadPage : "Descarga de archivos",
         settingsPage: "Ajustes",
         resultColumnName: "Resultados",
         geneColumnName: "Gen",
@@ -55,7 +55,7 @@ export class MessagesConstants {
         genesPattern: "Ex.: 32,65,322",
         searchDnaPage: "Direct sequence search",
         uploadFilePage: "Upload files",
-        manageAppPage : "Manage app files",
+        downloadPage : "Download files",
         settingsPage: "Settings",
         resultColumnName: "Results",
         geneColumnName: "Gen",

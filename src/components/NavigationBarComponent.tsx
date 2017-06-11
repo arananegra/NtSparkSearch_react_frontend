@@ -6,14 +6,14 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
 import Settings from 'material-ui/svg-icons/action/settings'
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
-import ActionPermMedia from "material-ui/svg-icons/action/perm-media";
+import DownloadFiles from 'material-ui/svg-icons/file/file-download';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
 const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const SearchDnaSequences = <FindInPage/>;
 const UploadFilesToProcess = <UploadFiles/>;
-const ManageFiles = <ActionPermMedia/>;
+const DownloadFilesToLocal = <DownloadFiles/>;
 const AppSettings = <Settings/>;
 
 import {browserHistory} from 'react-router';
@@ -69,8 +69,8 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
 
                             <BottomNavigationItem
                                 label={<FormattedMessage
-                                    id={MessagesConstants.MANAGE_APP_PAGE}/>}
-                                icon={ManageFiles}
+                                    id={MessagesConstants.DOWNLOAD_PAGE}/>}
+                                icon={DownloadFilesToLocal}
                                 onTouchTap={() => this.select(3)}
                             />
 
