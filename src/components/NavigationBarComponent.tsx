@@ -39,7 +39,7 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
         } else if (index == 2) {
             browserHistory.push(RoutesConstants.UPLOAD_FILES_ROUTE_PATH);
         } else if (index == 3) {
-            browserHistory.push(RoutesConstants.MANAGE_FILES_ROUTE_PATH);
+            browserHistory.push(RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH);
         } else if (index == 4) {
             browserHistory.push(RoutesConstants.SETTINGS_ROUTE_PATH);
         }

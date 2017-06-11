@@ -13,7 +13,7 @@ import {SubSequenceSearchPageContainer} from "../pages/SubSequenceSearchPageCont
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import {RoutesConstants} from "../common/RoutesConstants";
 import {UploadFileToProcessingPageContainer} from "../pages/UploadFileToProcessingPageContainer";
-import {ManageAppPage} from "../pages/ManageAppPage";
+import {DownloadPage} from "../pages/DownloadPage";
 import {SettingsPage} from "../pages/SettingsPage";
 
 addLocaleData([...spanish, ...english]);
@@ -44,8 +44,8 @@ export class AppPipeline extends React.Component<{}, {}> {
                             <Route path="/" component={SubSequenceSearchPageContainer}/>
                             <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH}
                                    component={UploadFileToProcessingPageContainer}/>
-                            <Route path={RoutesConstants.MANAGE_FILES_ROUTE_PATH}
-                                   component={ManageAppPage}/>
+                            <Route path={RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH}
+                                   component={DownloadPage}/>
                             <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
                                    component={SettingsPage}/>
                         </div>
