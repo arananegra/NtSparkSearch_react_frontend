@@ -4,7 +4,7 @@ import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigati
 import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
-import Settings from 'material-ui/svg-icons/action/settings-applications'
+import Settings from 'material-ui/svg-icons/action/settings'
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
 import ActionPermMedia from "material-ui/svg-icons/action/perm-media";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
