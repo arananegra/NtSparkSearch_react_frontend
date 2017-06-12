@@ -6,6 +6,7 @@ import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {MessagesConstants} from "../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
+import Paper from 'material-ui/Paper';
 
 export interface ISettingsPageProps {
 
@@ -25,6 +26,11 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
     }
 
     public render() {
+        const style = {
+            height: 70,
+
+            color: "red"
+        };
         return (
             <div className="container-fluid">
                 <CSSTransitionGroup
@@ -33,7 +39,11 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
                     transitionAppearTimeout={5000}
                     transitionEnterTimeout={5000}
                     transitionLeaveTimeout={5000}>
-                    <span>que pannnnns en settings</span>
+                    <MuiThemeProvider>
+                        <div className="container-fluid row header-separtion-download-page col-md-offset-4 col-md-6">
+                            <Paper style={style} zDepth={5}/>
+                        </div>
+                    </MuiThemeProvider>
                 </CSSTransitionGroup>
             </div>
         );

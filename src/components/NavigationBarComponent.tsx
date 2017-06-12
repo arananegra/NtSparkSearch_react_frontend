@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Tabs, Tab} from 'material-ui/Tabs';
 import FontIcon from 'material-ui/FontIcon';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
@@ -55,38 +56,32 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
         return (
             <div className="container-fluid navigation-bar-component">
                 <MuiThemeProvider>
-                    <Paper zDepth={2} style={style}>
-                        <BottomNavigation selectedIndex={this.state.selectedIndex}>
-                            <span className="application-title">{Constants.APP_NAME}</span>
-                            <BottomNavigationItem
-                                label={<FormattedMessage
-                                    id={MessagesConstants.SEARCH_PAGE}/>}
-                                icon={SearchDnaSequences}
-                                onTouchTap={() => this.select(1)}
-                            />
-
-                            <BottomNavigationItem
-                                label={<FormattedMessage
-                                    id={MessagesConstants.UPLOAD_PAGE}/>}
-                                icon={UploadFilesToProcess}
-                                onTouchTap={() => this.select(2)}
-                            />
-
-                            <BottomNavigationItem
-                                label={<FormattedMessage
-                                    id={MessagesConstants.DOWNLOAD_PAGE}/>}
-                                icon={DownloadFilesToLocal}
-                                onTouchTap={() => this.select(3)}
-                            />
-
-                            <BottomNavigationItem
-                                label={<FormattedMessage
-                                    id={MessagesConstants.SETTINGS_PAGE}/>}
-                                icon={AppSettings}
-                                onTouchTap={() => this.select(4)}
-                            />
-                        </BottomNavigation>
-                    </Paper>
+                    <Tabs initialSelectedIndex={this.state.selectedIndex}>
+                        <Tab
+                            icon={SearchDnaSequences}
+                            label={<FormattedMessage
+                                id={MessagesConstants.SEARCH_PAGE}/>}
+                            onActive={() => this.select(1)}
+                        />
+                        <Tab
+                            icon={UploadFilesToProcess}
+                            label={<FormattedMessage
+                                id={MessagesConstants.UPLOAD_PAGE}/>}
+                            onActive={() => this.select(2)}
+                        />
+                        <Tab
+                            icon={DownloadFilesToLocal}
+                            label={<FormattedMessage
+                                id={MessagesConstants.DOWNLOAD_PAGE}/>}
+                            onActive={() => this.select(3)}
+                        />
+                        <Tab
+                            icon={AppSettings}
+                            label={<FormattedMessage
+                                id={MessagesConstants.SETTINGS_PAGE}/>}
+                            onActive={() => this.select(4)}
+                        />
+                    </Tabs>
                 </MuiThemeProvider>
             </div>
         );

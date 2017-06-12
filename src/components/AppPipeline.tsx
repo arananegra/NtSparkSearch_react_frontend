@@ -33,7 +33,6 @@ export class AppPipeline extends React.Component<{}, {}> {
         return (
             <Provider store={store}>
                 <IntlProvider>
-
                         <div className="container-fluid">
                             <NavigationBarComponent/>
                             {this.props.children}
