@@ -9,14 +9,7 @@ import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import logger from 'redux-logger'
-import {SubSequenceSearchPageContainer} from "../pages/SubSequenceSearchPageContainer";
-import {Router, Route, IndexRoute, browserHistory} from "react-router";
-import {RoutesConstants} from "../common/RoutesConstants";
-import {UploadFileToProcessingPageContainer} from "../pages/UploadFileToProcessingPageContainer";
-import {DownloadPage} from "../pages/DownloadPage";
-import {SettingsPage} from "../pages/SettingsPage";
 import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-router-redux'
-import createHistory from 'history/createBrowserHistory'
 import {NavigationBarComponent} from "./NavigationBarComponent";
 
 addLocaleData([...spanish, ...english]);

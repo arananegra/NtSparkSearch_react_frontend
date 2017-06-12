@@ -6,10 +6,12 @@ import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {MessagesConstants} from "../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
+import {DownloadRowComponent} from "../components/DownloadRowComponent";
 
 export interface IDownloadPageProps {
     onSearchButtonPressedDownloadExcel?: (value) => any;
     onSearchButtonPressedDownloadFasta?: (value) => any;
+    intl: any
 }
 
 export interface IDownloadPagePageState {
@@ -25,6 +27,7 @@ export class DownloadPage extends React.Component<IDownloadPageProps, IDownloadP
 
     }
 
+
     public render() {
         return (
             <div className="container-fluid">
@@ -34,41 +37,22 @@ export class DownloadPage extends React.Component<IDownloadPageProps, IDownloadP
                     transitionAppearTimeout={5000}
                     transitionEnterTimeout={5000}
                     transitionLeaveTimeout={5000}>
-                    <div className="header-separtion-download-page">
-                        <div className="col-md-6 well">
-                            <h2 className="h2-download-style">
-                                <FormattedMessage
-                                    id={MessagesConstants.UPLOAD_TEXT_EXCEL}/>
-                            </h2>
-                            <MuiThemeProvider>
-                                <RaisedButton className="row download-button"
-                                              label={<FormattedMessage
-                                                  id={MessagesConstants.UPLOAD_BUTTON_EXCEL}/>}
-                                              value={<FormattedMessage
-                                                  id={MessagesConstants.UPLOAD_BUTTON_EXCEL}/>}
-                                              primary={true}
-                                              onClick={this.props.onSearchButtonPressedDownloadExcel}/>
-                            </MuiThemeProvider>
-                        </div>
-                    </div>
-
-                    <div className="header-separtion-download-page">
-                        <div className="col-md-6 well">
-                            <h2 className="h2-download-style">
-                                <FormattedMessage
-                                    id={MessagesConstants.UPLOAD_TEXT_FASTA}/>
-                            </h2>
-                            <MuiThemeProvider>
-                                <RaisedButton className="row download-button"
-                                              label={<FormattedMessage
-                                                  id={MessagesConstants.UPLOAD_BUTTON_FASTA}/>}
-                                              value={<FormattedMessage
-                                                  id={MessagesConstants.UPLOAD_BUTTON_FASTA}/>}
-                                              primary={true}
-                                              onClick={this.props.onSearchButtonPressedDownloadFasta}/>
-                            </MuiThemeProvider>
-                        </div>
-                    </div>
+                    <DownloadRowComponent
+                        textToLabelFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_ID_UNFILTERED})}
+                        textToButtonFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_ID_UNFILTERED})}
+                        textToLabelSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_ID_FILTERED})}
+                        textToButtonSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_ID_FILTERED})}
+                        onSearchButtonPressedDownloadExcel = {this.props.onSearchButtonPressedDownloadExcel}
+                        onSearchButtonPressedDownloadFasta = {this.props.onSearchButtonPressedDownloadFasta}
+                    />
+                    <DownloadRowComponent
+                        textToLabelFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_FASTA_UNFILTERED})}
+                        textToButtonFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_FASTA_UNFILTERED})}
+                        textToLabelSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_FASTA_FILTERED})}
+                        textToButtonSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_FASTA_FILTERED})}
+                        onSearchButtonPressedDownloadExcel = {this.props.onSearchButtonPressedDownloadExcel}
+                        onSearchButtonPressedDownloadFasta = {this.props.onSearchButtonPressedDownloadFasta}
+                    />
                 </CSSTransitionGroup>
             </div>
         );

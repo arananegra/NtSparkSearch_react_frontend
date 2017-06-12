@@ -12,6 +12,7 @@ import {SettingsPage} from "./src/pages/SettingsPage";
 import {DownloadPage} from "./src/pages/DownloadPage";
 import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFileToProcessingPageContainer";
 import {IntlProvider} from "react-intl-redux";
+import {DownloadPageContainer} from "./src/pages/DownloadPageContainer";
 
 class Index {
     public constructor() {
@@ -28,7 +29,7 @@ class Index {
                     <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH}
                            component={UploadFileToProcessingPageContainer}/>
                     <Route path={RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH}
-                           component={DownloadPage}/>
+                           component={DownloadPageContainer}/>
                     <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
                            component={SettingsPage}/>
                 </Route>
@@ -45,7 +46,7 @@ class Index {
 
     private setInitialLanguage() {
         let languageBS = new LanguageBS();
-        languageBS.changeSpanishLanguage();
+        languageBS.changeEnglishLanguage();
     }
 }
 
