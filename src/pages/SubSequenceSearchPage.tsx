@@ -63,9 +63,6 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
     public render() {
         return (
             <div className="container-fluid">
-                <div>
-                    <NavigationBarComponent/>
-                </div>
                 <CSSTransitionGroup
                     transitionName="subsequence-search-page-transition"
                     transitionAppear={true}

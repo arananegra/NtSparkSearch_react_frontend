@@ -28,9 +28,6 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
     public render() {
         return (
             <div className="container-fluid">
-                <div>
-                    <NavigationBarComponent/>
-                </div>
                 <CSSTransitionGroup
                     transitionName="subsequence-search-page-transition"
                     transitionAppear={true}

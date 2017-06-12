@@ -27,9 +27,6 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
     public render() {
         return (
             <div className="container-fluid">
-                <div>
-                    <NavigationBarComponent/>
-                </div>
                 <CSSTransitionGroup
                     transitionName="subsequence-search-page-transition"
                     transitionAppear={true}

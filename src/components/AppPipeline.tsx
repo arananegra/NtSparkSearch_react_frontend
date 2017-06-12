@@ -15,6 +15,9 @@ import {RoutesConstants} from "../common/RoutesConstants";
 import {UploadFileToProcessingPageContainer} from "../pages/UploadFileToProcessingPageContainer";
 import {DownloadPage} from "../pages/DownloadPage";
 import {SettingsPage} from "../pages/SettingsPage";
+import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory'
+import {NavigationBarComponent} from "./NavigationBarComponent";
 
 addLocaleData([...spanish, ...english]);
 
@@ -35,21 +38,13 @@ export class AppPipeline extends React.Component<{}, {}> {
     public render(): JSX.Element {
 
         return (
-
             <Provider store={store}>
                 <IntlProvider>
-                    <Router history={browserHistory}>
+
                         <div className="container-fluid">
+                            <NavigationBarComponent/>
                             {this.props.children}
-                            <Route path="/" component={SubSequenceSearchPageContainer}/>
-                            <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH}
-                                   component={UploadFileToProcessingPageContainer}/>
-                            <Route path={RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH}
-                                   component={DownloadPage}/>
-                            <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
-                                   component={SettingsPage}/>
                         </div>
-                    </Router>
                 </IntlProvider>
             </Provider>
         );

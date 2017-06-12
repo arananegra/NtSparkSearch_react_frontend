@@ -24,8 +24,8 @@ export class UploadFastaExcelComponent extends React.Component<IUploadFastaExcel
 
     public render() {
         return (
-            <div className="container-fluid">
-                <div className="header-separtion-upload-page">
+            <div>
+                <div className="container-fluid header-separtion-upload-page">
                     <div className="well">
                         <h2>
                             <FormattedMessage
@@ -43,7 +43,7 @@ export class UploadFastaExcelComponent extends React.Component<IUploadFastaExcel
                     </div>
                 </div>
 
-                <div className="header-separtion-upload-page">
+                <div className="container-fluid header-separtion-upload-page">
                     <div className="well">
                         <h2>
                             <FormattedMessage

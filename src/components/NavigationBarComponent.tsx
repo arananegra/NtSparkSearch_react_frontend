@@ -47,10 +47,15 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
     };
 
     public render() {
+        const style = {
+            height: 70,
+        };
+
+
         return (
-            <div className="navigation-bar-component">
+            <div className="container-fluid navigation-bar-component">
                 <MuiThemeProvider>
-                    <Paper zDepth={2} canAutoPosition={true}>
+                    <Paper zDepth={2} style={style}>
                         <BottomNavigation selectedIndex={this.state.selectedIndex}>
                             <span className="application-title">{Constants.APP_NAME}</span>
                             <BottomNavigationItem
