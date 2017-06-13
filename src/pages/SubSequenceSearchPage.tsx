@@ -10,7 +10,6 @@ import {GeneSubSequenceSearcherModalRequestComponent} from "../components/GeneSu
 import {store} from "../components/AppPipeline";
 import {ShowModalDialogSearchRequestAction} from "../actions/ShowModalDialogSearchRequestAction";
 import {Constants} from "../common/Constants";
-import {NavigationBarComponent} from "../components/NavigationBarComponent";
 
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;

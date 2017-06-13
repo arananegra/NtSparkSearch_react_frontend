@@ -1,10 +1,6 @@
 import * as React from "react";
-import {UploadFastaExcelComponent} from "../components/UploadFastaExcelComponent";
-import {NavigationBarComponent} from "../components/NavigationBarComponent";
-import RaisedButton from 'material-ui/RaisedButton';
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {MessagesConstants} from "../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
 import Paper from 'material-ui/Paper';
 
