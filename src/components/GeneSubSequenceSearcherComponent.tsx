@@ -35,29 +35,36 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
             <div>
                 <form>
                     <div className="form-group">
-                        <div className="col-md-6">
-                            <InputText
-                                onChangeText={this.props.onChangeText}
-                                hintText={this.props.dnaSubSequenceNameHintText}
-                                floatingLabelText={this.props.dnaSubSequenceFloatingLabelText}/>
-                        </div>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-1">
+                                    <InputText
+                                        onChangeText={this.props.onChangeText}
+                                        hintText={this.props.dnaSubSequenceNameHintText}
+                                        floatingLabelText={this.props.dnaSubSequenceFloatingLabelText}/>
+                                </div>
 
-                        <div className="col-md-5">
-                            <InputText
-                                onChangeText={this.props.onChangeText}
-                                hintText={this.props.dnaGenesToSearchHintText}
-                                floatingLabelText={this.props.dnaGenesToSearchFloatingLabelText}/>
-                        </div>
 
-                        <div className="col-md-1 sequence-search-page-button-searcher">
-                            <ButtonSearchComponent label={this.props.buttonSearchLabel}
-                                                   value={this.props.buttonSearchValue}
-                                                   onSearchButtonPressed={this.props.onSearchButtonPressed}/>
+                                <div className="col-md-offset-4 col-md-1">
+                                    <InputText
+                                        onChangeText={this.props.onChangeText}
+                                        hintText={this.props.dnaGenesToSearchHintText}
+                                        floatingLabelText={this.props.dnaGenesToSearchFloatingLabelText}/>
+                                </div>
+
+                                <div className="col-md-offset-4 col-md-1 sequence-search-page-button-searcher">
+                                    <ButtonSearchComponent label={this.props.buttonSearchLabel}
+                                                           value={this.props.buttonSearchValue}
+                                                           onSearchButtonPressed={this.props.onSearchButtonPressed}/>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </form>
             </div>
         );
     }
-
 }
+
+//sequence-search-page-button-searcher
