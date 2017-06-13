@@ -28,6 +28,10 @@ export class MessagesConstants {
     public static DOWNLOAD_TEXT_FASTA_UNFILTERED :string = "downloadTextFastaUnfiltered";
     public static DOWNLOAD_BUTTON_FASTA_FILTERED :string = "downloadButtonFastaFiltered";
     public static DOWNLOAD_TEXT_FASTA_FILTERED :string = "downloadTextFastaFiltered";
+    public static SETTINGS_TEXT_REMOVE_UNFILTERED :string = "settingsTextRemoveUnfiltered";
+    public static SETTINGS_BUTTON_REMOVE_UNFILTERED :string = "settingsButtonRemoveUnfiltered";
+    public static SETTINGS_TEXT_REMOVE_FILTERED :string = "settingsTextRemoveFiltered";
+    public static SETTINGS_BUTTON_REMOVE_FILTERED :string = "settingsButtonRemoveFiltered";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -59,6 +63,10 @@ export class MessagesConstants {
         downloadTextFastaUnfiltered: "Descargar genes no filtrados en Fasta",
         downloadButtonFastaFiltered: "Pulsa aquí para descargar los genes filtrados en formato Fasta",
         downloadTextFastaFiltered: "Descargar genes filtrados en Fasta",
+        settingsTextRemoveUnfiltered: "Borrar colección de genes no filtrados",
+        settingsButtonRemoveUnfiltered: "Pulsa aquí para borrar la colección de genes no filtrados",
+        settingsTextRemoveFiltered: "Borrar colección de genes filtrados",
+        settingsButtonRemoveFiltered: "Pulsa aquí para borrar la colección de genes filtrados",
     };
 
     public static enGbMessages = {
@@ -91,5 +99,9 @@ export class MessagesConstants {
         downloadTextFastaUnfiltered: "Download the unfiltered genes in Fasta format",
         downloadButtonFastaFiltered: "Click here to download a Fasta file containing the filtered genes",
         downloadTextFastaFiltered: "Download the filtered genes in Fasta format",
+        settingsTextRemoveUnfiltered: "Remove the unfiltered collection of genes",
+        settingsButtonRemoveUnfiltered: "Click here to remove the whole collection of unfiltered genes",
+        settingsTextRemoveFiltered: "Remove the filtered collection of genes",
+        settingsButtonRemoveFiltered: "Click here to remove the whole collection of filtered genes",
     };
 }

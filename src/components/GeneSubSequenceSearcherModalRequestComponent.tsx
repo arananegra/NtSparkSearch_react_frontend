@@ -18,7 +18,7 @@ export interface IState {
 }
 
 export class GeneSubSequenceSearcherModalRequestComponent extends React.Component<IGeneSubSequenceSearcherModarRequestProps,
-                                                                                  IState> {
+    IState> {
 
     public constructor(props: IGeneSubSequenceSearcherModarRequestProps) {
         super(props);
@@ -33,14 +33,21 @@ export class GeneSubSequenceSearcherModalRequestComponent extends React.Componen
             <FlatButton
                 label="Cancel"
                 primary={true}
-                onTouchTap={(event) => {event.preventDefault(); this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)}}
+                onTouchTap={(event) => {
+                    //TODO : esto?
+                    //event.preventDefault();
+                    this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
+                }}
             />,
 
             <FlatButton
                 label="Aceptar"
                 keyboardFocused={true}
                 primary={true}
-                onTouchTap={(event) => {event.preventDefault(); this.props.onClick(Constants.SUBMIT_BUTTON_PRESSED_VALUE)}}
+                onTouchTap={(event) => {
+                    //event.preventDefault();
+                    this.props.onClick(Constants.SUBMIT_BUTTON_PRESSED_VALUE)
+                }}
             />,
         ];
 
@@ -52,10 +59,11 @@ export class GeneSubSequenceSearcherModalRequestComponent extends React.Componen
                         actions={actions}
                         modal={false}
                         open={this.props.showDialog}
-                        onRequestClose={(event) => {this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)}}>
+                        onRequestClose={(event) => {
+                            this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
+                        }}>
 
                         Open a Date Picker dialog from within a dialog.
-
 
 
                         <InputEmail

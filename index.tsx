@@ -7,12 +7,9 @@ import * as injectTapEventPlugin from "react-tap-event-plugin";
 import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearchPageContainer";
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
 import {RoutesConstants} from "./src/common/RoutesConstants";
-import {UploadFilesToProcessingPage} from "./src/pages/UploadFilesToProcessingPage";
-import {SettingsPage} from "./src/pages/SettingsPage";
-import {DownloadPage} from "./src/pages/DownloadPage";
 import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFileToProcessingPageContainer";
-import {IntlProvider} from "react-intl-redux";
 import {DownloadPageContainer} from "./src/pages/DownloadPageContainer";
+import {SettingsContainer} from "./src/pages/SettingsContainer";
 
 class Index {
     public constructor() {
@@ -31,7 +28,7 @@ class Index {
                     <Route path={RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH}
                            component={DownloadPageContainer}/>
                     <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
-                           component={SettingsPage}/>
+                           component={SettingsContainer}/>
                 </Route>
             </Router>
         );
