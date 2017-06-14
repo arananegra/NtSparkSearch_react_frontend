@@ -15,7 +15,7 @@ import {NavigationBarComponent} from "./NavigationBarComponent";
 addLocaleData([...spanish, ...english]);
 
 const reducer = combineReducers({
-
+    reducers,
     intl: intlReducer,
 });
 
@@ -28,21 +28,18 @@ export const store = createStore(reducer,
 
 export class AppPipeline extends React.Component<{}, {}> {
 
-
     public render(): JSX.Element {
-        {
 
-            return (
-                <Provider store={store}>
-                    <IntlProvider>
-                        <div className="container-fluid">
-                            <NavigationBarComponent/>
-                            {this.props.children}
-                        </div>
-                    </IntlProvider>
-                </Provider>
-            );
-        }
-
+        return (
+            <Provider store={store}>
+                <IntlProvider>
+                    <div className="container-fluid">
+                        <NavigationBarComponent/>
+                        {this.props.children}
+                    </div>
+                </IntlProvider>
+            </Provider>
+        );
     }
+
 }
