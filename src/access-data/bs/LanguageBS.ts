@@ -8,22 +8,21 @@ export class LanguageBS {
     }
 
     public changeSpanishLanguage() {
-
-        this.setLanguageEs();
+        this.setLanguageSpanish();
     }
 
     public changeEnglishLanguage() {
 
-        this.setLanguageEn();
+        this.setLanguageEnglish();
     }
 
-    private setLanguageEs() {
+    private setLanguageSpanish() {
         store.dispatch(updateIntl({
             locale: "es", messages: MessagesConstants.esEsMessages
         }));
     }
 
-    private setLanguageEn() {
+    private setLanguageEnglish() {
         store.dispatch(updateIntl({
             locale: "en", messages: MessagesConstants.enGbMessages
         }));

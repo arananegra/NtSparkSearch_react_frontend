@@ -2,19 +2,21 @@ import * as React from "react";
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-export interface IButtonSearch {
-    onSearchButtonPressed?: (value) => any;
+export interface IButtonSearchComponentProps {
+    onButtonPressed: (value) => any;
     label: string;
     value: string;
+    primary: boolean
+    secondary?: boolean
 }
 
 export interface IState {
 
 }
 
-export class ButtonSearch extends React.Component<IButtonSearch, IState> {
+export class ButtonComponent extends React.Component<IButtonSearchComponentProps, IState> {
 
-    public constructor(props: IButtonSearch) {
+    public constructor(props: IButtonSearchComponentProps) {
         super(props);
     }
 
@@ -25,8 +27,9 @@ export class ButtonSearch extends React.Component<IButtonSearch, IState> {
             <div>
                 <MuiThemeProvider>
                     <RaisedButton label={this.props.label} value={this.props.value}
-                                  primary={true}
-                                  onClick={this.props.onSearchButtonPressed}/>
+                                  primary={this.props.primary}
+                                  secondary={this.props.secondary}
+                                  onClick={this.props.onButtonPressed}/>
                 </MuiThemeProvider>
             </div>
         );

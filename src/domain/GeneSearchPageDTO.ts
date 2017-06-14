@@ -6,10 +6,12 @@ export class GeneSearchPageDTO {
     public _geneSubSequenceSearcher: GeneSubSequenceSearcherDTO;
     public _geneSubSequenceResultFound: Array<GeneSubsequenceResultDTO>;
     public _geneTableResultHeaderColumns: Array<TableHeaderColumnDTO>;
+    public _showModalDialogSearchRequest: boolean;
 
     public constructor() {
         this._geneSubSequenceResultFound = null;
         this._geneSubSequenceSearcher = null;
         this._geneTableResultHeaderColumns = null;
+        this._showModalDialogSearchRequest = null;
     }
 }
