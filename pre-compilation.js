@@ -36,6 +36,7 @@ module.exports = function(env) {
         },
 
         devServer: {
+            disableHostCheck: true,
             contentBase: './dist',
             inline: true,
             host: '0.0.0.0',
