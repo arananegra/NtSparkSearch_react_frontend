@@ -6,6 +6,10 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import {SettingsPaperComponent} from "../components/SettingsPaperComponent";
 import {MessagesConstants} from "../i18n/MessagesConstants";
+import {SettingsAboutComponent} from "../components/SettingsAboutComponent";
+import {ShowModalDialogSearchRequestAction} from "../actions/ShowModalDialogSearchRequestAction";
+import {store} from "../components/AppPipeline";
+import {Constants} from "../common/Constants";
 
 export interface ISettingsPageProps {
     onButtonRemoveUnfiltered?: (event: any) => any;
@@ -26,6 +30,25 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
 
     }
 
+    private manageOnClickModalForClase(option: any) {
+        let showModal: boolean;
+
+        console.log("WTF!: ", option);
+
+        showModal = false;
+
+        if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
+            showModal = true;
+        } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
+            showModal = false;
+        }
+
+        store.dispatch(ShowModalDialogSearchRequestAction(
+            showModal
+        ));
+    }
+
+
     public render() {
         const paperStyle = {
             height: "150px",
@@ -36,6 +59,7 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
             alignContent: "center"
         };
         return (
+
             <CSSTransitionGroup
                 transitionName="subsequence-search-page-transition"
                 transitionAppear={true}
@@ -54,6 +78,12 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
                             paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_FILTERED})}
                             paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_FILTERED})}
                             onButtonPressed={this.props.onButtonRemoveUnfiltered}/>
+                    </div>
+                    <div className="between-components-space">
+                        <SettingsAboutComponent
+                            title={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_TITLE})}
+                            textMessage={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BODY})}
+                            buttonAcceptText={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BUTTON_TEXT})}/>
                     </div>
 
                 </div>

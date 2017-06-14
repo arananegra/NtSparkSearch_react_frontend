@@ -29,7 +29,7 @@ export class SettingsPaperComponent extends React.Component<ISettingsPaperProps,
         };
 
         return (
-            <div className="container-fluid my-paper-component">
+            <div className="container-fluid component-margins">
                 <MuiThemeProvider>
                     <Paper style={paperStyle} zDepth={5}>
 
