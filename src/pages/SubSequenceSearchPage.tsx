@@ -82,7 +82,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                         <GeneSubSequenceSearcherModalRequestComponent
                             showDialog={this.props.geneSearcherPage._showModalDialogSearchRequest}
                             onClick={this.manageOnClickModal.bind(this)}
-                            dialogTitle="WTF In MoDaL!!!"/>
+                            dialogTitle="Correo aquiiiiiiii!!!!"/>
                     </div>
                     <div className="row gene-result-component">
                         <SubSequenceInDNATableResult
