@@ -7,6 +7,7 @@ export class MessagesConstants {
     public static GENES: string = "genes";
     public static GENES_PATTERN: string = "genesPattern";
     public static SEARCH_PAGE: string = "searchDnaPage";
+    public static DATABASE_SEARCH_PAGE: string = "databaseSearchDnaPage";
     public static UPLOAD_PAGE: string = "uploadFilePage";
     public static DOWNLOAD_PAGE: string = "downloadPage";
     public static SETTINGS_PAGE: string = "settingsPage";
@@ -45,6 +46,7 @@ export class MessagesConstants {
         genes: "Genes",
         genesPattern: "Ej.: 434,3,21",
         searchDnaPage: "Busqueda directa de secuencias",
+        databaseSearchDnaPage: "Busqueda en base de datos",
         uploadFilePage: "Subida de archivos",
         downloadPage: "Descarga de archivos",
         settingsPage: "Ajustes",
@@ -85,6 +87,7 @@ export class MessagesConstants {
         genes: "Genes",
         genesPattern: "Ex.: 32,65,322",
         searchDnaPage: "Direct sequence search",
+        databaseSearchDnaPage: "Database search",
         uploadFilePage: "Upload files",
         downloadPage: "Download files",
         settingsPage: "Settings",

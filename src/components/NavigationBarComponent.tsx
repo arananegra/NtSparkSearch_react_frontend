@@ -8,6 +8,7 @@ import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
 import Settings from 'material-ui/svg-icons/action/settings'
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
 import DownloadFiles from 'material-ui/svg-icons/file/file-download';
+import SearchDatabase from 'material-ui/svg-icons/action/youtube-searched-for'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -17,6 +18,7 @@ const SearchDnaSequences = <FindInPage/>;
 const UploadFilesToProcess = <UploadFiles/>;
 const DownloadFilesToLocal = <DownloadFiles/>;
 const AppSettings = <Settings/>;
+const SearchFromDatabase = <SearchDatabase/>;
 
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../common/RoutesConstants";
@@ -39,10 +41,12 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
         if (index == 1) {
             browserHistory.push(RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH);
         } else if (index == 2) {
-            browserHistory.push(RoutesConstants.UPLOAD_FILES_ROUTE_PATH);
+            browserHistory.push(RoutesConstants.DATABASE_SEARCH_ROUTE_PATH);
         } else if (index == 3) {
-            browserHistory.push(RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH);
+            browserHistory.push(RoutesConstants.UPLOAD_FILES_ROUTE_PATH);
         } else if (index == 4) {
+            browserHistory.push(RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH);
+        } else if (index == 5) {
             browserHistory.push(RoutesConstants.SETTINGS_ROUTE_PATH);
         }
 
@@ -51,7 +55,7 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
     public render() {
 
         const style = {
-            height : "70px"
+            height: "70px"
         };
 
         return (
@@ -70,23 +74,30 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
 
                             <BottomNavigationItem
                                 label={<FormattedMessage
+                                    id={MessagesConstants.DATABASE_SEARCH_PAGE}/>}
+                                icon={SearchFromDatabase}
+                                onTouchTap={() => this.select(2)}
+                            />
+
+                            <BottomNavigationItem
+                                label={<FormattedMessage
                                     id={MessagesConstants.UPLOAD_PAGE}/>}
                                 icon={UploadFilesToProcess}
-                                onTouchTap={() => this.select(2)}
+                                onTouchTap={() => this.select(3)}
                             />
 
                             <BottomNavigationItem
                                 label={<FormattedMessage
                                     id={MessagesConstants.DOWNLOAD_PAGE}/>}
                                 icon={DownloadFilesToLocal}
-                                onTouchTap={() => this.select(3)}
+                                onTouchTap={() => this.select(4)}
                             />
 
                             <BottomNavigationItem
                                 label={<FormattedMessage
                                     id={MessagesConstants.SETTINGS_PAGE}/>}
                                 icon={AppSettings}
-                                onTouchTap={() => this.select(4)}
+                                onTouchTap={() => this.select(5)}
                             />
                         </BottomNavigation>
                     </Paper>

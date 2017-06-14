@@ -10,6 +10,7 @@ import {RoutesConstants} from "./src/common/RoutesConstants";
 import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFileToProcessingPageContainer";
 import {DownloadPageContainer} from "./src/pages/DownloadPageContainer";
 import {SettingsContainer} from "./src/pages/SettingsContainer";
+import {DatabaseSubSeqSearchPage} from "./src/pages/DatabaseSubSeqSearchPage";
 
 class Index {
     public constructor() {
@@ -23,6 +24,8 @@ class Index {
 
                 <Route path="/" component={AppPipeline}>
                     <IndexRoute component={SubSequenceSearchPageContainer}/>
+                    <Route path={RoutesConstants.DATABASE_SEARCH_ROUTE_PATH}
+                           component={DatabaseSubSeqSearchPage}/>
                     <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH}
                            component={UploadFileToProcessingPageContainer}/>
                     <Route path={RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH}
