@@ -8,26 +8,36 @@ import {FormattedMessage} from "react-intl";
 import {SubSequenceInDNATableResult} from "../components/SubSequenceInDNATableResult";
 import {GeneSearchPageDTO} from "../domain/GeneSearchPageDTO";
 import {GeneSubSequenceDatabaseSearcherComponent} from "../components/GeneSubSequenceDatabaseSearcherComponent";
+import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 
 export interface IDatabaseSubSeqSearchPageProps {
-    intl: any;
+    intl?: any;
     geneSearcherPage: GeneSearchPageDTO;
+}
+
+
+export interface IDatabaseSubSeqSearchPageDispatchProps {
+    initializeSubSequenceGeneListFound: () => any;
+}
+
+export interface IDatabaseSubSeqSearchPageOwnProps {
+
 }
 
 export interface IDatabaseSubSeqSearchPageState {
 
 }
 
-export class DatabaseSubSeqSearchPage extends React.Component<IDatabaseSubSeqSearchPageProps, IDatabaseSubSeqSearchPageState> {
-    public constructor(props: IDatabaseSubSeqSearchPageProps) {
+
+export class DatabaseSubSeqSearchPage extends React.Component<IDatabaseSubSeqSearchPageProps & IDatabaseSubSeqSearchPageDispatchProps & InjectedIntlProps, IDatabaseSubSeqSearchPageState> {
+    public constructor(props: IDatabaseSubSeqSearchPageProps & IDatabaseSubSeqSearchPageDispatchProps & InjectedIntlProps) {
         super(props);
     }
 
     public componentWillMount() {
-
+        this.props.initializeSubSequenceGeneListFound();
     }
-
     private onDnaSubSequenceUserInput(event: object, newValue: string) {
 
     }

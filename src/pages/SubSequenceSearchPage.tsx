@@ -10,19 +10,27 @@ import {GeneSubSequenceSearcherModalRequestComponent} from "../components/GeneSu
 import {store} from "../components/AppPipeline";
 import {ShowModalDialogSearchRequestAction} from "../actions/ShowModalDialogSearchRequestAction";
 import {Constants} from "../common/Constants";
+import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;
+    intl?: any;
+}
+
+export interface ISubSequenceSearchPageDispatchProps {
     initializeSubSequenceGeneListFound: () => any;
-    intl: any;
+}
+
+export interface ISubSequenceSearchPageownProps {
+
 }
 
 export interface ISubSequenceSearchPageState {
 
 }
 
-export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPageProps, ISubSequenceSearchPageState> {
-    public constructor(props: ISubSequenceSearchPageProps) {
+export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPageProps & ISubSequenceSearchPageDispatchProps & InjectedIntlProps, ISubSequenceSearchPageState> {
+    public constructor(props: ISubSequenceSearchPageProps & ISubSequenceSearchPageDispatchProps & InjectedIntlProps) {
         super(props);
     }
 
@@ -89,7 +97,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
                             dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
                             noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}
-                            intl = {this.props.intl}/>
+                            intl={this.props.intl}/>
                     </div>
                 </CSSTransitionGroup>
             </div>
