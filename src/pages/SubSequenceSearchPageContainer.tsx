@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {
     ISubSequenceSearchPageDispatchProps, ISubSequenceSearchPageProps,
-    SubSequenceSearchPage, ISubSequenceSearchPageownProps
+    SubSequenceSearchPage
 } from "./SubSequenceSearchPage";
 import * as React from "react";
 import {InitializeSubSequenceSearchPageAction} from "../actions/InitializeSubSequenceSearchPageAction";
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch): ISubSequenceSearchPageDispatchProps => ({
     initializeSubSequenceGeneListFound: () => dispatch(InitializeSubSequenceSearchPageAction())
 });
 
-export const SubSequenceSearchPageContainer = connect<ISubSequenceSearchPageProps, ISubSequenceSearchPageDispatchProps, ISubSequenceSearchPageownProps>(
+export const SubSequenceSearchPageContainer = connect<ISubSequenceSearchPageProps, ISubSequenceSearchPageDispatchProps, {}>(
     mapStateToProp,
     mapDispatchToProps
 )(injectIntl(SubSequenceSearchPage));

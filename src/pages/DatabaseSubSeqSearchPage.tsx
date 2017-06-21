@@ -70,7 +70,6 @@ export class DatabaseSubSeqSearchPage extends React.Component<IDatabaseSubSeqSea
                         <SubSequenceInDNATableResult
                             columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
                             dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
-                            noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}
                             intl={this.props.intl}/>
                     </div>
                 </CSSTransitionGroup>

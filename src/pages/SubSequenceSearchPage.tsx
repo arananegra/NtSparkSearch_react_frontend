@@ -21,9 +21,6 @@ export interface ISubSequenceSearchPageDispatchProps {
     initializeSubSequenceGeneListFound: () => any;
 }
 
-export interface ISubSequenceSearchPageownProps {
-
-}
 
 export interface ISubSequenceSearchPageState {
 
@@ -96,7 +93,6 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                         <SubSequenceInDNATableResult
                             columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
                             dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
-                            noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}
                             intl={this.props.intl}/>
                     </div>
                 </CSSTransitionGroup>

@@ -5,6 +5,7 @@ import {GeneSubSequenceSearcherDTO} from "../domain/GeneSubSequenceSearcherDTO";
 import {GeneSearchPageDTO} from "../domain/GeneSearchPageDTO";
 import {GeneSubsequenceResultDTO} from "../domain/GeneSubsequenceResultDTO";
 import {TableHeaderColumnDTO} from "../domain/TableHeaderColumnDTO";
+import {MessagesConstants} from "../i18n/MessagesConstants";
 import {GeneDTO} from "../domain/GeneDTO";
 
 export class SubSequenceSearchPageState {
@@ -24,7 +25,7 @@ export class SubSequenceSearchPageState {
         singleHeader = new TableHeaderColumnDTO();
         singleHeader._isKey = true;
         singleHeader._columnName = "_geneId";
-        //singleHeader._value = "Gen";
+        singleHeader._value = MessagesConstants.COLUMN_NAME;
         singleHeader._width = "100";
         this._geneSearcherPage._geneTableResultHeaderColumns.push(singleHeader);
 
@@ -32,7 +33,7 @@ export class SubSequenceSearchPageState {
         singleHeader._isKey = false;
         singleHeader._columnName = "_haveSequence";
 
-        //singleHeader._value = "Result";
+        singleHeader._value = MessagesConstants.RESULT_COLUMN_NAME;
         singleHeader._width = "100";
         this._geneSearcherPage._geneTableResultHeaderColumns.push(singleHeader);
 

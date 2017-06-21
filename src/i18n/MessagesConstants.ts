@@ -12,11 +12,11 @@ export class MessagesConstants {
     public static DOWNLOAD_PAGE: string = "downloadPage";
     public static SETTINGS_PAGE: string = "settingsPage";
     public static RESULT_COLUMN_NAME: string = "resultColumnName";
-    public static GENE_COLUMN_NAME: string = "geneColumnName";
-    public static GENE_PAGINATION_FROM: string = "genePaginationFrom";
-    public static GENE_PAGINATION_TO: string = "genePaginationTo";
-    public static GENE_PAGINATION_OF: string = "genePaginationOf";
-    public static GENE_PAGINATION_ROWS: string = "genePaginationRows";
+    public static COLUMN_NAME: string = "columnName";
+    public static PAGINATION_FROM: string = "paginationFrom";
+    public static PAGINATION_TO: string = "paginationTo";
+    public static PAGINATION_OF: string = "paginationOf";
+    public static PAGINATION_ROWS: string = "paginationRows";
     public static UPLOAD_BUTTON_EXCEL: string = "uploadButtonExcel";
     public static UPLOAD_TEXT_EXCEL: string = "uploadTextExcel";
     public static DOWNLOAD_BUTTON_ID_UNFILTERED: string = "downloadButtonIdUnfiltered";
@@ -51,11 +51,11 @@ export class MessagesConstants {
         downloadPage: "Descarga de archivos",
         settingsPage: "Ajustes",
         resultColumnName: "Resultados",
-        geneColumnName: "Gen",
-        genePaginationFrom: "Desde ",
-        genePaginationTo: " a ",
-        genePaginationOf: " de un total de ",
-        genePaginationRows: " filas",
+        columnName: "Gen",
+        paginationFrom: "Desde ",
+        paginationTo: " a ",
+        paginationOf: " de un total de ",
+        paginationRows: " filas",
         uploadButtonExcel: "Pulsa aquí para subir un archivo excel",
         uploadTextExcel: "Subir archivo excel",
         downloadButtonIdUnfiltered: "Pulsa aquí para descargar los IDs no filtrados",
@@ -75,7 +75,8 @@ export class MessagesConstants {
         aboutAppTittle: "Acerca de esta aplicación",
         aboutAppBody: "Esta aplicacion es el resultado del trabajo de fin de grado de Álvaro Gómez Jáuregui." +
         " Este proyecto se encuentra bajo licencia Creative Commons Atribución-No-Comercial-Sin-Derivar 4.0 Internacional",
-        aboutAppButtonText: "Aceptar"
+        aboutAppButtonText: "Aceptar",
+        from: "Desde",
     };
 
     public static enGbMessages = {
@@ -92,11 +93,11 @@ export class MessagesConstants {
         downloadPage: "Download files",
         settingsPage: "Settings",
         resultColumnName: "Results",
-        geneColumnName: "Gen",
-        genePaginationFrom: "From ",
-        genePaginationTo: " to ",
-        genePaginationOf: " of ",
-        genePaginationRows: " rows",
+        columnName: "Gen",
+        paginationFrom: "From ",
+        paginationTo: " to ",
+        paginationOf: " of ",
+        paginationRows: " rows",
         uploadButtonExcel: "Click here to upload a file in excel format",
         uploadTextExcel: "Upload Excel file",
         downloadButtonIdUnfiltered: "Click here to download a file containing unfiltered ID's",
@@ -116,6 +117,6 @@ export class MessagesConstants {
         aboutAppTittle: "About this application",
         aboutAppBody: "This application is the result of the final degree project of Álvaro Gómez Jáuregui. " +
         " This project is under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 license.",
-        aboutAppButtonText: "Accept"
+        aboutAppButtonText: "Accept",
     };
 }
