@@ -1,8 +1,5 @@
 import * as React from "react";
-import {UploadFastaExcelComponent} from "../components/UploadFastaExcelComponent";
-import RaisedButton from 'material-ui/RaisedButton';
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {MessagesConstants} from "../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
 import {SubSequenceInDNATableResult} from "../components/SubSequenceInDNATableResult";
@@ -12,23 +9,16 @@ import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 
 export interface IDatabaseSubSeqSearchPageProps {
-    intl?: any;
     geneSearcherPage: GeneSearchPageDTO;
+    intl?: any;
 }
-
 
 export interface IDatabaseSubSeqSearchPageDispatchProps {
     initializeSubSequenceGeneListFound: () => any;
 }
-
-export interface IDatabaseSubSeqSearchPageOwnProps {
-
-}
-
 export interface IDatabaseSubSeqSearchPageState {
 
 }
-
 
 export class DatabaseSubSeqSearchPage extends React.Component<IDatabaseSubSeqSearchPageProps & IDatabaseSubSeqSearchPageDispatchProps & InjectedIntlProps, IDatabaseSubSeqSearchPageState> {
     public constructor(props: IDatabaseSubSeqSearchPageProps & IDatabaseSubSeqSearchPageDispatchProps & InjectedIntlProps) {
@@ -38,6 +28,7 @@ export class DatabaseSubSeqSearchPage extends React.Component<IDatabaseSubSeqSea
     public componentWillMount() {
         this.props.initializeSubSequenceGeneListFound();
     }
+
     private onDnaSubSequenceUserInput(event: object, newValue: string) {
 
     }
