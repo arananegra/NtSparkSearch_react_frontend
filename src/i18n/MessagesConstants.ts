@@ -83,7 +83,7 @@ export class MessagesConstants {
         searchDnaSubSequencesInGenes: "DNA Subsequence Searcher",
         dnaSearchInputHintText: "Input the sequence",
         dnaSearchInputFloatingText: "DNA sequence to search",
-        noDataToShow: "No data to show",
+        noDataToShow: "There is no data to show",
         search: "Search",
         genes: "Genes",
         genesPattern: "Ex.: 32,65,322",

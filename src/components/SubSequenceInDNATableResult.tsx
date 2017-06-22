@@ -9,6 +9,7 @@ import {InputTableBase} from "./InputTableBase";
 export interface ISubSequenceInDNATableResultProps {
     columnList: Array<TableHeaderColumnDTO>;
     dataList: Array<GeneSubsequenceResultDTO>;
+    noDataText: string;
 }
 
 export class SubSequenceInDNATableResult extends InputTableBase {

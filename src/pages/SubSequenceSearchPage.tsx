@@ -87,13 +87,14 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                         <GeneSubSequenceSearcherModalRequestComponent
                             showDialog={this.props.geneSearcherPage._showModalDialogSearchRequest}
                             onClick={this.manageOnClickModal.bind(this)}
-                            dialogTitle="Correo aquiiiiiiii!!!!"/>
+                            dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.SEARCH})}/>
                     </div>
                     <div className="row gene-result-component">
                         <SubSequenceInDNATableResult
                             columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
                             dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
-                            intl={this.props.intl}/>
+                            intl={this.props.intl}
+                            noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}/>
                     </div>
                 </CSSTransitionGroup>
             </div>

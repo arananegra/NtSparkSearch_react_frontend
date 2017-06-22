@@ -6,6 +6,7 @@ import {MessagesConstants} from "../i18n/MessagesConstants";
 export interface IInputTableProps {
     dataList: any[];
     columnList: any[];
+    noDataText: string;
     intl?: ReactIntl.InjectedIntl;
 }
 
@@ -23,7 +24,8 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
         return (
             <p>
                 <FormattedMessage id={MessagesConstants.PAGINATION_FROM}/> { start } <FormattedMessage
-                id={MessagesConstants.PAGINATION_TO}/> { to }, <FormattedMessage id={MessagesConstants.PAGINATION_OF}/> { total }&nbsp;&nbsp;
+                id={MessagesConstants.PAGINATION_TO}/> { to }, <FormattedMessage
+                id={MessagesConstants.PAGINATION_OF}/> { total }&nbsp;&nbsp;
                 <FormattedMessage id={MessagesConstants.PAGINATION_ROWS}/>
             </p>
         );
@@ -42,7 +44,7 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
                         dataField={column._columnName}
                         width={column._width}>
                         {<FormattedMessage
-                            id={column._value} />}
+                            id={column._value}/>}
                     </TableHeaderColumn>);
                 } else {
                     if (column._nestedObject) {
@@ -52,7 +54,7 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
                             dataField={column._columnName}
                             width={column._width}>
                             {<FormattedMessage
-                                id={column._value} />}
+                                id={column._value}/>}
                         </TableHeaderColumn>);
                     } else {
                         columnList.push(<TableHeaderColumn
@@ -61,7 +63,7 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
                             dataField={column._columnName}
                             width={column._width}>
                             {<FormattedMessage
-                                id={column._value} />}
+                                id={column._value}/>}
                         </TableHeaderColumn>);
                     }
                 }
@@ -74,26 +76,14 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
     rowOptionsConfiguration() {
         let extraRowOptionsConfiguration;
 
-        //if (this.props.customPaginationTable === null) {
-        //extraRowOptionsConfiguration = {
-//                noDataText: "No Records To Show"//ComponentsConstants.NO_RECORDS_TO_SHOW()
-        //          };
-        /*} else {
-         extraRowOptionsConfiguration = this.props.customPaginationTable;
-         }*/
-
         extraRowOptionsConfiguration = {
-            paginationShowsTotal: this.renderShowsTotal
+            noDataText: this.props.noDataText
         };
 
-        //extraRowOptionsConfiguration.onRowClick = this.props.onSingleRowClick;
-
-        //return extra;
+        extraRowOptionsConfiguration.paginationShowsTotal = this.renderShowsTotal;
 
         return extraRowOptionsConfiguration;
     }
-
-
 
     objectDataListToJson() {
         let jsonToLoad = [];
@@ -108,7 +98,7 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
         return (
             <div>
                 <BootstrapTable data={this.objectDataListToJson()}
-                                options = {this.rowOptionsConfiguration()}
+                                options={this.rowOptionsConfiguration()}
                                 pagination={ true }
                                 striped hover
                                 ignoreSinglePage>
