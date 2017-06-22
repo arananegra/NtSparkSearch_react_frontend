@@ -4,6 +4,12 @@ export class MessagesConstants {
     public static INPUT_DNA_FLOATING_TEXT: string = "dnaSearchInputFloatingText";
     public static NO_DATA_TO_SHOW: string = "noDataToShow";
     public static SEARCH: string = "search";
+    public static DIALOG_TITTLE_SUB_SEQ_SEARCH: string = "dialogTittleSubSeqSearch";
+    public static DIALOG_TEXT_SUB_SEQ_SEARCH: string = "dialogTextSubSeqSearch";
+    public static DIALOG_EMAIL_FLOATING_LABEL_TEXT: string = "dialogEmailFloatingLabelText";
+    public static DIALOG_EMAIL_HINT_TEXT: string = "dialogEmailHintText";
+    public static DIALOG_ACCEPT_BUTTON: string = "dialogAcceptButton";
+    public static DIALOG_CANCEL_BUTTON: string = "dialogCancelButton";
     public static GENES: string = "genes";
     public static GENES_PATTERN: string = "genesPattern";
     public static SEARCH_PAGE: string = "searchDnaPage";
@@ -43,6 +49,12 @@ export class MessagesConstants {
         dnaSearchInputFloatingText: "Secuencia de ADN",
         noDataToShow: "No hay datos que mostrar",
         search: "Buscar",
+        dialogTittleSubSeqSearch: "Lanzamiento de búsqueda de genes",
+        dialogTextSubSeqSearch: "Introduzca dirección de correo para lanzar la búsqueda de los genes requeridos",
+        dialogEmailFloatingLabelText: "Correo electrónico",
+        dialogEmailHintText: "Introduzca correo electrónico",
+        dialogAcceptButton: "Aceptar",
+        dialogCancelButton: "Cancelar",
         genes: "Genes",
         genesPattern: "Ej.: 434,3,21",
         searchDnaPage: "Busqueda directa de secuencias",
@@ -85,6 +97,12 @@ export class MessagesConstants {
         dnaSearchInputFloatingText: "DNA sequence to search",
         noDataToShow: "There is no data to show",
         search: "Search",
+        dialogTittleSubSeqSearch: "Launch genes search",
+        dialogTextSubSeqSearch: "Enter email address in order to launch the search of the required genes",
+        dialogEmailFloatingLabelText: "Email",
+        dialogEmailHintText: "Enter your email",
+        dialogAcceptButton: "Accept",
+        dialogCancelButton: "Cancel",
         genes: "Genes",
         genesPattern: "Ex.: 32,65,322",
         searchDnaPage: "Direct sequence search",

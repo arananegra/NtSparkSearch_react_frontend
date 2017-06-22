@@ -11,6 +11,11 @@ export interface IGeneSubSequenceSearcherModarRequestProps {
     showDialog: boolean;
     onClick: (value: any) => any;
     dialogTitle: string;
+    dialogText: string;
+    hintText: string;
+    floatingLabelText: string;
+    cancelButtonLabel: string;
+    acceptButtonLabel: string;
 }
 
 export interface IState {
@@ -31,7 +36,7 @@ export class GeneSubSequenceSearcherModalRequestComponent extends React.Componen
     public render() {
         const actions = [
             <FlatButton
-                label="Cancel"
+                label={this.props.cancelButtonLabel}
                 primary={true}
                 onTouchTap={(event) => {
                     //TODO : esto?
@@ -41,7 +46,7 @@ export class GeneSubSequenceSearcherModalRequestComponent extends React.Componen
             />,
 
             <FlatButton
-                label="Aceptar"
+                label={this.props.acceptButtonLabel}
                 keyboardFocused={true}
                 primary={true}
                 onTouchTap={(event) => {
@@ -63,13 +68,13 @@ export class GeneSubSequenceSearcherModalRequestComponent extends React.Componen
                             this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
                         }}>
 
-                        Open a Date Picker dialog from within a dialog.
+                        {this.props.dialogText}
 
 
                         <InputEmail
                             onChangeText={this.onEmailChangeText}
-                            hintText="HintEmail"
-                            floatingLabelText="FloatingEmail"/>
+                            hintText={this.props.hintText}
+                            floatingLabelText={this.props.floatingLabelText}/>
                     </Dialog>
                 </MuiThemeProvider>
             </div>

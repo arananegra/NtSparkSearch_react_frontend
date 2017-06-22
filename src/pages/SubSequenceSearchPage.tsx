@@ -87,7 +87,12 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                         <GeneSubSequenceSearcherModalRequestComponent
                             showDialog={this.props.geneSearcherPage._showModalDialogSearchRequest}
                             onClick={this.manageOnClickModal.bind(this)}
-                            dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.SEARCH})}/>
+                            dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_SUB_SEQ_SEARCH})}
+                            dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_SUB_SEQ_SEARCH})}
+                            floatingLabelText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_FLOATING_LABEL_TEXT})}
+                            hintText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_HINT_TEXT})}
+                            acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
+                            cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
                     </div>
                     <div className="row gene-result-component">
                         <SubSequenceInDNATableResult
