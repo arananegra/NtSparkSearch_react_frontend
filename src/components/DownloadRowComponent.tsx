@@ -10,10 +10,10 @@ export interface IDownloadRowProps {
     onSearchButtonPressedDownloadFasta: (value) => any;
 
     textToLabelFirstItemInRow: FormattedMessage,
-    textToButtonFirstItemInRow : FormattedMessage
+    textToButtonFirstItemInRow: FormattedMessage
 
     textToLabelSecondItemInRow: string,
-    textToButtonSecondItemInRow : string
+    textToButtonSecondItemInRow: string
 }
 
 export interface IDownloadPagePageState {
@@ -56,8 +56,7 @@ export class DownloadRowComponent extends React.Component<IDownloadRowProps, IDo
                     <div className="header-separtion-download-page">
                         <div className="col-md-6 well">
                             <h2 className="h2-download-style">
-                                <FormattedMessage
-                                    id={this.props.textToLabelSecondItemInRow}/>
+                                {this.props.textToLabelSecondItemInRow}
                             </h2>
                             <MuiThemeProvider>
                                 <RaisedButton className="row download-button"
