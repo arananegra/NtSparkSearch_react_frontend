@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {IReducers} from "../reducers/IndexReducers";
+import {IReducers} from "../../reducers/IndexReducers";
 import {injectIntl} from "react-intl";
 import {SettingsPage} from "./SettingsPage";
 

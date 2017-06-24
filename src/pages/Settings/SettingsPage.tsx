@@ -4,12 +4,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import {SettingsPaperComponent} from "../components/SettingsPaperComponent";
-import {MessagesConstants} from "../i18n/MessagesConstants";
-import {SettingsAboutComponent} from "../components/SettingsAboutComponent";
-import {ShowModalDialogSearchRequestAction} from "../actions/ShowModalDialogSearchRequestAction";
-import {store} from "../components/AppPipeline";
-import {Constants} from "../common/Constants";
+import {SettingsPaperComponent} from "../../components/SettingsPaperComponent";
+import {MessagesConstants} from "../../i18n/MessagesConstants";
+import {SettingsAboutComponent} from "../../components/SettingsAboutComponent";
+import {ShowModalDialogSearchRequestAction} from "../../actions/ShowModalDialogSearchRequestAction";
+import {store} from "../../components/AppPipeline";
+import {Constants} from "../../common/Constants";
 
 export interface ISettingsPageProps {
     onButtonRemoveUnfiltered?: (event: any) => any;

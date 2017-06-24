@@ -4,8 +4,8 @@ import {
     SubSequenceSearchPage
 } from "./SubSequenceSearchPage";
 import * as React from "react";
-import {InitializeSubSequenceSearchPageAction} from "../actions/InitializeSubSequenceSearchPageAction";
-import {IReducers} from "../reducers/IndexReducers";
+import {InitializeSubSequenceSearchPageAction} from "../../actions/InitializeSubSequenceSearchPageAction";
+import {IReducers} from "../../reducers/IndexReducers";
 import {injectIntl} from "react-intl";
 
 const mapStateToProp = (state: IReducers): ISubSequenceSearchPageProps => ({

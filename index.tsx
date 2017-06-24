@@ -4,13 +4,13 @@ import {Router, Route, IndexRoute, browserHistory} from "react-router";
 
 import {AppPipeline, store} from "./src/components/AppPipeline";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
-import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearchPageContainer";
+import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearch/SubSequenceSearchPageContainer";
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
 import {RoutesConstants} from "./src/common/RoutesConstants";
-import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFileToProcessingPageContainer";
-import {DownloadPageContainer} from "./src/pages/DownloadPageContainer";
-import {SettingsContainer} from "./src/pages/SettingsContainer";
-import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearchPageContainer";
+import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFilesToProcessing/UploadFileToProcessingPageContainer";
+import {DownloadPageContainer} from "./src/pages/Download/DownloadPageContainer";
+import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";
+import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearch/DatabaseSubSeqSearchPageContainer";
 
 class Index {
     public constructor() {

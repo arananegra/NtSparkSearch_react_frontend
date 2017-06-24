@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import {MessagesConstants} from "../i18n/MessagesConstants";
+import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
-import {SubSequenceInDNATableResult} from "../components/SubSequenceInDNATableResult";
-import {GeneSearchPageDTO} from "../domain/GeneSearchPageDTO";
-import {GeneSubSequenceDatabaseSearcherComponent} from "../components/GeneSubSequenceDatabaseSearcherComponent";
+import {SubSequenceInDNATableResult} from "../../components/SubSequenceInDNATableResult";
+import {GeneSearchPageDTO} from "../../domain/GeneSearchPageDTO";
+import {GeneSubSequenceDatabaseSearcherComponent} from "../../components/GeneSubSequenceDatabaseSearcherComponent";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 

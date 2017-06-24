@@ -1,9 +1,9 @@
 import {connect} from "react-redux";
 import * as React from "react";
-import {IReducers} from "../reducers/IndexReducers";
+import {IReducers} from "../../reducers/IndexReducers";
 import {injectIntl} from "react-intl";
 import {UploadFilesToProcessingPage} from "./UploadFilesToProcessingPage";
-import {LoadSimpleAction} from "../actions/LoadSimpleAction";
+import {LoadSimpleAction} from "../../actions/LoadSimpleAction";
 
 const mapStateToProp = (state: IReducers) => ({
     //geneSearcherPage: state['reducers'].SubSequenceSearchPageReducer._geneSearcherPage

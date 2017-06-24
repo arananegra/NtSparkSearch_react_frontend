@@ -1,15 +1,15 @@
 import * as React from "react";
-import {GeneSubSequenceSearcherComponent} from "../components/GeneSubSequenceSearcherComponent";
-import {MessagesConstants} from "../i18n/MessagesConstants";
-import {SubSequenceInDNATableResult} from "../components/SubSequenceInDNATableResult";
-import {GeneSearchPageDTO} from "../domain/GeneSearchPageDTO";
+import {GeneSubSequenceSearcherComponent} from "../../components/GeneSubSequenceSearcherComponent";
+import {MessagesConstants} from "../../i18n/MessagesConstants";
+import {SubSequenceInDNATableResult} from "../../components/SubSequenceInDNATableResult";
+import {GeneSearchPageDTO} from "../../domain/GeneSearchPageDTO";
 
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import {GeneSubSequenceSearcherModalRequestComponent} from "../components/GeneSubSequenceSearcherModalRequestComponent";
+import {GeneSubSequenceSearcherModalRequestComponent} from "../../components/GeneSubSequenceSearcherModalRequestComponent";
 
-import {store} from "../components/AppPipeline";
-import {ShowModalDialogSearchRequestAction} from "../actions/ShowModalDialogSearchRequestAction";
-import {Constants} from "../common/Constants";
+import {store} from "../../components/AppPipeline";
+import {ShowModalDialogSearchRequestAction} from "../../actions/ShowModalDialogSearchRequestAction";
+import {Constants} from "../../common/Constants";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 export interface ISubSequenceSearchPageProps {

@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import {MessagesConstants} from "../i18n/MessagesConstants";
+import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
-import {DownloadRowComponent} from "../components/DownloadRowComponent";
+import {DownloadRowComponent} from "../../components/DownloadRowComponent";
 
 export interface IDownloadPageProps {
     onSearchButtonPressedDownloadExcel?: (value) => any;
