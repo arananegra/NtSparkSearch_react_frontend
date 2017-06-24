@@ -4,10 +4,10 @@ import DatePicker from 'material-ui/DatePicker';
 import FlatButton from 'material-ui/FlatButton';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Constants} from "../common/Constants";
-import {InputEmail} from "./CommonComponents/InputEmail";
+import {Constants} from "../../common/Constants";
+import {InputEmail} from "./InputEmail";
 
-export interface IGeneSubSequenceSearcherModarRequestProps {
+export interface IModalRequestWithTextBoxComponentProps {
     showDialog: boolean;
     onClick: (value: any) => any;
     dialogTitle: string;
@@ -22,14 +22,14 @@ export interface IState {
 
 }
 
-export class GeneSubSequenceSearcherModalRequestComponent extends React.Component<IGeneSubSequenceSearcherModarRequestProps,
+export class ModalRequestWithTextBoxComponent extends React.Component<IModalRequestWithTextBoxComponentProps,
     IState> {
 
-    public constructor(props: IGeneSubSequenceSearcherModarRequestProps) {
+    public constructor(props: IModalRequestWithTextBoxComponentProps) {
         super(props);
     }
 
-    private  onEmailChangeText(event: object, newValue: string) {
+    private  onTextChange(event: object, newValue: string) {
 
     }
 
@@ -72,7 +72,7 @@ export class GeneSubSequenceSearcherModalRequestComponent extends React.Componen
 
 
                         <InputEmail
-                            onChangeText={this.onEmailChangeText}
+                            onChangeText={this.onTextChange.bind(this)}
                             hintText={this.props.hintText}
                             floatingLabelText={this.props.floatingLabelText}/>
                     </Dialog>

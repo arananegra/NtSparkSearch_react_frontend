@@ -5,7 +5,7 @@ import {SubSequenceInDNATableResult} from "../../components/TableComponents/SubS
 import {GeneSearchPageDTO} from "../../domain/SearchPages/GeneSearchPageDTO";
 
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import {GeneSubSequenceSearcherModalRequestComponent} from "../../components/GeneSubSequenceSearcherModalRequestComponent";
+import {ModalRequestWithTextBoxComponent} from "../../components/CommonComponents/ModalRequestWithTextBoxComponent";
 
 import {store} from "../../components/AppPipeline";
 import {ShowModalDialogSearchRequestAction} from "../../actions/ShowModalDialogSearchRequestAction";
@@ -84,7 +84,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             buttonSearchValue={this.props.intl.formatMessage({id: MessagesConstants.SEARCH})}
                             onSearchButtonPressed={this.onSearch.bind(this)}
                         />
-                        <GeneSubSequenceSearcherModalRequestComponent
+                        <ModalRequestWithTextBoxComponent
                             showDialog={this.props.geneSearcherPage._showModalDialogSearchRequest}
                             onClick={this.manageOnClickModal.bind(this)}
                             dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_SUB_SEQ_SEARCH})}

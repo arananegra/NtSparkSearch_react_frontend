@@ -3,18 +3,18 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
 
-export interface IOneFullRowComponentProps {
+export interface IRowComponentProps {
     onButtonPressed?: (value) => any;
     headerText: string;
     buttonText: string;
 }
 
-export interface IOneFullRowComponentState {
+export interface IRowComponentState {
 
 }
 
-export class OneFullRowComponent extends React.Component<IOneFullRowComponentProps, IOneFullRowComponentState> {
-    public constructor(props: IOneFullRowComponentProps) {
+export class RowComponent extends React.Component<IRowComponentProps, IRowComponentState> {
+    public constructor(props: IRowComponentProps) {
         super(props);
     }
 

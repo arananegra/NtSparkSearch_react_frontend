@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
-import {Constants} from "../common/Constants";
+import {Constants} from "../../common/Constants";
 
 export interface ISettingsAboutComponentProps {
     title: string;

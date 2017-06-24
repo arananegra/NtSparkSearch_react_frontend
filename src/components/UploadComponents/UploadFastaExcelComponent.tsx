@@ -1,9 +1,9 @@
 import * as React from "react";
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {MessagesConstants} from "../i18n/MessagesConstants";
+import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
-import {OneFullRowComponent} from "./OneFullRowComponent";
+import {RowComponent} from "../CommonComponents/RowComponent";
 
 export interface IUploadFastaExcelComponentProps {
     onSearchButtonPressedUploadExcel?: (value) => any;
@@ -28,14 +28,14 @@ export class UploadFastaExcelComponent extends React.Component<IUploadFastaExcel
         return (
             <div>
                 <div className="container-fluid header-separtion-upload-page">
-                    <OneFullRowComponent
+                    <RowComponent
                         headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_EXCEL})}
                         buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
                         onButtonPressed={this.props.onSearchButtonPressedUploadExcel}/>
                 </div>
 
                 <div className="container-fluid header-separtion-upload-page">
-                    <OneFullRowComponent
+                    <RowComponent
                         headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_FASTA})}
                         buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_FASTA})}
                         onButtonPressed={this.props.onSearchButtonPressedUploadExcel}/>

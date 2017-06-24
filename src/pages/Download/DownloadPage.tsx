@@ -2,10 +2,10 @@ import * as React from "react";
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
-import {DownloadRowComponent} from "../../components/DownloadRowComponent";
+import {DownloadRowsComponent} from "../../components/DownloadComponents/DownloadRowsComponent";
 
 export interface IDownloadPageProps {
-    onSearchButtonPressedDownloadExcel?: (value) => any;
+    onSearchButtonPressedDownloadIds?: (value) => any;
     onSearchButtonPressedDownloadFasta?: (value) => any;
     intl: any
 }
@@ -33,20 +33,20 @@ export class DownloadPage extends React.Component<IDownloadPageProps, IDownloadP
                     transitionAppearTimeout={5000}
                     transitionEnterTimeout={5000}
                     transitionLeaveTimeout={5000}>
-                    <DownloadRowComponent
+                    <DownloadRowsComponent
                         textToLabelFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_ID_UNFILTERED})}
                         textToButtonFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_ID_UNFILTERED})}
                         textToLabelSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_ID_FILTERED})}
                         textToButtonSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_ID_FILTERED})}
-                        onSearchButtonPressedDownloadExcel = {this.props.onSearchButtonPressedDownloadExcel}
+                        onSearchButtonPressedDownloadIds = {this.props.onSearchButtonPressedDownloadIds}
                         onSearchButtonPressedDownloadFasta = {this.props.onSearchButtonPressedDownloadFasta}
                     />
-                    <DownloadRowComponent
+                    <DownloadRowsComponent
                         textToLabelFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_FASTA_UNFILTERED})}
                         textToButtonFirstItemInRow={this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_FASTA_UNFILTERED})}
                         textToLabelSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_TEXT_FASTA_FILTERED})}
                         textToButtonSecondItemInRow = {this.props.intl.formatMessage({id: MessagesConstants.DOWNLOAD_BUTTON_FASTA_FILTERED})}
-                        onSearchButtonPressedDownloadExcel = {this.props.onSearchButtonPressedDownloadExcel}
+                        onSearchButtonPressedDownloadIds = {this.props.onSearchButtonPressedDownloadIds}
                         onSearchButtonPressedDownloadFasta = {this.props.onSearchButtonPressedDownloadFasta}
                     />
                 </CSSTransitionGroup>
