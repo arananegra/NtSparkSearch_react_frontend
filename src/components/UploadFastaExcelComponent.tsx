@@ -3,10 +3,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {MessagesConstants} from "../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
+import {OneFullRowComponent} from "./OneFullRowComponent";
 
 export interface IUploadFastaExcelComponentProps {
     onSearchButtonPressedUploadExcel?: (value) => any;
     onSearchButtonPressedUploadFasta?: (value) => any;
+    intl: any
 }
 
 export interface IUploadFastaExcelComponentState {
@@ -26,41 +28,18 @@ export class UploadFastaExcelComponent extends React.Component<IUploadFastaExcel
         return (
             <div>
                 <div className="container-fluid header-separtion-upload-page">
-                    <div className="well">
-                        <h2>
-                            <FormattedMessage
-                                id={MessagesConstants.UPLOAD_TEXT_EXCEL}/>
-                        </h2>
-                        <MuiThemeProvider>
-                            <RaisedButton className="row upload-button"
-                                          label={<FormattedMessage
-                                              id={MessagesConstants.UPLOAD_BUTTON_EXCEL}/>}
-                                          value={<FormattedMessage
-                                              id={MessagesConstants.UPLOAD_BUTTON_EXCEL}/>}
-                                          primary={true}
-                                          onClick={this.props.onSearchButtonPressedUploadExcel}/>
-                        </MuiThemeProvider>
-                    </div>
+                    <OneFullRowComponent
+                        headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_EXCEL})}
+                        buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
+                        onButtonPressed={this.props.onSearchButtonPressedUploadExcel}/>
                 </div>
 
                 <div className="container-fluid header-separtion-upload-page">
-                    <div className="well">
-                        <h2>
-                            <FormattedMessage
-                                id={MessagesConstants.UPLOAD_TEXT_FASTA}/>
-                        </h2>
-                        <MuiThemeProvider>
-                            <RaisedButton className="row upload-button"
-                                          label={<FormattedMessage
-                                              id={MessagesConstants.UPLOAD_BUTTON_FASTA}/>}
-                                          value={<FormattedMessage
-                                              id={MessagesConstants.UPLOAD_BUTTON_FASTA}/>}
-                                          primary={true}
-                                          onClick={this.props.onSearchButtonPressedUploadFasta}/>
-                        </MuiThemeProvider>
-                    </div>
+                    <OneFullRowComponent
+                        headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_FASTA})}
+                        buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_FASTA})}
+                        onButtonPressed={this.props.onSearchButtonPressedUploadExcel}/>
                 </div>
-
             </div>
         );
     }

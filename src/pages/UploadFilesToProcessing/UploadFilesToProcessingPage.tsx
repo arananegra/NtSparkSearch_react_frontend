@@ -3,20 +3,24 @@ import {UploadFastaExcelComponent} from "../../components/UploadFastaExcelCompon
 import RaisedButton from 'material-ui/RaisedButton';
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {MessagesConstants} from "../../i18n/MessagesConstants";
+import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 import {FormattedMessage} from "react-intl";
 
 export interface IUploadFilesToProcessingPageProps {
-    onClickRenewTextApi: () => any;
     textFromApiCall: string;
+    intl?: any
+}
+
+export interface IUploadFilesToProcessingPageDispatchProps {
+    onClickRenewTextApi: () => any;
 }
 
 export interface IUploadFilesToProcessingPageState {
 
 }
 
-export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToProcessingPageProps, IUploadFilesToProcessingPageState> {
-    public constructor(props: IUploadFilesToProcessingPageProps) {
+export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToProcessingPageProps & IUploadFilesToProcessingPageDispatchProps & InjectedIntlProps, IUploadFilesToProcessingPageState> {
+    public constructor(props: IUploadFilesToProcessingPageProps & IUploadFilesToProcessingPageDispatchProps & InjectedIntlProps) {
         super(props);
     }
 
@@ -34,12 +38,13 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                     transitionEnterTimeout={5000}
                     transitionLeaveTimeout={5000}>
                     <div>
-                        <UploadFastaExcelComponent/>
+                        <UploadFastaExcelComponent
+                            intl={this.props.intl}/>
                     </div>
                 </CSSTransitionGroup>
                 <div>
                     <MuiThemeProvider>
-                        <RaisedButton className="row upload-button"
+                        <RaisedButton className="row row-button"
                                       label="Boton de prueba"
                                       value="Boton de prueba"
                                       primary={true}

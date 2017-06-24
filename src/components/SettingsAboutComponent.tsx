@@ -50,8 +50,8 @@ export class SettingsAboutComponent extends React.Component<ISettingsAboutCompon
                 <div className="container-fluid component-margins">
                     <div>
                         <FlatButton primary={true}
-                                      label={this.props.title}
-                                      onTouchTap={this.handleOpen}/>
+                                    label={this.props.title}
+                                    onTouchTap={this.handleOpen}/>
                     </div>
 
                     <Dialog

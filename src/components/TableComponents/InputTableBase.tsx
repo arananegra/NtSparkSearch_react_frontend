@@ -1,7 +1,7 @@
 import * as React from "react";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import {FormattedMessage} from "react-intl";
-import {MessagesConstants} from "../i18n/MessagesConstants";
+import {MessagesConstants} from "../../i18n/MessagesConstants";
 
 export interface IInputTableProps {
     dataList: any[];

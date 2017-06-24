@@ -1,8 +1,8 @@
 import * as React from "react";
-import {GeneSubSequenceSearcherComponent} from "../../components/GeneSubSequenceSearcherComponent";
+import {GeneSubSequenceSearcherComponent} from "../../components/SearcherBarComponents/GeneSubSequenceSearcherComponent";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
-import {SubSequenceInDNATableResult} from "../../components/SubSequenceInDNATableResult";
-import {GeneSearchPageDTO} from "../../domain/GeneSearchPageDTO";
+import {SubSequenceInDNATableResult} from "../../components/TableComponents/SubSequenceInDNATableResult";
+import {GeneSearchPageDTO} from "../../domain/SearchPages/GeneSearchPageDTO";
 
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import {GeneSubSequenceSearcherModalRequestComponent} from "../../components/GeneSubSequenceSearcherModalRequestComponent";

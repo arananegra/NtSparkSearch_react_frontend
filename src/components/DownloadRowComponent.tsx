@@ -40,11 +40,11 @@ export class DownloadRowComponent extends React.Component<IDownloadRowProps, IDo
                     transitionLeaveTimeout={5000}>
                     <div className="header-separtion-download-page">
                         <div className="col-md-6 well">
-                            <h2 className="h2-download-style">
+                            <h2>
                                 {this.props.textToLabelFirstItemInRow}
                             </h2>
                             <MuiThemeProvider>
-                                <RaisedButton className="row download-button"
+                                <RaisedButton className="row row-button"
                                               label={this.props.textToButtonFirstItemInRow}
                                               value={this.props.textToButtonFirstItemInRow}
                                               primary={true}
@@ -55,11 +55,11 @@ export class DownloadRowComponent extends React.Component<IDownloadRowProps, IDo
 
                     <div className="header-separtion-download-page">
                         <div className="col-md-6 well">
-                            <h2 className="h2-download-style">
+                            <h2>
                                 {this.props.textToLabelSecondItemInRow}
                             </h2>
                             <MuiThemeProvider>
-                                <RaisedButton className="row download-button"
+                                <RaisedButton className="row row-button"
                                               label={this.props.textToButtonSecondItemInRow}
                                               value={this.props.textToButtonSecondItemInRow}
                                               primary={true}

@@ -2,20 +2,21 @@ import {connect} from "react-redux";
 import * as React from "react";
 import {IReducers} from "../../reducers/IndexReducers";
 import {injectIntl} from "react-intl";
-import {UploadFilesToProcessingPage} from "./UploadFilesToProcessingPage";
+import {
+    IUploadFilesToProcessingPageDispatchProps, IUploadFilesToProcessingPageProps,
+    UploadFilesToProcessingPage
+} from "./UploadFilesToProcessingPage";
 import {LoadSimpleAction} from "../../actions/LoadSimpleAction";
 
-const mapStateToProp = (state: IReducers) => ({
-    //geneSearcherPage: state['reducers'].SubSequenceSearchPageReducer._geneSearcherPage
+const mapStateToProp = (state: IReducers): IUploadFilesToProcessingPageProps => ({
     textFromApiCall: state['reducers'].UploadFilesToProcessingPageReducer.textFromApi
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    //initializeSubSequenceGeneListFound: () => dispatch(InitializeSubSequenceSearchPageAction())
+const mapDispatchToProps = (dispatch): IUploadFilesToProcessingPageDispatchProps => ({
     onClickRenewTextApi: () => dispatch(LoadSimpleAction())
 });
 
-export const UploadFileToProcessingPageContainer = connect(
+export const UploadFileToProcessingPageContainer = connect<IUploadFilesToProcessingPageProps, IUploadFilesToProcessingPageDispatchProps, {}>(
     mapStateToProp,
     mapDispatchToProps
-)((UploadFilesToProcessingPage));
+)(injectIntl(UploadFilesToProcessingPage));

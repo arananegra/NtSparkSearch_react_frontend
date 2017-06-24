@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Constants} from "../common/Constants";
-import {InputEmail} from "./InputEmail";
+import {InputEmail} from "./CommonComponents/InputEmail";
 
 export interface IGeneSubSequenceSearcherModarRequestProps {
     showDialog: boolean;

@@ -1,8 +1,8 @@
 import * as React from "react";
-import {InputText} from "./InputText";
+import {InputText} from "../CommonComponents/InputText";
 
 import {FormattedDate, FormattedMessage, FormattedRelative} from "react-intl";
-import {ButtonComponent} from "./ButtonComponent";
+import {ButtonComponent} from "../CommonComponents/ButtonComponent";
 
 export interface IGeneSubSequenceSearcherComponent {
     onChangeText: (event: object, newValue: string) => any;

@@ -1,6 +1,6 @@
-import {GeneSubSequenceSearcherDTO} from "./GeneSubSequenceSearcherDTO";
-import {GeneSubsequenceResultDTO} from "./GeneSubsequenceResultDTO";
-import {TableHeaderColumnDTO} from "./TableHeaderColumnDTO";
+import {GeneSubSequenceSearcherDTO} from "../GeneSubSequenceSearcherDTO";
+import {GeneSubsequenceResultDTO} from "../GeneSubsequenceResultDTO";
+import {TableHeaderColumnDTO} from "../TableHeaderColumnDTO";
 
 export class GeneSearchPageDTO {
     public _geneSubSequenceSearcher: GeneSubSequenceSearcherDTO;
