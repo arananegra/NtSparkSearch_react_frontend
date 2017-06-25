@@ -4,8 +4,8 @@ import {RemoveUnfilteredSuccessAction} from "./RemoveUnfilteredSuccessAction";
 export function RemoveUnfilteredAction() {
     return function (dispatch) {
         return new GeneHandlerDAO().removeUnfilteredCollection()
-            .then(() => {
-                dispatch(RemoveUnfilteredSuccessAction());
+            .then((responseStatus) => {
+                dispatch(RemoveUnfilteredSuccessAction(responseStatus));
             }).catch(error => {
                 throw (error);
             })

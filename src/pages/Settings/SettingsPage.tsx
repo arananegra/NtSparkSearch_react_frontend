@@ -11,6 +11,11 @@ import {ShowModalDialogRemoveUnfilteredAction} from "../../actions/SettingsActio
 import {ShowModalDialogRemoveFilteredAction} from "../../actions/SettingsActions/ShowModalDialogRemoveFilteredAction";
 import {SettingsPageDTO} from "../../domain/SettingsPage/SettingsPageDTO";
 import {Constants} from "../../common/Constants";
+import {RemoveUnfilteredAction} from "../../actions/SettingsActions/RemoveUnfilteredAction";
+import Snackbar from 'material-ui/Snackbar';
+import {ShowSnackBarRemoveFilteredAction} from "../../actions/SettingsActions/ShowSnackBarRemoveFilteredAction";
+import {ShowSnackBarRemoveUnfilteredAction} from "../../actions/SettingsActions/ShowSnackBarRemoveUnfilteredAction";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 export interface ISettingsPageProps {
@@ -40,15 +45,31 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
         store.dispatch(ShowModalDialogRemoveFilteredAction(true))
     }
 
+    private manageSnackBarRemoveUnfiltered() {
+        store.dispatch(ShowSnackBarRemoveUnfilteredAction(true));
+    }
+
+    private manageSnackBarRemoveFiltered() {
+        store.dispatch(ShowSnackBarRemoveFilteredAction(true));
+    }
+
+    private manageSnackBarRemoveUnfilteredClose() {
+        store.dispatch(ShowSnackBarRemoveUnfilteredAction(false));
+    }
+
+    private manageSnackBarRemoveFilteredClose() {
+        store.dispatch(ShowSnackBarRemoveFilteredAction(false));
+    }
+
     private manageOnClickModalUnfiltered(option: any) {
         let showModal: boolean;
-
         console.log("WTF en unfiltered!: ", option);
 
         showModal = false;
-
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
-            showModal = true;
+            showModal = false;
+            //store.dispatch(RemoveUnfilteredAction());
+            this.manageSnackBarRemoveUnfiltered();
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
             showModal = false;
         }
@@ -66,7 +87,9 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
         showModal = false;
 
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
-            showModal = true;
+            showModal = false;
+            console.log("Invocando a manage filtered");
+            this.manageSnackBarRemoveFiltered();
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
             showModal = false;
         }
@@ -85,42 +108,55 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
                 transitionAppearTimeout={5000}
                 transitionEnterTimeout={5000}
                 transitionLeaveTimeout={5000}>
-                <div>
+                <MuiThemeProvider>
+                    <div>
 
-                    <SettingsPaperComponent
-                        paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_UNFILTERED})}
-                        paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_UNFILTERED})}
-                        onButtonPressed={this.onRemoveUnfilteredClicked.bind(this)}/>
-                    <SimpleModalRequest
-                        showDialog={this.props.SettingsPage._showModalDialogRemoveUnfiltered}
-                        onClick={this.manageOnClickModalUnfiltered.bind(this)}
-                        dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_REMOVE_UNFILTERED})}
-                        dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_REMOVE_UNFILTERED})}
-                        acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
-                        cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
-
-                    <div className="between-components-space">
                         <SettingsPaperComponent
-                            paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_FILTERED})}
-                            paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_FILTERED})}
-                            onButtonPressed={this.onRemoveFilteredClicked.bind(this)}/>
+                            paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_UNFILTERED})}
+                            paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_UNFILTERED})}
+                            onButtonPressed={this.onRemoveUnfilteredClicked.bind(this)}/>
                         <SimpleModalRequest
-                            showDialog={this.props.SettingsPage._showModalDialogRemoveFiltered}
-                            onClick={this.manageOnClickModalFiltered.bind(this)}
-                            dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_REMOVE_FILTERED})}
-                            dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_REMOVE_FILTERED})}
+                            showDialog={this.props.SettingsPage._showModalDialogRemoveUnfiltered}
+                            onClick={this.manageOnClickModalUnfiltered.bind(this)}
+                            dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_REMOVE_UNFILTERED})}
+                            dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_REMOVE_UNFILTERED})}
                             acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
                             cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
+                        <Snackbar
+                            open={this.props.SettingsPage._showSnackbarRemoveUnfiltered}
+                            message="Coleccion no filtrada"
+                            autoHideDuration={4000}
+                            onRequestClose={this.manageSnackBarRemoveUnfilteredClose.bind(this)}
+                        />
+
+                        <div className="between-components-space">
+                            <SettingsPaperComponent
+                                paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_FILTERED})}
+                                paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_FILTERED})}
+                                onButtonPressed={this.onRemoveFilteredClicked.bind(this)}/>
+                            <SimpleModalRequest
+                                showDialog={this.props.SettingsPage._showModalDialogRemoveFiltered}
+                                onClick={this.manageOnClickModalFiltered.bind(this)}
+                                dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_REMOVE_FILTERED})}
+                                dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_REMOVE_FILTERED})}
+                                acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
+                                cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
+                            <Snackbar
+                                open={this.props.SettingsPage._showSnackbarRemoveFiltered}
+                                message="Coleccion filtrada"
+                                autoHideDuration={4000}
+                                onRequestClose={this.manageSnackBarRemoveFilteredClose.bind(this)}
+                            />
+                        </div>
+                        <div className="between-components-space">
+                            <SettingsAboutComponent
+                                title={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_TITLE})}
+                                textMessage={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BODY})}
+                                buttonAcceptText={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BUTTON_TEXT})}/>
+                        </div>
 
                     </div>
-                    <div className="between-components-space">
-                        <SettingsAboutComponent
-                            title={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_TITLE})}
-                            textMessage={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BODY})}
-                            buttonAcceptText={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BUTTON_TEXT})}/>
-                    </div>
-
-                </div>
+                </MuiThemeProvider>
             </CSSTransitionGroup>
         );
     }
