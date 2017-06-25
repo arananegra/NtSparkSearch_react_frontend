@@ -122,7 +122,7 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
                             cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
                         <Snackbar
                             open={this.props.SettingsPage._showSnackbarRemoveUnfiltered}
-                            message="Coleccion no filtrada"
+                            message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_UNFILTERED_REMOVED_TEXT})}
                             autoHideDuration={4000}
                             onRequestClose={this.manageSnackBarRemoveUnfilteredClose.bind(this)}
                         />
@@ -141,7 +141,7 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
                                 cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
                             <Snackbar
                                 open={this.props.SettingsPage._showSnackbarRemoveFiltered}
-                                message="Coleccion filtrada"
+                                message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_FILTERED_REMOVED_TEXT})}
                                 autoHideDuration={4000}
                                 onRequestClose={this.manageSnackBarRemoveFilteredClose.bind(this)}
                             />

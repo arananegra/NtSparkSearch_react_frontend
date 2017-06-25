@@ -46,6 +46,8 @@ export class MessagesConstants {
     public static DIALOG_TEXT_REMOVE_FILTERED = "dialogTextRemoveFiltered";
     public static DIALOG_TITTLE_REMOVE_UNFILTERED = "dialogTittleRemoveUnfiltered";
     public static DIALOG_TITTLE_REMOVE_FILTERED = "dialogTittleRemoveFiltered";
+    public static SNACKBAR_UNFILTERED_REMOVED_TEXT = "snackBarUnfilteredRemovedText";
+    public static SNACKBAR_FILTERED_REMOVED_TEXT = "snackBarFilteredRemovedText";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -96,7 +98,9 @@ export class MessagesConstants {
         dialogTextRemoveUnfiltered: "¿Está seguro que desea borrar la colección de genes no filtrada?",
         dialogTextRemoveFiltered: "¿Está seguro que desea borrar la colección de genes filtrada?",
         dialogTittleRemoveUnfiltered: "Borrar colección no filtrada",
-        dialogTittleRemoveFiltered: "Borrar colección filtrada"
+        dialogTittleRemoveFiltered: "Borrar colección filtrada",
+        snackBarUnfilteredRemovedText : "Colección de genes no filtrados borrada con éxito",
+        snackBarFilteredRemovedText: "Colección de genes filtrados borrada con éxito",
     };
 
     public static enGbMessages = {
@@ -147,6 +151,8 @@ export class MessagesConstants {
         dialogTextRemoveUnfiltered: "Are you sure you want to remove the whole unfiltered collection?",
         dialogTextRemoveFiltered: "Are you sure you want to remove the whole filtered collection?",
         dialogTittleRemoveUnfiltered: "Remove unfiltered collection",
-        dialogTittleRemoveFiltered: "Remove filtered collection"
+        dialogTittleRemoveFiltered: "Remove filtered collection",
+        snackBarUnfilteredRemovedText : "Collection of unfiltered genes successfully removed",
+        snackBarFilteredRemovedText: "Collection of filtered genes successfully removed",
     };
 }
