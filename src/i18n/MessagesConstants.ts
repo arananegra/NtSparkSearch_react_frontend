@@ -42,6 +42,10 @@ export class MessagesConstants {
     public static ABOUT_APP_TITLE: string = "aboutAppTittle";
     public static ABOUT_APP_BODY: string = "aboutAppBody";
     public static ABOUT_APP_BUTTON_TEXT: string = "aboutAppButtonText";
+    public static DIALOG_TEXT_REMOVE_UNFILTERED = "dialogTextRemoveUnfiltered";
+    public static DIALOG_TEXT_REMOVE_FILTERED = "dialogTextRemoveFiltered";
+    public static DIALOG_TITTLE_REMOVE_UNFILTERED = "dialogTittleRemoveUnfiltered";
+    public static DIALOG_TITTLE_REMOVE_FILTERED = "dialogTittleRemoveFiltered";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -89,6 +93,10 @@ export class MessagesConstants {
         " Este proyecto se encuentra bajo licencia Creative Commons Atribución-No-Comercial-Sin-Derivar 4.0 Internacional",
         aboutAppButtonText: "Aceptar",
         from: "Desde",
+        dialogTextRemoveUnfiltered: "¿Está seguro que desea borrar la colección de genes no filtrada?",
+        dialogTextRemoveFiltered: "¿Está seguro que desea borrar la colección de genes filtrada?",
+        dialogTittleRemoveUnfiltered: "Borrar colección no filtrada",
+        dialogTittleRemoveFiltered: "Borrar colección filtrada"
     };
 
     public static enGbMessages = {
@@ -136,5 +144,9 @@ export class MessagesConstants {
         aboutAppBody: "This application is the result of the final degree project of Álvaro Gómez Jáuregui. " +
         " This project is under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 license.",
         aboutAppButtonText: "Accept",
+        dialogTextRemoveUnfiltered: "Are you sure you want to remove the whole unfiltered collection?",
+        dialogTextRemoveFiltered: "Are you sure you want to remove the whole filtered collection?",
+        dialogTittleRemoveUnfiltered: "Remove unfiltered collection",
+        dialogTittleRemoveFiltered: "Remove filtered collection"
     };
 }

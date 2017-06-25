@@ -1,17 +1,17 @@
 import {connect} from "react-redux";
 import {IReducers} from "../../reducers/IndexReducers";
 import {injectIntl} from "react-intl";
-import {SettingsPage} from "./SettingsPage";
+import {ISettingsPageDispatchProps, ISettingsPageProps, SettingsPage} from "./SettingsPage";
 
-const mapStateToProp = (state: IReducers) => ({
-    //geneSearcherPage: state['reducers'].SubSequenceSearchPageReducer._geneSearcherPage
+const mapStateToProp = (state: IReducers): ISettingsPageProps => ({
+    SettingsPage: state['reducers'].SettingsPageReducer._settingsPage
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch): ISettingsPageDispatchProps => ({
     //initializeSubSequenceGeneListFound: () => dispatch(InitializeSubSequenceSearchPageAction())
 });
 
-export const SettingsContainer = connect(
+export const SettingsContainer = connect<ISettingsPageProps, ISettingsPageDispatchProps, {}>(
     mapStateToProp,
     mapDispatchToProps
 )(injectIntl(SettingsPage));

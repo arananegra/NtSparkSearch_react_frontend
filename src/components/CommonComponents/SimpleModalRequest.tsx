@@ -4,15 +4,12 @@ import FlatButton from 'material-ui/FlatButton';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Constants} from "../../common/Constants";
-import {InputEmail} from "./InputEmail";
 
-export interface IModalRequestWithTextBoxComponentProps {
+export interface ISimpleModalRequest {
     showDialog: boolean;
     onClick: (value: any) => any;
     dialogTitle: string;
     dialogText: string;
-    hintText: string;
-    floatingLabelText: string;
     cancelButtonLabel: string;
     acceptButtonLabel: string;
 }
@@ -21,35 +18,29 @@ export interface IState {
 
 }
 
-export class ModalRequestWithTextBoxComponent extends React.Component<IModalRequestWithTextBoxComponentProps,
+export class SimpleModalRequest extends React.Component<ISimpleModalRequest,
     IState> {
 
-    public constructor(props: IModalRequestWithTextBoxComponentProps) {
+    public constructor(props: ISimpleModalRequest) {
         super(props);
-    }
-
-    private  onTextChange(event: object, newValue: string) {
-
     }
 
     public render() {
         const actions = [
             <FlatButton
                 label={this.props.cancelButtonLabel}
+                keyboardFocused={true}
                 primary={true}
                 onTouchTap={(event) => {
-                    //TODO : esto?
-                    //event.preventDefault();
                     this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
                 }}
             />,
 
             <FlatButton
                 label={this.props.acceptButtonLabel}
-                keyboardFocused={true}
+                keyboardFocused={false}
                 primary={true}
                 onTouchTap={(event) => {
-                    //event.preventDefault();
                     this.props.onClick(Constants.SUBMIT_BUTTON_PRESSED_VALUE)
                 }}
             />,
@@ -69,11 +60,6 @@ export class ModalRequestWithTextBoxComponent extends React.Component<IModalRequ
 
                         {this.props.dialogText}
 
-
-                        <InputEmail
-                            onChangeText={this.onTextChange.bind(this)}
-                            hintText={this.props.hintText}
-                            floatingLabelText={this.props.floatingLabelText}/>
                     </Dialog>
                 </MuiThemeProvider>
             </div>

@@ -1,39 +1,49 @@
 import * as React from "react";
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
 import {SettingsPaperComponent} from "../../components/SettingsComponents/SettingsPaperComponent";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {SettingsAboutComponent} from "../../components/SettingsComponents/SettingsAboutComponent";
-import {ShowModalDialogSearchRequestAction} from "../../actions/ShowModalDialogSearchRequestAction";
+import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 import {store} from "../../components/AppPipeline";
+import {SimpleModalRequest} from "../../components/CommonComponents/SimpleModalRequest";
+import {ShowModalDialogRemoveUnfilteredAction} from "../../actions/ShowModalDialogRemoveUnfilteredAction";
+import {ShowModalDialogRemoveFilteredAction} from "../../actions/ShowModalDialogRemoveFilteredAction";
+import {SettingsPageDTO} from "../../domain/SettingsPage/SettingsPageDTO";
 import {Constants} from "../../common/Constants";
 
+
 export interface ISettingsPageProps {
-    onButtonRemoveUnfiltered?: (event: any) => any;
-    onButtonRemoveFiltered?: (event: any) => any;
-    intl: any
+    SettingsPage: SettingsPageDTO;
+    intl?: any
+}
+
+export interface ISettingsPageDispatchProps {
+    // onButtonRemoveUnfiltered?: (event: any) => any;
+    // onButtonRemoveFiltered?: (event: any) => any;
 }
 
 export interface ISettingsPageState {
 
 }
 
-export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsPageState> {
-    public constructor(props: ISettingsPageProps) {
+export class SettingsPage extends React.Component<ISettingsPageProps & ISettingsPageDispatchProps & InjectedIntlProps, ISettingsPageState> {
+    public constructor(props: ISettingsPageProps & ISettingsPageDispatchProps & InjectedIntlProps) {
         super(props);
     }
 
-    public componentWillMount() {
-
+    private onRemoveUnfilteredClicked() {
+        store.dispatch(ShowModalDialogRemoveUnfilteredAction(true))
     }
 
-    private manageOnClickModalForClase(option: any) {
+    private onRemoveFilteredClicked() {
+        store.dispatch(ShowModalDialogRemoveFilteredAction(true))
+    }
+
+    private manageOnClickModalUnfiltered(option: any) {
         let showModal: boolean;
 
-        console.log("WTF!: ", option);
+        console.log("WTF en unfiltered!: ", option);
 
         showModal = false;
 
@@ -43,21 +53,30 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
             showModal = false;
         }
 
-        store.dispatch(ShowModalDialogSearchRequestAction(
+        store.dispatch(ShowModalDialogRemoveUnfilteredAction(
             showModal
         ));
     }
 
+    private manageOnClickModalFiltered(option: any) {
+        let showModal: boolean;
+
+        console.log("WTF en filtered!: ", option);
+
+        showModal = false;
+
+        if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
+            showModal = true;
+        } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
+            showModal = false;
+        }
+
+        store.dispatch(ShowModalDialogRemoveFilteredAction(
+            showModal
+        ));
+    }
 
     public render() {
-        const paperStyle = {
-            height: "150px",
-        };
-
-        const buttonStyle = {
-            height: "30px",
-            alignContent: "center"
-        };
         return (
 
             <CSSTransitionGroup
@@ -71,13 +90,28 @@ export class SettingsPage extends React.Component<ISettingsPageProps, ISettingsP
                     <SettingsPaperComponent
                         paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_UNFILTERED})}
                         paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_UNFILTERED})}
-                        onButtonPressed={this.props.onButtonRemoveUnfiltered}/>
+                        onButtonPressed={this.onRemoveUnfilteredClicked.bind(this)}/>
+                    <SimpleModalRequest
+                        showDialog={this.props.SettingsPage._showModalDialogRemoveUnfiltered}
+                        onClick={this.manageOnClickModalUnfiltered.bind(this)}
+                        dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_REMOVE_UNFILTERED})}
+                        dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_REMOVE_UNFILTERED})}
+                        acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
+                        cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
 
                     <div className="between-components-space">
                         <SettingsPaperComponent
                             paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_FILTERED})}
                             paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_FILTERED})}
-                            onButtonPressed={this.props.onButtonRemoveUnfiltered}/>
+                            onButtonPressed={this.onRemoveFilteredClicked.bind(this)}/>
+                        <SimpleModalRequest
+                            showDialog={this.props.SettingsPage._showModalDialogRemoveFiltered}
+                            onClick={this.manageOnClickModalFiltered.bind(this)}
+                            dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_REMOVE_FILTERED})}
+                            dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_REMOVE_FILTERED})}
+                            acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
+                            cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
+
                     </div>
                     <div className="between-components-space">
                         <SettingsAboutComponent
