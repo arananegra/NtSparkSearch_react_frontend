@@ -7,8 +7,8 @@ import {SettingsAboutComponent} from "../../components/SettingsComponents/Settin
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 import {store} from "../../components/AppPipeline";
 import {SimpleModalRequest} from "../../components/CommonComponents/SimpleModalRequest";
-import {ShowModalDialogRemoveUnfilteredAction} from "../../actions/ShowModalDialogRemoveUnfilteredAction";
-import {ShowModalDialogRemoveFilteredAction} from "../../actions/ShowModalDialogRemoveFilteredAction";
+import {ShowModalDialogRemoveUnfilteredAction} from "../../actions/SettingsActions/ShowModalDialogRemoveUnfilteredAction";
+import {ShowModalDialogRemoveFilteredAction} from "../../actions/SettingsActions/ShowModalDialogRemoveFilteredAction";
 import {SettingsPageDTO} from "../../domain/SettingsPage/SettingsPageDTO";
 import {Constants} from "../../common/Constants";
 

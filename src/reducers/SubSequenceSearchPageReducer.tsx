@@ -100,7 +100,7 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
         case ActionConstants.SHOW_MODAL_DIALOG_SEARCH_REQUEST:
             let newPage = objectAssign({}, state._geneSearcherPage, {});
 
-            newPage._showModalDialogSearchRequest = action['showModalDialogRemoveFiltered'];
+            newPage._showModalDialogSearchRequest = action['showModalDialog'];
 
             newState = objectAssign({}, state, {_geneSearcherPage: newPage});
 

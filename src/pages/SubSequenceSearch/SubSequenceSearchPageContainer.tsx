@@ -4,7 +4,7 @@ import {
     SubSequenceSearchPage
 } from "./SubSequenceSearchPage";
 import * as React from "react";
-import {InitializeSubSequenceSearchPageAction} from "../../actions/InitializeSubSequenceSearchPageAction";
+import {InitializeSubSequenceSearchPageAction} from "../../actions/InitializeActions/InitializeSubSequenceSearchPageAction";
 import {IReducers} from "../../reducers/IndexReducers";
 import {injectIntl} from "react-intl";
 

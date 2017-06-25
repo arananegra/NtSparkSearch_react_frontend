@@ -1,4 +1,4 @@
-import {ActionConstants} from "./ActionConstants";
+import {ActionConstants} from "../ActionConstants";
 
 export interface IInitializeDatabaseSubSeqSearchPageAction {
     type: string;
