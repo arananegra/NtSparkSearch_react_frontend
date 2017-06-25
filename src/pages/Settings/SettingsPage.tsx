@@ -45,9 +45,9 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
         store.dispatch(ShowModalDialogRemoveFilteredAction(true))
     }
 
-    private manageSnackBarRemoveUnfiltered() {
-        store.dispatch(ShowSnackBarRemoveUnfilteredAction(true));
-    }
+    // private manageSnackBarRemoveUnfiltered() {
+    //     store.dispatch(ShowSnackBarRemoveUnfilteredAction(true));
+    // }
 
     private manageSnackBarRemoveFiltered() {
         store.dispatch(ShowSnackBarRemoveFilteredAction(true));
@@ -68,8 +68,7 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
         showModal = false;
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
             showModal = false;
-            //store.dispatch(RemoveUnfilteredAction());
-            this.manageSnackBarRemoveUnfiltered();
+            store.dispatch(RemoveUnfilteredAction());
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
             showModal = false;
         }
@@ -88,7 +87,6 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
 
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
             showModal = false;
-            console.log("Invocando a manage filtered");
             this.manageSnackBarRemoveFiltered();
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
             showModal = false;

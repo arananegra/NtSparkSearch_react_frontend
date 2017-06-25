@@ -12,9 +12,12 @@ export class GeneHandlerDAO {
             url: "http://0.0.0.0:5000/genehandler/delete-unfiltered",
             timeout: 1000
         }).then((response) => {
+            let showSnackBarUnfiltered: boolean = false;
             if (response) {
-                //console.log("", response.data.security.toString());
-                return response.status;
+                if (response.status === 200) {
+                    showSnackBarUnfiltered = true;
+                    return showSnackBarUnfiltered;
+                }
             }
         });
     }
@@ -25,9 +28,12 @@ export class GeneHandlerDAO {
             url: "http://0.0.0.0:5000/genehandler/delete-filtered",
             timeout: 1000
         }).then((response) => {
+            let showSnackBarFiltered: boolean = false;
             if (response) {
-                //console.log("", response.data.security.toString());
-                return response.status;
+                if (response.status === 200) {
+                    showSnackBarFiltered = true;
+                    return showSnackBarFiltered;
+                }
             }
         });
     }

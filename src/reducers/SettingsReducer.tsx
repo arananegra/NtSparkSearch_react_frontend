@@ -36,6 +36,7 @@ export function SettingsPageReducer(state: SettingsPageState = new SettingsPageS
 
             return newState;
 
+
         case ActionConstants.SHOW_MODAL_DIALOG_REMOVE_FILTERED:
 
             let newPageFiltered = objectAssign({}, state._settingsPage, {});

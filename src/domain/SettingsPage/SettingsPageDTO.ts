@@ -9,6 +9,5 @@ export class SettingsPageDTO {
         this._showModalDialogRemoveFiltered = null;
         this._showSnackbarRemoveUnfiltered = null;
         this._showSnackbarRemoveFiltered = null;
-
     }
 }
