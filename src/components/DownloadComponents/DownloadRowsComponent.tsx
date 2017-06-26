@@ -7,8 +7,8 @@ import {FormattedMessage} from "react-intl";
 import {RowComponent} from "../CommonComponents/RowComponent";
 
 export interface IDownloadRowsComponentProps {
-    onSearchButtonPressedDownloadIds: (value) => any;
-    onSearchButtonPressedDownloadFasta: (value) => any;
+    onSearchButtonPressedDownloadIds: () => any;
+    onSearchButtonPressedDownloadFasta: () => any;
 
     textToLabelFirstItemInRow: string;
     textToButtonFirstItemInRow: string;

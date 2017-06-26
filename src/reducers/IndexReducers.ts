@@ -3,12 +3,14 @@ import {SubSequenceSearchPageReducer, SubSequenceSearchPageState} from "./SubSeq
 import {UploadFilesToProcessingPageReducer, UploadPageState} from "./UploadFilesToProcessingPageReducer";
 import {DatabaseSubSeqSearchPageReducer, DatabaseSubSeqSearchPageState} from "./DatabaseSubSeqSearchPageReducer";
 import {SettingsPageReducer, SettingsPageState} from "./SettingsReducer";
+import {DownloadPageReducer, DownloadPageState} from "./DownloadPageReducer";
 
 export default combineReducers <IReducers> ({
     SubSequenceSearchPageReducer,
     UploadFilesToProcessingPageReducer,
     DatabaseSubSeqSearchPageReducer,
-    SettingsPageReducer
+    SettingsPageReducer,
+    DownloadPageReducer,
 });
 
 export interface IReducers {
@@ -16,4 +18,5 @@ export interface IReducers {
     UploadFilesToProcessingPageReducer: UploadPageState;
     DatabaseSubSeqSearchPageReducer : DatabaseSubSeqSearchPageState;
     SettingsPageReducer : SettingsPageState;
+    DownloadPageReducer : DownloadPageState;
 }
