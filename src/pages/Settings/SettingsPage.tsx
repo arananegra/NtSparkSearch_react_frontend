@@ -16,6 +16,7 @@ import Snackbar from 'material-ui/Snackbar';
 import {ShowSnackBarRemoveFilteredAction} from "../../actions/SettingsActions/ShowSnackBarRemoveFilteredAction";
 import {ShowSnackBarRemoveUnfilteredAction} from "../../actions/SettingsActions/ShowSnackBarRemoveUnfilteredAction";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {RemoveFilteredAction} from "../../actions/SettingsActions/RemoveFilteredAction";
 
 
 export interface ISettingsPageProps {
@@ -43,14 +44,6 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
 
     private onRemoveFilteredClicked() {
         store.dispatch(ShowModalDialogRemoveFilteredAction(true))
-    }
-
-    // private manageSnackBarRemoveUnfiltered() {
-    //     store.dispatch(ShowSnackBarRemoveUnfilteredAction(true));
-    // }
-
-    private manageSnackBarRemoveFiltered() {
-        store.dispatch(ShowSnackBarRemoveFilteredAction(true));
     }
 
     private manageSnackBarRemoveUnfilteredClose() {
@@ -87,7 +80,7 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
 
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
             showModal = false;
-            this.manageSnackBarRemoveFiltered();
+            store.dispatch(RemoveFilteredAction());
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
             showModal = false;
         }
