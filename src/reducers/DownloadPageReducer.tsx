@@ -1,4 +1,3 @@
-import * as objectAssign from "object-assign";
 import {Action} from "redux";
 import {ActionConstants} from "../actions/ActionConstants";
 
@@ -17,6 +16,9 @@ export function DownloadPageReducer(state: DownloadPageState = new DownloadPageS
     switch (action.type) {
 
         case ActionConstants.DOWNLOAD_UNFILTERED_FASTA:
+            return state;
+
+        case ActionConstants.DOWNLOAD_FILTERED_FASTA:
             return state;
 
         default:

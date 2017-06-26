@@ -56,14 +56,12 @@ export class GeneHandlerDAO {
     public downloadFilteredFasta() {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genehandler/delete-filtered",
+            url: "http://0.0.0.0:5000/genehandler/download-fasta-filtered",
             timeout: 1000
         }).then((response) => {
-            let showSnackBarFiltered: boolean = false;
             if (response) {
                 if (response.status === 200) {
-                    showSnackBarFiltered = true;
-                    return showSnackBarFiltered;
+                    FileDownload(response.data, 'filteredFasta.fasta');
                 }
             }
         });

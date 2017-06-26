@@ -1,8 +1,8 @@
 import {GeneHandlerDAO} from "../../access-data/dao/GeneHandlerDAO";
 
-export function DownloadUnfilteredFastaAction() {
+export function DownloadFilteredFastaAction() {
     return function () {
-        return new GeneHandlerDAO().downloadUnfilteredFasta()
+        return new GeneHandlerDAO().downloadFilteredFasta()
             .then(() => {
             }).catch(error => {
                 throw (error);
