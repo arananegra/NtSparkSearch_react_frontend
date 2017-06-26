@@ -10,9 +10,9 @@ export interface IDownloadPageProps {
 }
 
 export interface IDownloadPageDispatchProps {
-    onSearchButtonPressedDownloadUnfilteredIds?: () => any;
+    onSearchButtonPressedDownloadUnfilteredIds: () => any;
     onSearchButtonPressedDownloadUnfilteredFasta: () => any;
-    onSearchButtonPressedDownloadFilteredIds?: () => any;
+    onSearchButtonPressedDownloadFilteredIds: () => any;
     onSearchButtonPressedDownloadFilteredFasta: () => any;
 }
 

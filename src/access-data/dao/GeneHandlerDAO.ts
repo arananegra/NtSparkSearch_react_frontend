@@ -70,14 +70,12 @@ export class GeneHandlerDAO {
     public downloadUnfilteredIds() {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genehandler/delete-filtered",
+            url: "http://0.0.0.0:5000/genehandler/download-id-unfiltered",
             timeout: 1000
         }).then((response) => {
-            let showSnackBarFiltered: boolean = false;
             if (response) {
                 if (response.status === 200) {
-                    showSnackBarFiltered = true;
-                    return showSnackBarFiltered;
+                    FileDownload(response.data, 'unfilteredIds.txt');
                 }
             }
         });
@@ -86,14 +84,12 @@ export class GeneHandlerDAO {
     public downloadFilteredIds() {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genehandler/delete-filtered",
+            url: "http://0.0.0.0:5000/genehandler/download-id-filtered",
             timeout: 1000
         }).then((response) => {
-            let showSnackBarFiltered: boolean = false;
             if (response) {
                 if (response.status === 200) {
-                    showSnackBarFiltered = true;
-                    return showSnackBarFiltered;
+                    FileDownload(response.data, 'filteredIds.txt');
                 }
             }
         });

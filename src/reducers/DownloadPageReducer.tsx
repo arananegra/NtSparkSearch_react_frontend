@@ -11,14 +11,18 @@ export class DownloadPageState {
 export function DownloadPageReducer(state: DownloadPageState = new DownloadPageState(),
                                     action: Action): DownloadPageState {
 
-    let newState: DownloadPageState;
-
     switch (action.type) {
 
         case ActionConstants.DOWNLOAD_UNFILTERED_FASTA:
             return state;
 
         case ActionConstants.DOWNLOAD_FILTERED_FASTA:
+            return state;
+
+        case ActionConstants.DOWNLOAD_UNFILTERED_IDS:
+            return state;
+
+        case ActionConstants.DOWNLOAD_FILTERED_IDS:
             return state;
 
         default:

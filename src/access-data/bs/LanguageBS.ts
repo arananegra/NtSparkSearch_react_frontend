@@ -12,7 +12,6 @@ export class LanguageBS {
     }
 
     public changeEnglishLanguage() {
-
         this.setLanguageEnglish();
     }
 
