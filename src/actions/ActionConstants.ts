@@ -12,4 +12,5 @@ export class ActionConstants {
     public static DOWNLOAD_FILTERED_FASTA : string = "DOWNLOAD_FILTERED_FASTA";
     public static DOWNLOAD_UNFILTERED_IDS : string = "DOWNLOAD_UNFILTERED_IDS";
     public static DOWNLOAD_FILTERED_IDS : string = "DOWNLOAD_FILTERED_IDS";
+    public static SHOW_MODAL_DIALOG_UPLOAD_EXCEL: string = "SHOW_MODAL_DIALOG_UPLOAD_EXCEL";
 }

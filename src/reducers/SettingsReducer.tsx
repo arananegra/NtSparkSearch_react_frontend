@@ -2,7 +2,7 @@ import * as objectAssign from "object-assign";
 import {Action} from "redux";
 import {ActionConstants} from "../actions/ActionConstants";
 import {GeneSubSequenceSearcherDTO} from "../domain/GeneSubSequenceSearcherDTO";
-import {GeneSearchPageDTO} from "../domain/SearchPages/GeneSearchPageDTO";
+import {GeneSearchPageDTO} from "../domain/SearchPage/GeneSearchPageDTO";
 import {GeneSubsequenceResultDTO} from "../domain/GeneSubsequenceResultDTO";
 import {TableHeaderColumnDTO} from "../domain/TableHeaderColumnDTO";
 import {MessagesConstants} from "../i18n/MessagesConstants";

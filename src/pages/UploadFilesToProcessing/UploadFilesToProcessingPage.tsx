@@ -6,15 +6,21 @@ import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 import {FormattedMessage} from "react-intl";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {RowComponent} from "../../components/CommonComponents/RowComponent";
+import {ModalRequestWithTextBoxComponent} from "../../components/CommonComponents/ModalRequestWithTextBoxComponent";
+import {UploadFilesToProcessingPageDTO} from "../../domain/UploadPage/UploadFilesToProcessingPageDTO";
+import {Constants} from "../../common/Constants";
+import {store} from "../../components/AppPipeline";
+import {ShowModalDialogUploadExcelAction} from "../../actions/UploadActions/ShowModalDialogUploadExcelAction";
 
 export interface IUploadFilesToProcessingPageProps {
-    onSearchButtonPressedUploadExcel?: (value) => any;
-    onSearchButtonPressedUploadFasta?: (value) => any;
+    UploadFilesToProcessingPage: UploadFilesToProcessingPageDTO;
     textFromApiCall: string;
     intl?: any
 }
 
 export interface IUploadFilesToProcessingPageDispatchProps {
+    onSearchButtonPressedUploadExcel?: (value) => any;
+    onSearchButtonPressedUploadFasta?: (value) => any;
     onClickRenewTextApi: () => any;
 }
 
@@ -31,6 +37,29 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
 
     }
 
+    private manageOnClickModalUploadExcel(option: any) {
+        let showModal: boolean;
+        console.log("WTF: ", option);
+
+        showModal = false;
+        if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
+            showModal = false;
+
+        } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
+            showModal = false;
+        }
+
+        store.dispatch(ShowModalDialogUploadExcelAction(
+            showModal
+        ));
+    }
+
+    private onSearch(event) {
+        store.dispatch(ShowModalDialogUploadExcelAction(
+            true
+        ));
+    }
+
     public render() {
         return (
             <div className="container-fluid">
@@ -45,7 +74,16 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                             <RowComponent
                                 headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_EXCEL})}
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
-                                onButtonPressed={this.props.onSearchButtonPressedUploadExcel}/>
+                                onButtonPressed={this.onSearch.bind(this)}/>
+                            <ModalRequestWithTextBoxComponent
+                                showDialog={this.props.UploadFilesToProcessingPage._showModalDialogUploadExcel}
+                                onClick={this.manageOnClickModalUploadExcel.bind(this)}
+                                dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_UPLOAD_EXCEL})}
+                                dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_UPLOAD_EXCEL})}
+                                floatingLabelText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_FLOATING_LABEL_TEXT})}
+                                hintText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_HINT_TEXT})}
+                                acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
+                                cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
                         </div>
 
                         <div className="container-fluid header-separtion-upload-page">

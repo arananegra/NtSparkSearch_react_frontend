@@ -3,7 +3,7 @@ import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {FormattedMessage} from "react-intl";
 import {SubSequenceInDNATableResult} from "../../components/TableComponents/SubSequenceInDNATableResult";
-import {GeneSearchPageDTO} from "../../domain/SearchPages/GeneSearchPageDTO";
+import {GeneSearchPageDTO} from "../../domain/SearchPage/GeneSearchPageDTO";
 import {GeneSubSequenceDatabaseSearcherComponent} from "../../components/SearcherBarComponents/GeneSubSequenceDatabaseSearcherComponent";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 

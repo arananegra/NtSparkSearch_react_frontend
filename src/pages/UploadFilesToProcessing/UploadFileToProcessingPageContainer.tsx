@@ -9,7 +9,8 @@ import {
 import {LoadSimpleAction} from "../../actions/LoadSimpleAction";
 
 const mapStateToProp = (state: IReducers): IUploadFilesToProcessingPageProps => ({
-    textFromApiCall: state['reducers'].UploadFilesToProcessingPageReducer.textFromApi
+    textFromApiCall: state['reducers'].UploadFilesToProcessingPageReducer.textFromApi,
+    UploadFilesToProcessingPage : state['reducers'].UploadFilesToProcessingPageReducer._uploadFilesToProcessingPage
 });
 
 const mapDispatchToProps = (dispatch): IUploadFilesToProcessingPageDispatchProps => ({

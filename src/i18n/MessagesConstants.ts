@@ -6,6 +6,8 @@ export class MessagesConstants {
     public static SEARCH: string = "search";
     public static DIALOG_TITTLE_SUB_SEQ_SEARCH: string = "dialogTittleSubSeqSearch";
     public static DIALOG_TEXT_SUB_SEQ_SEARCH: string = "dialogTextSubSeqSearch";
+    public static DIALOG_TITTLE_UPLOAD_EXCEL: string = "dialogTittleUploadExcel";
+    public static DIALOG_TEXT_UPLOAD_EXCEL: string = "dialogTextUploadExcel";
     public static DIALOG_EMAIL_FLOATING_LABEL_TEXT: string = "dialogEmailFloatingLabelText";
     public static DIALOG_EMAIL_HINT_TEXT: string = "dialogEmailHintText";
     public static DIALOG_ACCEPT_BUTTON: string = "dialogAcceptButton";
@@ -57,6 +59,9 @@ export class MessagesConstants {
         search: "Buscar",
         dialogTittleSubSeqSearch: "Lanzamiento de búsqueda de genes",
         dialogTextSubSeqSearch: "Introduzca dirección de correo para lanzar la búsqueda de los genes requeridos",
+        dialogTittleUploadExcel: "Subida de archivo excel con IDs de genes",
+        dialogTextUploadExcel: "Introduzca dirección de correo para subir archivo excel y " +
+        "comenzar descarga de genes incluidos en el archivo",
         dialogEmailFloatingLabelText: "Correo electrónico",
         dialogEmailHintText: "Introduzca correo electrónico",
         dialogAcceptButton: "Aceptar",
@@ -99,7 +104,7 @@ export class MessagesConstants {
         dialogTextRemoveFiltered: "¿Está seguro que desea borrar la colección de genes filtrada?",
         dialogTittleRemoveUnfiltered: "Borrar colección no filtrada",
         dialogTittleRemoveFiltered: "Borrar colección filtrada",
-        snackBarUnfilteredRemovedText : "Colección de genes no filtrados borrada con éxito",
+        snackBarUnfilteredRemovedText: "Colección de genes no filtrados borrada con éxito",
         snackBarFilteredRemovedText: "Colección de genes filtrados borrada con éxito",
     };
 
@@ -111,6 +116,9 @@ export class MessagesConstants {
         search: "Search",
         dialogTittleSubSeqSearch: "Launch genes search",
         dialogTextSubSeqSearch: "Enter email address in order to launch the search of the required genes",
+        dialogTittleUploadExcel: "Upload excel file with gene IDs",
+        dialogTextUploadExcel: "Enter email address in order to start the download " +
+        "of the genes included in the excel file",
         dialogEmailFloatingLabelText: "Email",
         dialogEmailHintText: "Enter your email",
         dialogAcceptButton: "Accept",
@@ -152,7 +160,7 @@ export class MessagesConstants {
         dialogTextRemoveFiltered: "Are you sure you want to remove the whole filtered collection?",
         dialogTittleRemoveUnfiltered: "Remove unfiltered collection",
         dialogTittleRemoveFiltered: "Remove filtered collection",
-        snackBarUnfilteredRemovedText : "Collection of unfiltered genes successfully removed",
+        snackBarUnfilteredRemovedText: "Collection of unfiltered genes successfully removed",
         snackBarFilteredRemovedText: "Collection of filtered genes successfully removed",
     };
 }

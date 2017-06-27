@@ -2,7 +2,7 @@ import * as React from "react";
 import {GeneSubSequenceSearcherComponent} from "../../components/SearcherBarComponents/GeneSubSequenceSearcherComponent";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {SubSequenceInDNATableResult} from "../../components/TableComponents/SubSequenceInDNATableResult";
-import {GeneSearchPageDTO} from "../../domain/SearchPages/GeneSearchPageDTO";
+import {GeneSearchPageDTO} from "../../domain/SearchPage/GeneSearchPageDTO";
 
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import {ModalRequestWithTextBoxComponent} from "../../components/CommonComponents/ModalRequestWithTextBoxComponent";
