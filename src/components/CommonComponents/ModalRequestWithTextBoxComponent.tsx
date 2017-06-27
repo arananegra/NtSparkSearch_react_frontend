@@ -9,6 +9,7 @@ import {InputEmail} from "./InputEmail";
 export interface IModalRequestWithTextBoxComponentProps {
     showDialog: boolean;
     onClick: (value: any) => any;
+    onInputTextChange?:(newValue) => string;
     dialogTitle: string;
     dialogText: string;
     hintText: string;
@@ -29,7 +30,7 @@ export class ModalRequestWithTextBoxComponent extends React.Component<IModalRequ
     }
 
     private  onTextChange(event: object, newValue: string) {
-
+        this.props.onInputTextChange(newValue);
     }
 
     public render() {

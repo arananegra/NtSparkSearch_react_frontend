@@ -60,6 +60,10 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
         ));
     }
 
+    private textFromInputTextBox(newEmailText: string) {
+        console.log(newEmailText);
+    }
+
     public render() {
         return (
             <div className="container-fluid">
@@ -76,6 +80,7 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
                                 onButtonPressed={this.onSearch.bind(this)}/>
                             <ModalRequestWithTextBoxComponent
+                                onInputTextChange={this.textFromInputTextBox.bind(this)}
                                 showDialog={this.props.UploadFilesToProcessingPage._showModalDialogUploadExcel}
                                 onClick={this.manageOnClickModalUploadExcel.bind(this)}
                                 dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_UPLOAD_EXCEL})}

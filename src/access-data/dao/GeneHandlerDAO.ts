@@ -7,6 +7,18 @@ export class GeneHandlerDAO {
 
     }
 
+    public uploadExcelFileRequest(email: string) {
+        //let myData =
+        return axios({
+            method: 'post',
+            url: "http://0.0.0.0:5000/genehandler/upload-excel?" + email,
+            timeout: 1000,
+            headers: { 'content-type': 'multipart/form-data' }
+        }).then((response) => {
+            console.log("hola mundo")
+        });
+    }
+
     public removeUnfilteredCollection() {
         return axios({
             method: 'delete',
