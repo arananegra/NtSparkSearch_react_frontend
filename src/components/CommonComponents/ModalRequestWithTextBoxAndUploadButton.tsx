@@ -1,11 +1,11 @@
 import * as React from "react";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import Upload from 'material-ui-upload/Upload';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Constants} from "../../common/Constants";
 import {InputEmail} from "./InputEmail";
+import {FlatButtonWithUploadInput} from "./FlatButtonWithUploadInput";
 
 export interface IModalRequestWithTextBoxComponentProps {
     showDialog: boolean;
@@ -34,13 +34,35 @@ export class ModalRequestWithTextBoxAndUploadButton extends React.Component<IMod
         this.props.onInputTextChange(newValue);
     }
 
+    private fileReceiver(event) {
+        event.preventDefault();
+        let data = new FormData();
+        data.append('file', event.target.files[0]);
+        console.log("", data);
+        console.log("", event.target.files[0]);
+        this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
+    }
+
+// <FlatButton
+// label={this.props.acceptButtonLabel}
+// primary={true}
+// labelPosition="before"
+// style={styles.button}
+// containerElement="label"
+// >
+// <input type="file" className="input-file" onChange={(event) => {
+//     event.preventDefault();
+//     let data = new FormData();
+//     data.append('file', event.target.files[0]);
+//     console.log("", data);
+//     console.log("", event.target.files[0]);
+//     this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
+// }}/>
+//
+// </FlatButton>
 
     public render() {
         const styles = {
-            button: {
-                margin: -12,
-                //padding: "15px",
-            },
             exampleImageInput: {
                 cursor: 'pointer',
                 position: 'absolute' as 'absolute',
@@ -53,35 +75,28 @@ export class ModalRequestWithTextBoxAndUploadButton extends React.Component<IMod
             },
         };
         const actions = [
-            <FlatButton
-                label={this.props.cancelButtonLabel}
-                primary={true}
-                onTouchTap={(event) => {
-                    //TODO : esto?
-                    event.preventDefault();
-                    this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
-                }}
-            >
+            <div className="row">
+                <div className="col-md-offset-8 col-xs-1">
+                    <FlatButton
+                        label={this.props.cancelButtonLabel}
+                        primary={true}
+                        onTouchTap={(event) => {
+                            event.preventDefault();
+                            this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
+                        }}
+                    >
+                    </FlatButton>
+                </div>
 
-            </FlatButton>,
+                <div className="col-md-offset-1 col-xs-1">
+                    <FlatButtonWithUploadInput
+                        buttonLabel={this.props.acceptButtonLabel}
+                        onInputSubmitUpload={this.fileReceiver.bind(this)}
+                        styleInputInsideButton={styles.exampleImageInput}
+                    />
+                </div>
+            </div>
 
-            <FlatButton
-                label={this.props.acceptButtonLabel}
-                primary={true}
-                labelPosition="before"
-                style={styles.button}
-                containerElement="label"
-            >
-                <input type="file" className="input-file" onChange={(event) => {
-                    event.preventDefault();
-                    let data = new FormData();
-                    data.append('file', event.target.files[0]);
-                    console.log("", data);
-                    console.log("", event.target.files[0]);
-                    this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
-                }}/>
-
-            </FlatButton>,
         ];
 
         return (
