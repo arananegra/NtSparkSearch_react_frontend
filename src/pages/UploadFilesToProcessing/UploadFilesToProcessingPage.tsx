@@ -11,6 +11,7 @@ import {UploadFilesToProcessingPageDTO} from "../../domain/UploadPage/UploadFile
 import {Constants} from "../../common/Constants";
 import {store} from "../../components/AppPipeline";
 import {ShowModalDialogUploadExcelAction} from "../../actions/UploadActions/ShowModalDialogUploadExcelAction";
+import {ModalRequestWithTextBoxAndUploadButton} from "../../components/CommonComponents/ModalRequestWithTextBoxAndUploadButton";
 
 export interface IUploadFilesToProcessingPageProps {
     UploadFilesToProcessingPage: UploadFilesToProcessingPageDTO;
@@ -79,7 +80,7 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                                 headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_EXCEL})}
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
                                 onButtonPressed={this.onSearch.bind(this)}/>
-                            <ModalRequestWithTextBoxComponent
+                            <ModalRequestWithTextBoxAndUploadButton
                                 onInputTextChange={this.textFromInputTextBox.bind(this)}
                                 showDialog={this.props.UploadFilesToProcessingPage._showModalDialogUploadExcel}
                                 onClick={this.manageOnClickModalUploadExcel.bind(this)}
