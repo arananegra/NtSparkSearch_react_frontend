@@ -11,6 +11,7 @@ export interface IModalRequestWithTextBoxComponentProps {
     showDialog: boolean;
     onClick: (value: any) => any;
     onInputTextChange?: (newValue) => string;
+    onFileUpload?: (fileEvent) => any;
     dialogTitle: string;
     dialogText: string;
     hintText: string;
@@ -43,24 +44,6 @@ export class ModalRequestWithTextBoxAndUploadButton extends React.Component<IMod
         this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
     }
 
-// <FlatButton
-// label={this.props.acceptButtonLabel}
-// primary={true}
-// labelPosition="before"
-// style={styles.button}
-// containerElement="label"
-// >
-// <input type="file" className="input-file" onChange={(event) => {
-//     event.preventDefault();
-//     let data = new FormData();
-//     data.append('file', event.target.files[0]);
-//     console.log("", data);
-//     console.log("", event.target.files[0]);
-//     this.props.onClick(Constants.CANCEL_BUTTON_PRESSED_VALUE)
-// }}/>
-//
-// </FlatButton>
-
     public render() {
         const styles = {
             exampleImageInput: {
@@ -91,7 +74,7 @@ export class ModalRequestWithTextBoxAndUploadButton extends React.Component<IMod
                 <div className="col-md-offset-1 col-xs-1">
                     <FlatButtonWithUploadInput
                         buttonLabel={this.props.acceptButtonLabel}
-                        onInputSubmitUpload={this.fileReceiver.bind(this)}
+                        onInputSubmitUpload={this.props.onFileUpload}
                         styleInputInsideButton={styles.exampleImageInput}
                     />
                 </div>
