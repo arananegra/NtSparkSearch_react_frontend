@@ -7,17 +7,18 @@ export class GeneHandlerDAO {
 
     }
 
-    public uploadExcelFileRequest(file: any, email: string) {
-        const formData = new FormData();
-        formData.append('excelFile',file);
+    public uploadExcelFileRequest(formData: any) {
+        console.log("", formData);
         return axios({
             method: 'post',
-            url: "http://0.0.0.0:5000/genehandler/upload-excel?" + email,
-            timeout: 1000,
+            url: "http://0.0.0.0:5000/genehandler/upload-excel",
+            timeout: 10000,
             //headers: {'content-type': 'multipart/form-data'},
             data: formData,
         }).then((response) => {
-            console.log("hola mundo")
+            if (response.status === 202) {
+                console.log("Subido con exito");
+            }
         });
     }
 

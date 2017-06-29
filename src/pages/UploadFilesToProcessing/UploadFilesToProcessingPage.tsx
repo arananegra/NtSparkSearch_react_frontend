@@ -22,6 +22,7 @@ export interface IUploadFilesToProcessingPageProps {
 export interface IUploadFilesToProcessingPageDispatchProps {
     onSearchButtonPressedUploadExcel?: (value) => any;
     onSearchButtonPressedUploadFasta?: (value) => any;
+    onExcelFileUpload: (file) => any;
     onClickRenewTextApi: () => any;
 }
 
@@ -32,10 +33,6 @@ export interface IUploadFilesToProcessingPageState {
 export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToProcessingPageProps & IUploadFilesToProcessingPageDispatchProps & InjectedIntlProps, IUploadFilesToProcessingPageState> {
     public constructor(props: IUploadFilesToProcessingPageProps & IUploadFilesToProcessingPageDispatchProps & InjectedIntlProps) {
         super(props);
-    }
-
-    public componentWillMount() {
-
     }
 
     private manageOnClickModalUploadExcel(option: any) {
@@ -65,6 +62,16 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
         console.log(newEmailText);
     }
 
+    private fileReceiver(event) {
+        event.preventDefault();
+        let data = new FormData();
+        data.append('file', event.target.files[0]);
+        this.props.onExcelFileUpload(data);
+        store.dispatch(ShowModalDialogUploadExcelAction(
+            false
+        ));
+    }
+
     public render() {
         return (
             <div className="container-fluid">
@@ -84,6 +91,7 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                                 onInputTextChange={this.textFromInputTextBox.bind(this)}
                                 showDialog={this.props.UploadFilesToProcessingPage._showModalDialogUploadExcel}
                                 onClick={this.manageOnClickModalUploadExcel.bind(this)}
+                                onFileUpload={this.fileReceiver.bind(this)}
                                 dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_UPLOAD_EXCEL})}
                                 dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_UPLOAD_EXCEL})}
                                 floatingLabelText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_FLOATING_LABEL_TEXT})}

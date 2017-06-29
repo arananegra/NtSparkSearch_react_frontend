@@ -11,7 +11,7 @@ export interface IModalRequestWithTextBoxComponentProps {
     showDialog: boolean;
     onClick: (value: any) => any;
     onInputTextChange?: (newValue) => string;
-    onFileUpload?: (fileEvent) => any;
+    onFileUpload: (fileEvent) => any;
     dialogTitle: string;
     dialogText: string;
     hintText: string;
