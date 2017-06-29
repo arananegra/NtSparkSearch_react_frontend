@@ -56,9 +56,8 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
 
     private manageOnClickModalUnfiltered(option: any) {
         let showModal: boolean;
-        console.log("WTF en unfiltered!: ", option);
-
         showModal = false;
+
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
             showModal = false;
             store.dispatch(RemoveUnfilteredAction());
@@ -73,9 +72,6 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
 
     private manageOnClickModalFiltered(option: any) {
         let showModal: boolean;
-
-        console.log("WTF en filtered!: ", option);
-
         showModal = false;
 
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
@@ -101,7 +97,6 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
                 transitionLeaveTimeout={5000}>
                 <MuiThemeProvider>
                     <div>
-
                         <SettingsPaperComponent
                             paperMainText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_TEXT_REMOVE_UNFILTERED})}
                             paperButtonText={this.props.intl.formatMessage({id: MessagesConstants.SETTINGS_BUTTON_REMOVE_UNFILTERED})}
@@ -145,7 +140,6 @@ export class SettingsPage extends React.Component<ISettingsPageProps & ISettings
                                 textMessage={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BODY})}
                                 buttonAcceptText={this.props.intl.formatMessage({id: MessagesConstants.ABOUT_APP_BUTTON_TEXT})}/>
                         </div>
-
                     </div>
                 </MuiThemeProvider>
             </CSSTransitionGroup>

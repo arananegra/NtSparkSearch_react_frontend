@@ -74,7 +74,10 @@ export class ModalRequestWithTextBoxAndUploadButton extends React.Component<IMod
                 <div className="col-md-offset-1 col-xs-1">
                     <FlatButtonWithUploadInput
                         buttonLabel={this.props.acceptButtonLabel}
-                        onInputSubmitUpload={this.props.onFileUpload}
+                        onInputSubmitUpload={(event) => {
+                            this.props.onFileUpload(event);
+                            this.props.onClick(Constants.SUBMIT_BUTTON_PRESSED_VALUE);
+                        }}
                         styleInputInsideButton={styles.exampleImageInput}
                     />
                 </div>

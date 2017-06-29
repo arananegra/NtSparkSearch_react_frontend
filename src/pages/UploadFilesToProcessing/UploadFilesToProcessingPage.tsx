@@ -9,9 +9,12 @@ import {RowComponent} from "../../components/CommonComponents/RowComponent";
 import {ModalRequestWithTextBoxComponent} from "../../components/CommonComponents/ModalRequestWithTextBoxComponent";
 import {UploadFilesToProcessingPageDTO} from "../../domain/UploadPage/UploadFilesToProcessingPageDTO";
 import {Constants} from "../../common/Constants";
+import Snackbar from 'material-ui/Snackbar';
 import {store} from "../../components/AppPipeline";
 import {ShowModalDialogUploadExcelAction} from "../../actions/UploadActions/ShowModalDialogUploadExcelAction";
 import {ModalRequestWithTextBoxAndUploadButton} from "../../components/CommonComponents/ModalRequestWithTextBoxAndUploadButton";
+import {ShowModalDialogUploadFastaAction} from "../../actions/UploadActions/ShowModalDialogUploadFastaAction";
+import {ShowSnackBarUploadExcelAction} from "../../actions/UploadActions/ShowSnackBarUploadExcelAction";
 
 export interface IUploadFilesToProcessingPageProps {
     UploadFilesToProcessingPage: UploadFilesToProcessingPageDTO;
@@ -20,8 +23,8 @@ export interface IUploadFilesToProcessingPageProps {
 }
 
 export interface IUploadFilesToProcessingPageDispatchProps {
-    onSearchButtonPressedUploadExcel?: (value) => any;
-    onSearchButtonPressedUploadFasta?: (value) => any;
+    //onSearchButtonPressedUploadExcel?: (value) => any;
+    //onSearchButtonPressedUploadFasta?: (value) => any;
     onExcelFileUpload: (file) => any;
     onClickRenewTextApi: () => any;
 }
@@ -36,26 +39,36 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
     }
 
     private manageOnClickModalUploadExcel(option: any) {
-        let showModal: boolean;
-        console.log("WTF: ", option);
-
-        showModal = false;
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
-            showModal = false;
+            store.dispatch(ShowSnackBarUploadExcelAction(
+                true
+            ));
+            store.dispatch(ShowModalDialogUploadExcelAction(
+                false
+            ));
 
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
-            showModal = false;
+            store.dispatch(ShowModalDialogUploadExcelAction(
+                false
+            ));
         }
-
-        store.dispatch(ShowModalDialogUploadExcelAction(
-            showModal
-        ));
     }
 
-    private onSearch(event) {
+    private onClickUploadExcel(event) {
         store.dispatch(ShowModalDialogUploadExcelAction(
             true
         ));
+    }
+
+    //TODO: terminar componente --> crear componente de dialogo sin texto y upload button
+    private onClickUploadFasta(event) {
+        // store.dispatch(ShowModalDialogUploadFastaAction(
+        //     true
+        // ));
+    }
+
+    private manageSnackBarUploadedExcel() {
+        store.dispatch(ShowSnackBarUploadExcelAction(false));
     }
 
     private textFromInputTextBox(newEmailText: string) {
@@ -86,7 +99,7 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                             <RowComponent
                                 headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_EXCEL})}
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
-                                onButtonPressed={this.onSearch.bind(this)}/>
+                                onButtonPressed={this.onClickUploadExcel.bind(this)}/>
                             <ModalRequestWithTextBoxAndUploadButton
                                 onInputTextChange={this.textFromInputTextBox.bind(this)}
                                 showDialog={this.props.UploadFilesToProcessingPage._showModalDialogUploadExcel}
@@ -98,13 +111,21 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                                 hintText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_HINT_TEXT})}
                                 acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
                                 cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
+                            <MuiThemeProvider>
+                                <Snackbar
+                                    open={this.props.UploadFilesToProcessingPage._showSnackBarUploadExcelSucces}
+                                    message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_UPLOADED_EXCEL_TEXT})}
+                                    autoHideDuration={4000}
+                                    onRequestClose={this.manageSnackBarUploadedExcel.bind(this)}
+                                />
+                            </MuiThemeProvider>
                         </div>
 
                         <div className="container-fluid header-separtion-upload-page">
                             <RowComponent
                                 headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_FASTA})}
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_FASTA})}
-                                onButtonPressed={this.props.onSearchButtonPressedUploadExcel}/>
+                                onButtonPressed={this.onClickUploadExcel.bind(this)}/>
                         </div>
                     </div>
                 </CSSTransitionGroup>

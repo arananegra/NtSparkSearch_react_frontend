@@ -10,6 +10,8 @@ export class UploadPageState {
     public constructor() {
         this._uploadFilesToProcessingPage = new UploadFilesToProcessingPageDTO();
         this._uploadFilesToProcessingPage._showModalDialogUploadExcel = false;
+        this._uploadFilesToProcessingPage._showSnackBarUploadExcelSucces = false;
+        this._uploadFilesToProcessingPage._showSnackBarUploadFastaSucces = false;
         this.textFromApi = "NADA";
     }
 }
@@ -41,6 +43,15 @@ export function UploadFilesToProcessingPageReducer(state: UploadPageState = new 
 
             newState = objectAssign({}, state, {textFromApi: newTextToState});
             return newState;
+
+        case ActionConstants.SHOW_SNACKBAR_UPLOAD_EXCEL_SUCCESS:
+
+            let newPageShowingUploadedExcelSnackbar = objectAssign({}, state._uploadFilesToProcessingPage, {});
+            newPageShowingUploadedExcelSnackbar._showSnackBarUploadExcelSucces = action["showSnackBarUploadExcel"];
+            newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newPageShowingUploadedExcelSnackbar});
+
+            return newState;
+
 
         default:
             return state;

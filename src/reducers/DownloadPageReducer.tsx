@@ -13,17 +13,17 @@ export function DownloadPageReducer(state: DownloadPageState = new DownloadPageS
 
     switch (action.type) {
 
-        case ActionConstants.DOWNLOAD_UNFILTERED_FASTA:
-            return state;
-
-        case ActionConstants.DOWNLOAD_FILTERED_FASTA:
-            return state;
-
-        case ActionConstants.DOWNLOAD_UNFILTERED_IDS:
-            return state;
-
-        case ActionConstants.DOWNLOAD_FILTERED_IDS:
-            return state;
+        // case ActionConstants.DOWNLOAD_UNFILTERED_FASTA:
+        //     return state;
+        //
+        // case ActionConstants.DOWNLOAD_FILTERED_FASTA:
+        //     return state;
+        //
+        // case ActionConstants.DOWNLOAD_UNFILTERED_IDS:
+        //     return state;
+        //
+        // case ActionConstants.DOWNLOAD_FILTERED_IDS:
+        //     return state;
 
         default:
             return state;

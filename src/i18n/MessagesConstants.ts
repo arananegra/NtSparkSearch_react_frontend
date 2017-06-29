@@ -50,6 +50,7 @@ export class MessagesConstants {
     public static DIALOG_TITTLE_REMOVE_FILTERED = "dialogTittleRemoveFiltered";
     public static SNACKBAR_UNFILTERED_REMOVED_TEXT = "snackBarUnfilteredRemovedText";
     public static SNACKBAR_FILTERED_REMOVED_TEXT = "snackBarFilteredRemovedText";
+    public static SNACKBAR_UPLOADED_EXCEL_TEXT = "snackBarUploadedExcelText";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -106,6 +107,7 @@ export class MessagesConstants {
         dialogTittleRemoveFiltered: "Borrar colección filtrada",
         snackBarUnfilteredRemovedText: "Colección de genes no filtrados borrada con éxito",
         snackBarFilteredRemovedText: "Colección de genes filtrados borrada con éxito",
+        snackBarUploadedExcelText : "Fichero excel con secuencias subido con éxito",
     };
 
     public static enGbMessages = {
@@ -162,5 +164,6 @@ export class MessagesConstants {
         dialogTittleRemoveFiltered: "Remove filtered collection",
         snackBarUnfilteredRemovedText: "Collection of unfiltered genes successfully removed",
         snackBarFilteredRemovedText: "Collection of filtered genes successfully removed",
+        snackBarUploadedExcelText : "Excel file with sequences uploaded successfully",
     };
 }
