@@ -7,17 +7,32 @@ export class GeneHandlerDAO {
 
     }
 
-    public uploadExcelFileRequest(formData: any) {
-        return axios({
-            method: 'post',
-            url: "http://0.0.0.0:5000/genehandler/upload-excel",
-            timeout: 100000,
-            data: formData,
-        }).then((response) => {
-            if (response.status === 202) {
-                return 202;
-            }
-        });
+    public uploadExcelFileRequest(formData: any, email: any) {
+
+        if(email===""){
+            return axios({
+                method: 'post',
+                url: "http://0.0.0.0:5000/genehandler/upload-excel",
+                timeout: 100000,
+                data: formData,
+            }).then((response) => {
+                if (response.status === 202) {
+                    return 202;
+                }
+            });
+        }
+        else {
+            return axios({
+                method: 'post',
+                url: "http://0.0.0.0:5000/genehandler/upload-excel?email="+email,
+                timeout: 100000,
+                data: formData,
+            }).then((response) => {
+                if (response.status === 202) {
+                    return 202;
+                }
+            });
+        }
     }
 
     public uploadFastaFileRequest(formData: any) {

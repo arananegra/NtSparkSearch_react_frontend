@@ -15,7 +15,7 @@ const mapStateToProp = (state: IReducers): IUploadFilesToProcessingPageProps => 
 });
 
 const mapDispatchToProps = (dispatch): IUploadFilesToProcessingPageDispatchProps => ({
-    onExcelFileUpload: (formData) => dispatch(UploadExcelRequest(formData)),
+    onExcelFileUpload: (formData, email) => dispatch(UploadExcelRequest(formData, email)),
     onFastaFileUpload :(formData) => dispatch(UploadFastaRequest(formData)),
     onDialogEmailText : (newEmailText) => dispatch(WriteOnInputText(newEmailText)),
 });

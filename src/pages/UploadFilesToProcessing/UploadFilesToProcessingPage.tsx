@@ -22,7 +22,7 @@ export interface IUploadFilesToProcessingPageProps {
 }
 
 export interface IUploadFilesToProcessingPageDispatchProps {
-    onExcelFileUpload: (file) => any;
+    onExcelFileUpload: (file, email) => any;
     onFastaFileUpload: (file) => any;
     onDialogEmailText: (newEmailText) => any;
 }
@@ -96,7 +96,7 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
         event.preventDefault();
         let data = new FormData();
         data.append('file', event.target.files[0]);
-        this.props.onExcelFileUpload(data);
+        this.props.onExcelFileUpload(data, this.props.UploadFilesToProcessingPage._emailFromDialog);
         store.dispatch(ShowModalDialogUploadExcelAction(
             false
         ));
