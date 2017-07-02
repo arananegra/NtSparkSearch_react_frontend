@@ -12,6 +12,7 @@ export class UploadPageState {
         this._uploadFilesToProcessingPage._showModalDialogFasta = false;
         this._uploadFilesToProcessingPage._showSnackBarUploadExcelSucces = false;
         this._uploadFilesToProcessingPage._showSnackBarUploadFastaSucces = false;
+        this._uploadFilesToProcessingPage._emailFromDialog = "";
     }
 }
 
@@ -55,6 +56,12 @@ export function UploadFilesToProcessingPageReducer(state: UploadPageState = new 
             let newPageShowingUploadedFastaSnackbar = objectAssign({}, state._uploadFilesToProcessingPage, {});
             newPageShowingUploadedFastaSnackbar._showSnackBarUploadFastaSucces = action["showSnackBarUploadFasta"];
             newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newPageShowingUploadedFastaSnackbar});
+            return newState;
+
+        case ActionConstants.WRITE_ON_INPUT_TEXT:
+            let newPageWithEmailFromDialog = objectAssign({}, state._uploadFilesToProcessingPage, {});
+            newPageWithEmailFromDialog._emailFromDialog = action["textFromInputTextBox"];
+            newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newPageWithEmailFromDialog});
             return newState;
 
         default:

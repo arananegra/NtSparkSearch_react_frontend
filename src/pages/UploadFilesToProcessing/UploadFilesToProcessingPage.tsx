@@ -1,12 +1,10 @@
 import * as React from "react";
-import RaisedButton from 'material-ui/RaisedButton';
 import * as CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 import {FormattedMessage} from "react-intl";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {RowComponent} from "../../components/CommonComponents/RowComponent";
-import {ModalRequestWithTextBoxComponent} from "../../components/CommonComponents/ModalRequestWithTextBoxComponent";
 import {UploadFilesToProcessingPageDTO} from "../../domain/UploadPage/UploadFilesToProcessingPageDTO";
 import {Constants} from "../../common/Constants";
 import Snackbar from 'material-ui/Snackbar';
@@ -26,6 +24,7 @@ export interface IUploadFilesToProcessingPageProps {
 export interface IUploadFilesToProcessingPageDispatchProps {
     onExcelFileUpload: (file) => any;
     onFastaFileUpload: (file) => any;
+    onDialogEmailText: (newEmailText) => any;
 }
 
 export interface IUploadFilesToProcessingPageState {
@@ -90,7 +89,7 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
     }
 
     private textFromExcelInputTextBox(newEmailText: string) {
-        console.log(newEmailText);
+
     }
 
     private excelFileReceiver(event) {
@@ -129,7 +128,7 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
                                 onButtonPressed={this.onClickUploadExcel.bind(this)}/>
                             <ModalRequestWithTextBoxAndUploadButton
-                                onInputTextChange={this.textFromExcelInputTextBox.bind(this)}
+                                onInputTextChange={this.props.onDialogEmailText}
                                 showDialog={this.props.UploadFilesToProcessingPage._showModalDialogUploadExcel}
                                 onClick={this.manageOnClickModalUploadExcel.bind(this)}
                                 onFileUpload={this.excelFileReceiver.bind(this)}

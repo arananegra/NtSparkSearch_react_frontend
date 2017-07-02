@@ -8,6 +8,7 @@ import {
 } from "./UploadFilesToProcessingPage";
 import {UploadExcelRequest} from "../../actions/UploadActions/UploadExcelRequest";
 import {UploadFastaRequest} from "../../actions/UploadActions/UploadFastaRequest";
+import {WriteOnInputText} from "../../actions/WriteOnInputText";
 
 const mapStateToProp = (state: IReducers): IUploadFilesToProcessingPageProps => ({
     UploadFilesToProcessingPage : state['reducers'].UploadFilesToProcessingPageReducer._uploadFilesToProcessingPage
@@ -16,6 +17,7 @@ const mapStateToProp = (state: IReducers): IUploadFilesToProcessingPageProps => 
 const mapDispatchToProps = (dispatch): IUploadFilesToProcessingPageDispatchProps => ({
     onExcelFileUpload: (formData) => dispatch(UploadExcelRequest(formData)),
     onFastaFileUpload :(formData) => dispatch(UploadFastaRequest(formData)),
+    onDialogEmailText : (newEmailText) => dispatch(WriteOnInputText(newEmailText)),
 });
 
 export const UploadFileToProcessingPageContainer = connect<IUploadFilesToProcessingPageProps, IUploadFilesToProcessingPageDispatchProps, {}>(
