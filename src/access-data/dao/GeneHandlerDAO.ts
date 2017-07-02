@@ -56,7 +56,10 @@ export class GeneHandlerDAO {
         return axios({
             method: 'get',
             url: "http://0.0.0.0:5000/genehandler/download-fasta-unfiltered",
-            timeout: 1000
+            timeout: 1000,
+            headers: {
+                "cache-control": "no-cache"
+            }
         }).then((response) => {
             if (response) {
                 if (response.status === 200) {
@@ -70,7 +73,10 @@ export class GeneHandlerDAO {
         return axios({
             method: 'get',
             url: "http://0.0.0.0:5000/genehandler/download-fasta-filtered",
-            timeout: 1000
+            timeout: 1000,
+            headers: {
+                "cache-control": "no-cache"
+            }
         }).then((response) => {
             if (response) {
                 if (response.status === 200) {
@@ -84,7 +90,10 @@ export class GeneHandlerDAO {
         return axios({
             method: 'get',
             url: "http://0.0.0.0:5000/genehandler/download-id-unfiltered",
-            timeout: 1000
+            timeout: 1000,
+            headers: {
+                "cache-control": "no-cache"
+            }
         }).then((response) => {
             if (response) {
                 if (response.status === 200) {
@@ -98,7 +107,10 @@ export class GeneHandlerDAO {
         return axios({
             method: 'get',
             url: "http://0.0.0.0:5000/genehandler/download-id-filtered",
-            timeout: 1000
+            timeout: 1000,
+            headers: {
+                "cache-control": "no-cache"
+            }
         }).then((response) => {
             if (response) {
                 if (response.status === 200) {
