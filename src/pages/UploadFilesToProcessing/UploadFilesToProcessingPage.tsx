@@ -15,18 +15,17 @@ import {ShowModalDialogUploadExcelAction} from "../../actions/UploadActions/Show
 import {ModalRequestWithTextBoxAndUploadButton} from "../../components/CommonComponents/ModalRequestWithTextBoxAndUploadButton";
 import {ShowModalDialogUploadFastaAction} from "../../actions/UploadActions/ShowModalDialogUploadFastaAction";
 import {ShowSnackBarUploadExcelAction} from "../../actions/UploadActions/ShowSnackBarUploadExcelAction";
+import {ModalRequestWithUploadButton} from "../../components/CommonComponents/ModalRequestWithUploadButton";
+import {ShowSnackBarUploadFastaAction} from "../../actions/UploadActions/ShowSnackBarUploadFastaAction";
 
 export interface IUploadFilesToProcessingPageProps {
     UploadFilesToProcessingPage: UploadFilesToProcessingPageDTO;
-    textFromApiCall: string;
     intl?: any
 }
 
 export interface IUploadFilesToProcessingPageDispatchProps {
-    //onSearchButtonPressedUploadExcel?: (value) => any;
-    //onSearchButtonPressedUploadFasta?: (value) => any;
     onExcelFileUpload: (file) => any;
-    onClickRenewTextApi: () => any;
+    onFastaFileUpload: (file) => any;
 }
 
 export interface IUploadFilesToProcessingPageState {
@@ -54,33 +53,62 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
         }
     }
 
+    private manageOnClickModalUploadFasta(option: any) {
+        if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
+            store.dispatch(ShowSnackBarUploadFastaAction(
+                true
+            ));
+            store.dispatch(ShowModalDialogUploadFastaAction(
+                false
+            ));
+
+        } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
+            store.dispatch(ShowModalDialogUploadFastaAction(
+                false
+            ));
+        }
+    }
+
     private onClickUploadExcel(event) {
         store.dispatch(ShowModalDialogUploadExcelAction(
             true
         ));
     }
 
-    //TODO: terminar componente --> crear componente de dialogo sin texto y upload button
     private onClickUploadFasta(event) {
-        // store.dispatch(ShowModalDialogUploadFastaAction(
-        //     true
-        // ));
+        store.dispatch(ShowModalDialogUploadFastaAction(
+            true
+        ));
     }
 
     private manageSnackBarUploadedExcel() {
         store.dispatch(ShowSnackBarUploadExcelAction(false));
     }
 
-    private textFromInputTextBox(newEmailText: string) {
+    private manageSnackBarUploadedFasta() {
+        store.dispatch(ShowSnackBarUploadFastaAction(false));
+    }
+
+    private textFromExcelInputTextBox(newEmailText: string) {
         console.log(newEmailText);
     }
 
-    private fileReceiver(event) {
+    private excelFileReceiver(event) {
         event.preventDefault();
         let data = new FormData();
         data.append('file', event.target.files[0]);
         this.props.onExcelFileUpload(data);
         store.dispatch(ShowModalDialogUploadExcelAction(
+            false
+        ));
+    }
+
+    private fastaFileReceiver(event) {
+        event.preventDefault();
+        let data = new FormData();
+        data.append('file', event.target.files[0]);
+        this.props.onFastaFileUpload(data);
+        store.dispatch(ShowModalDialogUploadFastaAction(
             false
         ));
     }
@@ -101,10 +129,10 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_EXCEL})}
                                 onButtonPressed={this.onClickUploadExcel.bind(this)}/>
                             <ModalRequestWithTextBoxAndUploadButton
-                                onInputTextChange={this.textFromInputTextBox.bind(this)}
+                                onInputTextChange={this.textFromExcelInputTextBox.bind(this)}
                                 showDialog={this.props.UploadFilesToProcessingPage._showModalDialogUploadExcel}
                                 onClick={this.manageOnClickModalUploadExcel.bind(this)}
-                                onFileUpload={this.fileReceiver.bind(this)}
+                                onFileUpload={this.excelFileReceiver.bind(this)}
                                 dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_UPLOAD_EXCEL})}
                                 dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_UPLOAD_EXCEL})}
                                 floatingLabelText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_FLOATING_LABEL_TEXT})}
@@ -125,21 +153,26 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
                             <RowComponent
                                 headerText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_TEXT_FASTA})}
                                 buttonText={this.props.intl.formatMessage({id: MessagesConstants.UPLOAD_BUTTON_FASTA})}
-                                onButtonPressed={this.onClickUploadExcel.bind(this)}/>
+                                onButtonPressed={this.onClickUploadFasta.bind(this)}/>
+                            <ModalRequestWithUploadButton
+                                showDialog={this.props.UploadFilesToProcessingPage._showModalDialogFasta}
+                                onClick={this.manageOnClickModalUploadFasta.bind(this)}
+                                onFileUpload={this.fastaFileReceiver.bind(this)}
+                                dialogTitle={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TITTLE_UPLOAD_FASTA})}
+                                dialogText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_TEXT_UPLOAD_FASTA})}
+                                acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
+                                cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
+                            <MuiThemeProvider>
+                                <Snackbar
+                                    open={this.props.UploadFilesToProcessingPage._showSnackBarUploadFastaSucces}
+                                    message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_UPLOADED_FASTA_TEXT})}
+                                    autoHideDuration={4000}
+                                    onRequestClose={this.manageSnackBarUploadedFasta.bind(this)}
+                                />
+                            </MuiThemeProvider>
                         </div>
                     </div>
                 </CSSTransitionGroup>
-                <div>
-                    <MuiThemeProvider>
-                        <RaisedButton className="row row-button"
-                                      label="Boton de prueba"
-                                      value="Boton de prueba"
-                                      primary={true}
-                                      onClick={this.props.onClickRenewTextApi}/>
-                    </MuiThemeProvider>
-                    <label>{this.props.textFromApiCall}</label>
-
-                </div>
             </div>
         );
     }

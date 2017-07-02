@@ -20,6 +20,19 @@ export class GeneHandlerDAO {
         });
     }
 
+    public uploadFastaFileRequest(formData: any) {
+        return axios({
+            method: 'post',
+            url: "http://0.0.0.0:5000/genehandler/upload-fasta",
+            timeout: 100000,
+            data: formData,
+        }).then((response) => {
+            if (response.status === 202) {
+                return 202;
+            }
+        });
+    }
+
     public removeUnfilteredCollection() {
         return axios({
             method: 'delete',

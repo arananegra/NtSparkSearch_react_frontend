@@ -8,6 +8,8 @@ export class MessagesConstants {
     public static DIALOG_TEXT_SUB_SEQ_SEARCH: string = "dialogTextSubSeqSearch";
     public static DIALOG_TITTLE_UPLOAD_EXCEL: string = "dialogTittleUploadExcel";
     public static DIALOG_TEXT_UPLOAD_EXCEL: string = "dialogTextUploadExcel";
+    public static DIALOG_TITTLE_UPLOAD_FASTA: string = "dialogTittleUploadFasta";
+    public static DIALOG_TEXT_UPLOAD_FASTA: string = "dialogTextUploadFasta";
     public static DIALOG_EMAIL_FLOATING_LABEL_TEXT: string = "dialogEmailFloatingLabelText";
     public static DIALOG_EMAIL_HINT_TEXT: string = "dialogEmailHintText";
     public static DIALOG_ACCEPT_BUTTON: string = "dialogAcceptButton";
@@ -51,6 +53,7 @@ export class MessagesConstants {
     public static SNACKBAR_UNFILTERED_REMOVED_TEXT = "snackBarUnfilteredRemovedText";
     public static SNACKBAR_FILTERED_REMOVED_TEXT = "snackBarFilteredRemovedText";
     public static SNACKBAR_UPLOADED_EXCEL_TEXT = "snackBarUploadedExcelText";
+    public static SNACKBAR_UPLOADED_FASTA_TEXT = "snackBarUploadedFastaText";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -63,6 +66,8 @@ export class MessagesConstants {
         dialogTittleUploadExcel: "Subida de archivo excel con IDs de genes",
         dialogTextUploadExcel: "Introduzca dirección de correo para subir archivo excel y " +
         "comenzar descarga de genes incluidos en el archivo",
+        dialogTittleUploadFasta: "Subida de archivo fasta con genes",
+        dialogTextUploadFasta: "Compruebe que el formata se ajusta al estándar FASTA antes de subir el fichero",
         dialogEmailFloatingLabelText: "Correo electrónico",
         dialogEmailHintText: "Introduzca correo electrónico",
         dialogAcceptButton: "Aceptar",
@@ -107,7 +112,8 @@ export class MessagesConstants {
         dialogTittleRemoveFiltered: "Borrar colección filtrada",
         snackBarUnfilteredRemovedText: "Colección de genes no filtrados borrada con éxito",
         snackBarFilteredRemovedText: "Colección de genes filtrados borrada con éxito",
-        snackBarUploadedExcelText : "Fichero excel con secuencias subido con éxito",
+        snackBarUploadedExcelText: "Fichero excel con secuencias subido con éxito",
+        snackBarUploadedFastaText: "Fichero FASTA con secuencias subido con éxito"
     };
 
     public static enGbMessages = {
@@ -121,6 +127,8 @@ export class MessagesConstants {
         dialogTittleUploadExcel: "Upload excel file with gene IDs",
         dialogTextUploadExcel: "Enter email address in order to start the download " +
         "of the genes included in the excel file",
+        dialogTittleUploadFasta: "Upload fasta file with genes",
+        dialogTextUploadFasta: "Please check that the file you are trying to upload conforms to the FASTA standard",
         dialogEmailFloatingLabelText: "Email",
         dialogEmailHintText: "Enter your email",
         dialogAcceptButton: "Accept",
@@ -164,6 +172,7 @@ export class MessagesConstants {
         dialogTittleRemoveFiltered: "Remove filtered collection",
         snackBarUnfilteredRemovedText: "Collection of unfiltered genes successfully removed",
         snackBarFilteredRemovedText: "Collection of filtered genes successfully removed",
-        snackBarUploadedExcelText : "Excel file with sequences uploaded successfully",
+        snackBarUploadedExcelText: "Excel file with sequences uploaded successfully",
+        snackBarUploadedFastaText: "FASTA file with sequences uploaded successfully"
     };
 }

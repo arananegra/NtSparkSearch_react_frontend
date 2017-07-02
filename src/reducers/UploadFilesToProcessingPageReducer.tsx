@@ -5,14 +5,13 @@ import {UploadFilesToProcessingPageDTO} from "../domain/UploadPage/UploadFilesTo
 
 export class UploadPageState {
     public _uploadFilesToProcessingPage: UploadFilesToProcessingPageDTO;
-    public textFromApi: string;
 
     public constructor() {
         this._uploadFilesToProcessingPage = new UploadFilesToProcessingPageDTO();
         this._uploadFilesToProcessingPage._showModalDialogUploadExcel = false;
+        this._uploadFilesToProcessingPage._showModalDialogFasta = false;
         this._uploadFilesToProcessingPage._showSnackBarUploadExcelSucces = false;
         this._uploadFilesToProcessingPage._showSnackBarUploadFastaSucces = false;
-        this.textFromApi = "NADA";
     }
 }
 
@@ -23,25 +22,25 @@ export function UploadFilesToProcessingPageReducer(state: UploadPageState = new 
 
     switch (action.type) {
         case ActionConstants.SHOW_MODAL_DIALOG_UPLOAD_EXCEL:
-            let newModalValueToState: UploadFilesToProcessingPageDTO;
+            let newModalUploadExcelValueToState: UploadFilesToProcessingPageDTO;
 
-            newModalValueToState = objectAssign({}, state._uploadFilesToProcessingPage, {});
+            newModalUploadExcelValueToState = objectAssign({}, state._uploadFilesToProcessingPage, {});
 
-            newModalValueToState._showModalDialogUploadExcel = action["showModalDialog"];
+            newModalUploadExcelValueToState._showModalDialogUploadExcel = action["showModalDialog"];
 
-            newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newModalValueToState});
+            newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newModalUploadExcelValueToState});
 
             return newState;
 
-        case ActionConstants.LOAD_SIMPLE_SUCCES:
+        case ActionConstants.SHOW_MODAL_DIALOG_UPLOAD_FASTA:
+            let newModalUploadFastaValueToState: UploadFilesToProcessingPageDTO;
 
-            let newTextToState: string;
+            newModalUploadFastaValueToState = objectAssign({}, state._uploadFilesToProcessingPage, {});
 
-            newTextToState = objectAssign({}, state.textFromApi, {});
+            newModalUploadFastaValueToState._showModalDialogFasta = action["showModalDialog"];
 
-            newTextToState = action["textFromApi"];
+            newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newModalUploadFastaValueToState});
 
-            newState = objectAssign({}, state, {textFromApi: newTextToState});
             return newState;
 
         case ActionConstants.SHOW_SNACKBAR_UPLOAD_EXCEL_SUCCESS:
@@ -49,9 +48,14 @@ export function UploadFilesToProcessingPageReducer(state: UploadPageState = new 
             let newPageShowingUploadedExcelSnackbar = objectAssign({}, state._uploadFilesToProcessingPage, {});
             newPageShowingUploadedExcelSnackbar._showSnackBarUploadExcelSucces = action["showSnackBarUploadExcel"];
             newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newPageShowingUploadedExcelSnackbar});
-
             return newState;
 
+        case ActionConstants.SHOW_SNACKBAR_UPLOAD_FASTA_SUCCESS:
+
+            let newPageShowingUploadedFastaSnackbar = objectAssign({}, state._uploadFilesToProcessingPage, {});
+            newPageShowingUploadedFastaSnackbar._showSnackBarUploadFastaSucces = action["showSnackBarUploadFasta"];
+            newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newPageShowingUploadedFastaSnackbar});
+            return newState;
 
         default:
             return state;

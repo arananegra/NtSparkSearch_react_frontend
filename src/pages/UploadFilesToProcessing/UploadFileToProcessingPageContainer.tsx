@@ -6,17 +6,16 @@ import {
     IUploadFilesToProcessingPageDispatchProps, IUploadFilesToProcessingPageProps,
     UploadFilesToProcessingPage
 } from "./UploadFilesToProcessingPage";
-import {LoadSimpleAction} from "../../actions/LoadSimpleAction";
 import {UploadExcelRequest} from "../../actions/UploadActions/UploadExcelRequest";
+import {UploadFastaRequest} from "../../actions/UploadActions/UploadFastaRequest";
 
 const mapStateToProp = (state: IReducers): IUploadFilesToProcessingPageProps => ({
-    textFromApiCall: state['reducers'].UploadFilesToProcessingPageReducer.textFromApi,
     UploadFilesToProcessingPage : state['reducers'].UploadFilesToProcessingPageReducer._uploadFilesToProcessingPage
 });
 
 const mapDispatchToProps = (dispatch): IUploadFilesToProcessingPageDispatchProps => ({
-    onClickRenewTextApi: () => dispatch(LoadSimpleAction()),
-    onExcelFileUpload: (formData) => dispatch(UploadExcelRequest(formData))
+    onExcelFileUpload: (formData) => dispatch(UploadExcelRequest(formData)),
+    onFastaFileUpload :(formData) => dispatch(UploadFastaRequest(formData)),
 });
 
 export const UploadFileToProcessingPageContainer = connect<IUploadFilesToProcessingPageProps, IUploadFilesToProcessingPageDispatchProps, {}>(
