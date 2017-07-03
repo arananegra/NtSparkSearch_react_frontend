@@ -8,9 +8,11 @@ export interface IGeneSubSequenceSearcherComponent {
     onChangeText: (event: object, newValue: string) => any;
     dnaSubSequenceNameHintText: string;
     dnaSubSequenceFloatingLabelText: string;
+    dnaSubSequenceToFetch: string;
 
     dnaGenesToSearchHintText: string;
     dnaGenesToSearchFloatingLabelText: string;
+    dnaGenesToSearch: string;
 
     buttonSearchLabel: string;
     buttonSearchValue: string;
@@ -41,7 +43,9 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
                                     <InputText
                                         onChangeText={this.props.onChangeText}
                                         hintText={this.props.dnaSubSequenceNameHintText}
-                                        floatingLabelText={this.props.dnaSubSequenceFloatingLabelText}/>
+                                        floatingLabelText={this.props.dnaSubSequenceFloatingLabelText}
+                                        valueToText={this.props.dnaSubSequenceToFetch}
+                                    />
                                 </div>
 
 
@@ -49,7 +53,9 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
                                     <InputText
                                         onChangeText={this.props.onChangeText}
                                         hintText={this.props.dnaGenesToSearchHintText}
-                                        floatingLabelText={this.props.dnaGenesToSearchFloatingLabelText}/>
+                                        floatingLabelText={this.props.dnaGenesToSearchFloatingLabelText}
+                                        valueToText={this.props.dnaGenesToSearch}
+                                    />
                                 </div>
 
                                 <div className="col-md-offset-4 col-md-1 sequence-search-page-button-searcher">

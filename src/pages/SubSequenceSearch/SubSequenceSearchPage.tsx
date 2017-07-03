@@ -83,6 +83,8 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             buttonSearchLabel={this.props.intl.formatMessage({id: MessagesConstants.SEARCH})}
                             buttonSearchValue={this.props.intl.formatMessage({id: MessagesConstants.SEARCH})}
                             onSearchButtonPressed={this.onSearch.bind(this)}
+                            dnaSubSequenceToFetch={this.props.geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind}
+                            dnaGenesToSearch={String(this.props.geneSearcherPage._geneSubSequenceSearcher._geneList)}
                         />
                         <ModalRequestWithTextBoxComponent
                             showDialog={this.props.geneSearcherPage._showModalDialogSearchRequest}
