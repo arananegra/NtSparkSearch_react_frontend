@@ -40,7 +40,7 @@ export class DatabaseSubSeqSearchPageState {
 }
 
 export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageState = new DatabaseSubSeqSearchPageState(),
-                                             action: Action): DatabaseSubSeqSearchPageState {
+                                                action: Action): DatabaseSubSeqSearchPageState {
 
     let newState: DatabaseSubSeqSearchPageState;
 
@@ -92,6 +92,20 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
 
             initialDatabaseSubSeqSearchPage._showModalDialogSearchRequest = false;
             newState = objectAssign({}, state, {_geneSearcherPage: initialDatabaseSubSeqSearchPage});
+            return newState;
+
+        case ActionConstants.WRITE_ON_INPUT_TEXT:
+            let newPageWithEmailFromDialog = objectAssign({}, state._geneSearcherPage, {});
+            let newInputFromTextBox: string = action["textFromInputTextBox"];
+
+            const re = new RegExp('^$|[ACGTMRWSYKVHDBXN]');
+
+            let lastNewCharacter :string = newInputFromTextBox.slice(-1);
+
+            if (re.test(lastNewCharacter)== true) {
+                newPageWithEmailFromDialog._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBox;
+            }
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithEmailFromDialog});
             return newState;
     }
     return state;

@@ -88,10 +88,6 @@ export class UploadFilesToProcessingPage extends React.Component<IUploadFilesToP
         store.dispatch(ShowSnackBarUploadFastaAction(false));
     }
 
-    private textFromExcelInputTextBox(newEmailText: string) {
-
-    }
-
     private excelFileReceiver(event) {
         event.preventDefault();
         let data = new FormData();

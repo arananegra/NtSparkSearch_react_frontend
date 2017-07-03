@@ -6,17 +6,17 @@ export interface IInputTextProps {
     onChangeText: (event: object, newValue: string) => any;
     hintText: string;
     floatingLabelText: string;
+    valueToText?: string;
 }
 
 export interface IState {
 
 }
 
-export class InputText extends React.Component<IInputTextProps,IState> {
+export class InputText extends React.Component<IInputTextProps, IState> {
     public constructor(props: IInputTextProps) {
         super(props);
     }
-
 
     public render() {
         return (
@@ -27,7 +27,9 @@ export class InputText extends React.Component<IInputTextProps,IState> {
                         type="text"
                         hintText={this.props.hintText}
                         floatingLabelText={this.props.floatingLabelText}
-                        onChange={this.props.onChangeText}/>
+                        onChange={this.props.onChangeText}
+                        value={this.props.valueToText}
+                    />
                 </MuiThemeProvider>
             </div>
         );
