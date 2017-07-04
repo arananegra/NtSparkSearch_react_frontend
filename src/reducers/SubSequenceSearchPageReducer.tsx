@@ -17,8 +17,9 @@ export class SubSequenceSearchPageState {
         this._geneSearcherPage._geneTableResultHeaderColumns = new Array<TableHeaderColumnDTO>();
         this._geneSearcherPage._geneSubSequenceSearcher = new GeneSubSequenceSearcherDTO();
 
-        this._geneSearcherPage._geneSubSequenceSearcher._geneList = new Array<GeneDTO>();
+        this._geneSearcherPage._geneSubSequenceSearcher._geneListText = "";
         this._geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
+        this._geneSearcherPage._geneSubSequenceSearcher._geneListArray = new Array<GeneDTO>();
 
         let singleHeader: TableHeaderColumnDTO;
 
@@ -57,7 +58,7 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
             // initialSubSequenceSearchPage._geneSubSequenceSearcher = new GeneSubSequenceSearcherDTO();
             // initialSubSequenceSearchPage._geneTableResultHeaderColumns = new Array<TableHeaderColumnDTO>();
             //
-            // initialSubSequenceSearchPage._geneSubSequenceSearcher._geneList = new Array<GeneDTO>();
+            // initialSubSequenceSearchPage._geneSubSequenceSearcher._geneListText = new Array<GeneDTO>();
             // initialSubSequenceSearchPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
             //
             // let singleHeader: TableHeaderColumnDTO;
@@ -108,16 +109,46 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
 
         case ActionConstants.WRITE_SEQUENCE_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
             let newPageWithNewSequenceToFetch = objectAssign({}, state._geneSearcherPage, {});
-            let newInputFromTextBox: string = action["textFromInputTextBox"];
+            let newInputFromTextBoxWithSequence: string = action["textFromInputTextBox"];
 
-            const re = new RegExp('^$|[ACGTMRWSYKVHDBXN]');
+            const ambiguousNucleotidesRegExp = new RegExp('^$|[ACGTMRWSYKVHDBXN]');
 
-            let lastNewCharacter :string = newInputFromTextBox.slice(-1);
+            let lastNewCharacterInSequence: string = newInputFromTextBoxWithSequence.slice(-1);
 
-            if (re.test(lastNewCharacter)== true) {
-                newPageWithNewSequenceToFetch._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBox;
+            if (ambiguousNucleotidesRegExp.test(lastNewCharacterInSequence) == true) {
+                newPageWithNewSequenceToFetch._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBoxWithSequence;
             }
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithNewSequenceToFetch});
+            return newState;
+
+        case ActionConstants.WRITE_GENES_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
+            let newPageWithGenesToFetch = objectAssign({}, state._geneSearcherPage, {});
+            let newInputFromTextBoxWithGenes: string = action["textFromInputTextBox"];
+
+            const genesListRegularExpression = new RegExp('^$|[0-9,](?!.*[\,]{2}).*$');
+
+            let lastNewCharacterInGenes: string = newInputFromTextBoxWithGenes.slice(-1);
+
+            if (genesListRegularExpression.test(lastNewCharacterInGenes) == true) {
+
+                let geneStringList: Array<string> = newInputFromTextBoxWithGenes.split(",");
+                console.log("",geneStringList);
+
+                let geneDTOList = Array<GeneDTO>();
+
+                geneStringList.map(geneString => {
+                    console.log("",geneString);
+                    let geneDTO = new GeneDTO();
+                    geneDTO._id = geneString;
+                    console.log("",geneDTO);
+                    geneDTOList.push(geneDTO);
+                });
+
+                newPageWithGenesToFetch._geneSubSequenceSearcher._geneListText = geneDTOList;
+            }
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithGenesToFetch});
+
+
             return newState;
 
         default:

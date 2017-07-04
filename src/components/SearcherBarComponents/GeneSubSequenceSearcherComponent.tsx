@@ -5,7 +5,8 @@ import {FormattedDate, FormattedMessage, FormattedRelative} from "react-intl";
 import {ButtonComponent} from "../CommonComponents/ButtonComponent";
 
 export interface IGeneSubSequenceSearcherComponent {
-    onChangeText: (event: object, newValue: string) => any;
+    onChangeTextSequence: (event: object, newValue: string) => any;
+    onChangeTextGenes: (event: object, newValue: string) => any;
     dnaSubSequenceNameHintText: string;
     dnaSubSequenceFloatingLabelText: string;
     dnaSubSequenceToFetch: string;
@@ -41,7 +42,7 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
                             <div className="row">
                                 <div className="col-md-1">
                                     <InputText
-                                        onChangeText={this.props.onChangeText}
+                                        onChangeText={this.props.onChangeTextSequence}
                                         hintText={this.props.dnaSubSequenceNameHintText}
                                         floatingLabelText={this.props.dnaSubSequenceFloatingLabelText}
                                         valueToText={this.props.dnaSubSequenceToFetch}
@@ -51,7 +52,7 @@ export class GeneSubSequenceSearcherComponent extends React.Component<IGeneSubSe
 
                                 <div className="col-md-offset-4 col-md-1">
                                     <InputText
-                                        onChangeText={this.props.onChangeText}
+                                        onChangeText={this.props.onChangeTextGenes}
                                         hintText={this.props.dnaGenesToSearchHintText}
                                         floatingLabelText={this.props.dnaGenesToSearchFloatingLabelText}
                                         valueToText={this.props.dnaGenesToSearch}

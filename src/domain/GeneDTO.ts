@@ -1,5 +1,5 @@
 export class GeneDTO {
-    public _id: number;
+    public _id: string;
 
     public constructor() {
         this._id = null;

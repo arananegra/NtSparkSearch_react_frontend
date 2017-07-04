@@ -17,8 +17,9 @@ export class DatabaseSubSeqSearchPageState {
         this._geneSearcherPage._geneTableResultHeaderColumns = new Array<TableHeaderColumnDTO>();
         this._geneSearcherPage._geneSubSequenceSearcher = new GeneSubSequenceSearcherDTO();
 
-        this._geneSearcherPage._geneSubSequenceSearcher._geneList = new Array<GeneDTO>();
+        this._geneSearcherPage._geneSubSequenceSearcher._geneListText = "";
         this._geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
+        this._geneSearcherPage._geneSubSequenceSearcher._geneListArray = new Array<GeneDTO>();
 
         let singleHeader: TableHeaderColumnDTO;
 
@@ -55,7 +56,7 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
             // initialDatabaseSubSeqSearchPage._geneSubSequenceSearcher = new GeneSubSequenceSearcherDTO();
             // initialDatabaseSubSeqSearchPage._geneTableResultHeaderColumns = new Array<TableHeaderColumnDTO>();
             //
-            // initialDatabaseSubSeqSearchPage._geneSubSequenceSearcher._geneList = new Array<GeneDTO>();
+            // initialDatabaseSubSeqSearchPage._geneSubSequenceSearcher._geneListText = new Array<GeneDTO>();
             // initialDatabaseSubSeqSearchPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
             //
             // let singleHeader: TableHeaderColumnDTO;
@@ -95,17 +96,17 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
             return newState;
 
         case ActionConstants.WRITE_SEQUENCE_TO_FETCH_ON_DATABASE_SEARCH_INPUT_TEXT:
-            let newPageWithEmailFromDialog = objectAssign({}, state._geneSearcherPage, {});
+            let newPageWithDatabaseSequenceToFetch = objectAssign({}, state._geneSearcherPage, {});
             let newInputFromTextBox: string = action["textFromInputTextBox"];
 
             const re = new RegExp('^$|[ACGTMRWSYKVHDBXN]');
 
-            let lastNewCharacter :string = newInputFromTextBox.slice(-1);
+            let lastNewCharacter: string = newInputFromTextBox.slice(-1);
 
-            if (re.test(lastNewCharacter)== true) {
-                newPageWithEmailFromDialog._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBox;
+            if (re.test(lastNewCharacter) == true) {
+                newPageWithDatabaseSequenceToFetch._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBox;
             }
-            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithEmailFromDialog});
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithDatabaseSequenceToFetch});
             return newState;
     }
     return state;

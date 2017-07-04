@@ -11,6 +11,7 @@ import {store} from "../../components/AppPipeline";
 import {ShowModalDialogSearchRequestAction} from "../../actions/SubSequenceSearchActions/ShowModalDialogSearchRequestAction";
 import {Constants} from "../../common/Constants";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
+import {GeneDTO} from "../../domain/GeneDTO";
 
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;
@@ -39,6 +40,9 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
 
     private onDnaSubSequenceUserInput(event: object, newValue: string) {
         this.props.onSequenceInputTextBox(newValue);
+    }
+
+    private onGenesUserInput(event: object, newValue: string) {
         this.props.onGenesInputTexBox(newValue);
     }
 
@@ -66,6 +70,11 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
         ));
     }
 
+    private genListPrinter(genList: Array<GeneDTO>) :string {
+        //this.props.geneSearcherPage._geneSubSequenceSearcher._geneListText = genList;
+        return "hola";
+    }
+
 
     public render() {
         return (
@@ -78,7 +87,8 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                     transitionLeaveTimeout={5000}>
                     <div className="row gene-searcher-component">
                         <GeneSubSequenceSearcherComponent
-                            onChangeText={this.onDnaSubSequenceUserInput.bind(this)}
+                            onChangeTextSequence={this.onDnaSubSequenceUserInput.bind(this)}
+                            onChangeTextGenes={this.onGenesUserInput.bind(this)}
                             dnaSubSequenceNameHintText={this.props.intl.formatMessage({id: MessagesConstants.INPUT_DNA_HINT_TEXT})}
                             dnaSubSequenceFloatingLabelText={this.props.intl.formatMessage({id: MessagesConstants.INPUT_DNA_FLOATING_TEXT})}
                             dnaGenesToSearchHintText={this.props.intl.formatMessage({id: MessagesConstants.GENES_PATTERN})}
@@ -87,7 +97,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             buttonSearchValue={this.props.intl.formatMessage({id: MessagesConstants.SEARCH})}
                             onSearchButtonPressed={this.onSearch.bind(this)}
                             dnaSubSequenceToFetch={this.props.geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind}
-                            dnaGenesToSearch={String(this.props.geneSearcherPage._geneSubSequenceSearcher._geneList)}
+                            dnaGenesToSearch={this.genListPrinter.bind(this)}
                         />
                         <ModalRequestWithTextBoxComponent
                             showDialog={this.props.geneSearcherPage._showModalDialogSearchRequest}
