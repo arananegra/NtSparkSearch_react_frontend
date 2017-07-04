@@ -124,7 +124,6 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
         case ActionConstants.WRITE_GENES_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
             let newPageWithGenesToFetch = objectAssign({}, state._geneSearcherPage, {});
             let newInputFromTextBoxWithGenes: string = action["textFromInputTextBox"];
-            console.log(newInputFromTextBoxWithGenes);
 
             const genesListRegularExpression = new RegExp('^$|[0-9,]+');
 
@@ -132,6 +131,17 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
 
             if (genesListRegularExpression.test(lastNewCharacterInGenes) == true) {
                 newPageWithGenesToFetch._geneSubSequenceSearcher._geneListText = newInputFromTextBoxWithGenes;
+                let stringArrayOfGenes = new Array<string>();
+                stringArrayOfGenes = newInputFromTextBoxWithGenes.split(",");
+                console.log("",stringArrayOfGenes);
+
+                stringArrayOfGenes.map((stringGen) => {
+                    console.log(stringGen);
+                    let geneDTO = new GeneDTO();
+                    geneDTO._id = stringGen;
+                    newPageWithGenesToFetch._geneSubSequenceSearcher._geneListArray.push(geneDTO);
+                });
+                console.log("",newPageWithGenesToFetch._geneSubSequenceSearcher._geneListArray)
             }
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithGenesToFetch});
 
