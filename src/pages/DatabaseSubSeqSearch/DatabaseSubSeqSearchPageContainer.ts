@@ -7,7 +7,7 @@ import {
     IDatabaseSubSeqSearchPageProps
 } from "./DatabaseSubSeqSearchPage";
 import {InitializeDatabaseSubSeqSearchPageAction} from "../../actions/InitializeActions/InitializeDatabaseSubSeqSearchPageAction";
-import {WriteOnInputText} from "../../actions/WriteOnInputText";
+import {WriteSequenceOnDatabaseSearchInputTextAction} from "../../actions/DatabaseSequenceSearchActions/WriteSequenceOnDatabaseSearchInputTextAction";
 
 const mapStateToProp = (state: IReducers): IDatabaseSubSeqSearchPageProps => ({
     geneSearcherPage: state['reducers'].DatabaseSubSeqSearchPageReducer._geneSearcherPage
@@ -15,7 +15,7 @@ const mapStateToProp = (state: IReducers): IDatabaseSubSeqSearchPageProps => ({
 
 const mapDispatchToProps = (dispatch): IDatabaseSubSeqSearchPageDispatchProps => ({
     initializeSubSequenceGeneListFound: () => dispatch(InitializeDatabaseSubSeqSearchPageAction()),
-    onSequenceInputTextBox : (sequenceToFetch) => dispatch(WriteOnInputText(sequenceToFetch)),
+    onSequenceInputTextBox : (sequenceToFetch) => dispatch(WriteSequenceOnDatabaseSearchInputTextAction(sequenceToFetch)),
 });
 
 export const DatabaseSubSeqSearchPageContainer = connect<IDatabaseSubSeqSearchPageProps, IDatabaseSubSeqSearchPageDispatchProps, {}>(

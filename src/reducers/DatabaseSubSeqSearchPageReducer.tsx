@@ -94,7 +94,7 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
             newState = objectAssign({}, state, {_geneSearcherPage: initialDatabaseSubSeqSearchPage});
             return newState;
 
-        case ActionConstants.WRITE_ON_INPUT_TEXT:
+        case ActionConstants.WRITE_SEQUENCE_TO_FETCH_ON_DATABASE_SEARCH_INPUT_TEXT:
             let newPageWithEmailFromDialog = objectAssign({}, state._geneSearcherPage, {});
             let newInputFromTextBox: string = action["textFromInputTextBox"];
 

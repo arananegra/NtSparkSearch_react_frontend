@@ -105,6 +105,21 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
             newState = objectAssign({}, state, {_geneSearcherPage: newPage});
 
             return newState;
+
+        case ActionConstants.WRITE_SEQUENCE_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
+            let newPageWithNewSequenceToFetch = objectAssign({}, state._geneSearcherPage, {});
+            let newInputFromTextBox: string = action["textFromInputTextBox"];
+
+            const re = new RegExp('^$|[ACGTMRWSYKVHDBXN]');
+
+            let lastNewCharacter :string = newInputFromTextBox.slice(-1);
+
+            if (re.test(lastNewCharacter)== true) {
+                newPageWithNewSequenceToFetch._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBox;
+            }
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithNewSequenceToFetch});
+            return newState;
+
         default:
             return state;
     }

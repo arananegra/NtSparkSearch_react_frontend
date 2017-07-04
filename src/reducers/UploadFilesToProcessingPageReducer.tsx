@@ -58,7 +58,7 @@ export function UploadFilesToProcessingPageReducer(state: UploadPageState = new 
             newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newPageShowingUploadedFastaSnackbar});
             return newState;
 
-        case ActionConstants.WRITE_ON_INPUT_TEXT:
+        case ActionConstants.WRITE_EMAIL_UPLOAD_INPUT_TEXT:
             let newPageWithEmailFromDialog = objectAssign({}, state._uploadFilesToProcessingPage, {});
             newPageWithEmailFromDialog._emailFromDialog = action["textFromInputTextBox"];
             newState = objectAssign({}, state, {_uploadFilesToProcessingPage: newPageWithEmailFromDialog});

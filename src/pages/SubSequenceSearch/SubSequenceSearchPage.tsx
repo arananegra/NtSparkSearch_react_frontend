@@ -8,7 +8,7 @@ import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import {ModalRequestWithTextBoxComponent} from "../../components/CommonComponents/ModalRequestWithTextBoxComponent";
 
 import {store} from "../../components/AppPipeline";
-import {ShowModalDialogSearchRequestAction} from "../../actions/ShowModalDialogSearchRequestAction";
+import {ShowModalDialogSearchRequestAction} from "../../actions/SubSequenceSearchActions/ShowModalDialogSearchRequestAction";
 import {Constants} from "../../common/Constants";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
@@ -19,6 +19,8 @@ export interface ISubSequenceSearchPageProps {
 
 export interface ISubSequenceSearchPageDispatchProps {
     initializeSubSequenceGeneListFound: () => any;
+    onSequenceInputTextBox: (sequenceToFetch) => any;
+    onGenesInputTexBox: (genesToFetch) => any;
 }
 
 
@@ -36,7 +38,8 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
     }
 
     private onDnaSubSequenceUserInput(event: object, newValue: string) {
-
+        this.props.onSequenceInputTextBox(newValue);
+        this.props.onGenesInputTexBox(newValue);
     }
 
     private manageOnClickModal(option: any) {
