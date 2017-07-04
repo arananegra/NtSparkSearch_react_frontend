@@ -110,7 +110,7 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
         case ActionConstants.WRITE_SEQUENCE_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
             let newPageWithNewSequenceToFetch = objectAssign({}, state._geneSearcherPage, {});
             let newInputFromTextBoxWithSequence: string = action["textFromInputTextBox"];
-
+            console.log(newInputFromTextBoxWithSequence);
             const ambiguousNucleotidesRegExp = new RegExp('^$|[ACGTMRWSYKVHDBXN]');
 
             let lastNewCharacterInSequence: string = newInputFromTextBoxWithSequence.slice(-1);
@@ -124,27 +124,14 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
         case ActionConstants.WRITE_GENES_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
             let newPageWithGenesToFetch = objectAssign({}, state._geneSearcherPage, {});
             let newInputFromTextBoxWithGenes: string = action["textFromInputTextBox"];
+            console.log(newInputFromTextBoxWithGenes);
 
-            const genesListRegularExpression = new RegExp('^$|[0-9,](?!.*[\,]{2}).*$');
+            const genesListRegularExpression = new RegExp('^$|[0-9,]+');
 
             let lastNewCharacterInGenes: string = newInputFromTextBoxWithGenes.slice(-1);
 
             if (genesListRegularExpression.test(lastNewCharacterInGenes) == true) {
-
-                let geneStringList: Array<string> = newInputFromTextBoxWithGenes.split(",");
-                console.log("",geneStringList);
-
-                let geneDTOList = Array<GeneDTO>();
-
-                geneStringList.map(geneString => {
-                    console.log("",geneString);
-                    let geneDTO = new GeneDTO();
-                    geneDTO._id = geneString;
-                    console.log("",geneDTO);
-                    geneDTOList.push(geneDTO);
-                });
-
-                newPageWithGenesToFetch._geneSubSequenceSearcher._geneListText = geneDTOList;
+                newPageWithGenesToFetch._geneSubSequenceSearcher._geneListText = newInputFromTextBoxWithGenes;
             }
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithGenesToFetch});
 

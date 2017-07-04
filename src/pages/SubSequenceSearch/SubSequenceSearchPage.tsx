@@ -70,10 +70,10 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
         ));
     }
 
-    private genListPrinter(genList: Array<GeneDTO>) :string {
-        //this.props.geneSearcherPage._geneSubSequenceSearcher._geneListText = genList;
-        return "hola";
-    }
+    // private genListPrinter(genList: Array<GeneDTO>) :string {
+    //     this.props.geneSearcherPage._geneSubSequenceSearcher._geneListText = genList;
+    //     return "hola";
+    // }
 
 
     public render() {
@@ -97,7 +97,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             buttonSearchValue={this.props.intl.formatMessage({id: MessagesConstants.SEARCH})}
                             onSearchButtonPressed={this.onSearch.bind(this)}
                             dnaSubSequenceToFetch={this.props.geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind}
-                            dnaGenesToSearch={this.genListPrinter.bind(this)}
+                            dnaGenesToSearch={this.props.geneSearcherPage._geneSubSequenceSearcher._geneListText}
                         />
                         <ModalRequestWithTextBoxComponent
                             showDialog={this.props.geneSearcherPage._showModalDialogSearchRequest}
