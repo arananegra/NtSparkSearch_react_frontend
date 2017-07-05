@@ -133,15 +133,14 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
                 newPageWithGenesToFetch._geneSubSequenceSearcher._geneListText = newInputFromTextBoxWithGenes;
                 let stringArrayOfGenes = new Array<string>();
                 stringArrayOfGenes = newInputFromTextBoxWithGenes.split(",");
-                console.log("",stringArrayOfGenes);
 
-                stringArrayOfGenes.map((stringGen) => {
-                    console.log(stringGen);
+                let arrayOfGenesDTOs = new Array<GeneDTO>();
+                for (let stringGen of stringArrayOfGenes) {
                     let geneDTO = new GeneDTO();
                     geneDTO._id = stringGen;
-                    newPageWithGenesToFetch._geneSubSequenceSearcher._geneListArray.push(geneDTO);
-                });
-                console.log("",newPageWithGenesToFetch._geneSubSequenceSearcher._geneListArray)
+                    arrayOfGenesDTOs.push(geneDTO);
+                }
+                newPageWithGenesToFetch._geneSubSequenceSearcher._geneListArray = arrayOfGenesDTOs;
             }
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithGenesToFetch});
 
