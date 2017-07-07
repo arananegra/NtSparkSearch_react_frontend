@@ -7,6 +7,7 @@ import {GeneSubsequenceResultDTO} from "../domain/GeneSubsequenceResultDTO";
 import {TableHeaderColumnDTO} from "../domain/TableHeaderColumnDTO";
 import {MessagesConstants} from "../i18n/MessagesConstants";
 import {GeneDTO} from "../domain/GeneDTO";
+import entries = require("core-js/fn/array/entries");
 
 export class DatabaseSubSeqSearchPageState {
     public _geneSearcherPage: GeneSearchPageDTO;
@@ -107,6 +108,29 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
                 newPageWithDatabaseSequenceToFetch._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBox;
             }
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithDatabaseSequenceToFetch});
+            return newState;
+
+        case ActionConstants.BUILD_JSON_WITH_GENES:
+            let newPageWithGenesToTable = objectAssign({}, state._geneSearcherPage, {});
+            let newGenesInJson: any = action["jsonWithGenes"];
+
+            let geneSubSequenceListFound: Array<GeneSubsequenceResultDTO>;
+            let singleSequenceGene: GeneSubsequenceResultDTO;
+
+            geneSubSequenceListFound = new Array<GeneSubsequenceResultDTO>();
+
+            console.log("JSONNNN ", newGenesInJson);
+            for (let key in newGenesInJson) {
+                if (newGenesInJson.hasOwnProperty(key)) {
+                    singleSequenceGene = new GeneSubsequenceResultDTO();
+                    console.log(key + " -> " + newGenesInJson[key]);
+                    singleSequenceGene._geneId = Number(key);
+                    singleSequenceGene._haveSequence = newGenesInJson[key];
+                    geneSubSequenceListFound.push(singleSequenceGene);
+                }
+            }
+            newPageWithGenesToTable._geneSubSequenceResultFound = geneSubSequenceListFound;
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithGenesToTable});
             return newState;
     }
     return state;

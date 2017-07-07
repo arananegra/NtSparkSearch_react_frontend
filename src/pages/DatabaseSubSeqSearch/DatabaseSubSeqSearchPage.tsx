@@ -16,6 +16,7 @@ export interface IDatabaseSubSeqSearchPageProps {
 export interface IDatabaseSubSeqSearchPageDispatchProps {
     initializeSubSequenceGeneListFound: () => any;
     onSequenceInputTextBox: (sequenceToFetch) => any;
+    onDatabaseSearchClicked: (sequence) => any;
 }
 export interface IDatabaseSubSeqSearchPageState {
 
@@ -35,7 +36,7 @@ export class DatabaseSubSeqSearchPage extends React.Component<IDatabaseSubSeqSea
     }
 
     private onSearch(event) {
-
+        this.props.onDatabaseSearchClicked(this.props.geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind)
     }
 
     public render() {
