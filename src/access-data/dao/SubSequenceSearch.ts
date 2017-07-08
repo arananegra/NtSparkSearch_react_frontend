@@ -29,9 +29,6 @@ export class SubSequenceSearch {
     }
 
     public genesChecker(sequenceToFetch: string, arrayOfGenesToFetch: Array<GeneDTO>) {
-        // console.log("RECIBIDO: ", arrayOfGenesToFetch);
-        // console.log("RECIBIDO TRAS LA FUNCIÓN: ", this.encodeQueryData(arrayOfGenesToFetch));
-        // console.log("URL:", "http://0.0.0.0:5000/genefilter/sparkmatchall?" + this.encodeQueryData(arrayOfGenesToFetch) + "sequence=" + sequenceToFetch);
         return axios({
             method: 'get',
             url: "http://0.0.0.0:5000/genefilter/genes-checker?" + this.encodeQueryData(arrayOfGenesToFetch) + "&sequence=" + sequenceToFetch,
@@ -42,7 +39,6 @@ export class SubSequenceSearch {
     }
 
     public downloadGenesFromListToUnfiltered(arrayOfGenesToFetch: Array<GeneDTO>, email: string) {
-        console.log("lo que se envia a descargar es : ", this.encodeQueryData(arrayOfGenesToFetch));
         return axios({
             method: 'get',
             url: "http://0.0.0.0:5000/genefilter/genes-downloader?" + this.encodeQueryData(arrayOfGenesToFetch) + "&email=" + email,

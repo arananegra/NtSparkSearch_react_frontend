@@ -13,6 +13,9 @@ import {Constants} from "../../common/Constants";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 import Spinner from 'react-spinner-children';
 import {DownloadGenesDirectSearchAction} from "../../actions/SubSequenceSearchActions/DownloadGenesDirectSearchAction";
+import Snackbar from 'material-ui/Snackbar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {ShowSnackBarDownloadDirectSearchAction} from "../../actions/SubSequenceSearchActions/ShowSnackBarDownloadDirectSearchAction";
 
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;
@@ -59,6 +62,7 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
 
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
             showModal = false;
+            store.dispatch(ShowSnackBarDownloadDirectSearchAction(true));
             store.dispatch(DownloadGenesDirectSearchAction(this.props.geneSearcherPage._geneSubSequenceSearcher._geneListArray,
                 this.props.geneSearcherPage._emailToDownloadFromDirect))
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
@@ -68,6 +72,10 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
         store.dispatch(ShowModalDialogSearchRequestAction(
             showModal
         ));
+    }
+
+    private manageDirectDownloadSnackBarClose() {
+        store.dispatch(ShowSnackBarDownloadDirectSearchAction(false));
     }
 
     private onSearch(event) {
@@ -107,6 +115,14 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
                             cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}
                             onChangeText={this.manageEmailTextBox.bind(this)}/>
+                        <MuiThemeProvider>
+                            <Snackbar
+                                open={this.props.geneSearcherPage._showSnackBarDirectDownloadStarted}
+                                message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_DIRECT_DOWNLOAD_STARTED})}
+                                autoHideDuration={4000}
+                                onRequestClose={this.manageDirectDownloadSnackBarClose.bind(this)}
+                            />
+                        </MuiThemeProvider>
                     </div>
                     <div className="row gene-result-component">
                         <Spinner loaded={this.props.geneSearcherPage._loaded}>

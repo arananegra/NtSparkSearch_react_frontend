@@ -23,6 +23,7 @@ export class SubSequenceSearchPageState {
 
         this._geneSearcherPage._loaded = true;
         this._geneSearcherPage._emailToDownloadFromDirect = "";
+        this._geneSearcherPage._showSnackBarDirectDownloadStarted = false;
 
         let singleHeader: TableHeaderColumnDTO;
 
@@ -65,6 +66,12 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
 
             newState = objectAssign({}, state, {_geneSearcherPage: newPage});
 
+            return newState;
+
+        case ActionConstants.SHOW_SNACKBAR_DOWNLOAD_DIRECT_SEARCH:
+            let newPageShowingDirectDownloadSnackbar = objectAssign({}, state._geneSearcherPage, {});
+            newPageShowingDirectDownloadSnackbar._showSnackBarDirectDownloadStarted = action["showSnackBarDirectDownloadStarted"];
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageShowingDirectDownloadSnackbar});
             return newState;
 
         case ActionConstants.WRITE_SEQUENCE_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
