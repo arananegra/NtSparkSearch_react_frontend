@@ -1,7 +1,7 @@
 export class GeneDTO {
-    public _id: string;
+    public _gene_id: string;
 
     public constructor() {
-        this._id = null;
+        this._gene_id = null;
     }
 }

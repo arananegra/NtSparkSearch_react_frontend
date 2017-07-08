@@ -21,6 +21,9 @@ export class SubSequenceSearchPageState {
         this._geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
         this._geneSearcherPage._geneSubSequenceSearcher._geneListArray = new Array<GeneDTO>();
 
+        this._geneSearcherPage._loaded = true;
+        this._geneSearcherPage._emailToDownloadFromDirect = "";
+
         let singleHeader: TableHeaderColumnDTO;
 
         singleHeader = new TableHeaderColumnDTO();
@@ -50,50 +53,7 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
     switch (action.type) {
         case ActionConstants.INITIALIZE_SUB_SEQUENCE_SEARCH_PAGE:
             let initialSubSequenceSearchPage: GeneSearchPageDTO;
-
             initialSubSequenceSearchPage = objectAssign({}, state._geneSearcherPage, {});
-
-            // initialSubSequenceSearchPage = new GeneSearchPageDTO();
-            // initialSubSequenceSearchPage._geneSubSequenceResultFound = new Array<GeneSubsequenceResultDTO>();
-            // initialSubSequenceSearchPage._geneSubSequenceSearcher = new GeneSubSequenceSearcherDTO();
-            // initialSubSequenceSearchPage._geneTableResultHeaderColumns = new Array<TableHeaderColumnDTO>();
-            //
-            // initialSubSequenceSearchPage._geneSubSequenceSearcher._geneListText = new Array<GeneDTO>();
-            // initialSubSequenceSearchPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
-            //
-            // let singleHeader: TableHeaderColumnDTO;
-            //
-            // singleHeader = new TableHeaderColumnDTO();
-            // singleHeader._isKey = true;
-            // singleHeader._columnName = "_geneId";
-            // //singleHeader._value = "Gen";
-            // singleHeader._width = "100";
-            // initialSubSequenceSearchPage._geneTableResultHeaderColumns.push(singleHeader);
-            //
-            // singleHeader = new TableHeaderColumnDTO();
-            // singleHeader._isKey = false;
-            // singleHeader._columnName = "_haveSequence";
-            // //singleHeader._value = "Result";
-            //
-            // singleHeader._width = "100";
-            // initialSubSequenceSearchPage._geneTableResultHeaderColumns.push(singleHeader);
-            //
-            // let geneSubSequenceListFound: Array<GeneSubsequenceResultDTO>;
-            // let singleSequenceGene: GeneSubsequenceResultDTO;
-            //
-            // geneSubSequenceListFound = new Array<GeneSubsequenceResultDTO>();
-            //
-            // singleSequenceGene = new GeneSubsequenceResultDTO();
-            // singleSequenceGene._geneId = 234;
-            // singleSequenceGene._haveSequence = 1;
-            // initialSubSequenceSearchPage._geneSubSequenceResultFound.push(singleSequenceGene);
-            //
-            // singleSequenceGene = new GeneSubsequenceResultDTO();
-            // singleSequenceGene._geneId = 534;
-            // singleSequenceGene._haveSequence = 1;
-            // initialSubSequenceSearchPage._geneSubSequenceResultFound.push(singleSequenceGene);
-            //
-            // initialSubSequenceSearchPage._showModalDialogSearchRequest = false;
 
             newState = objectAssign({}, state, {_geneSearcherPage: initialSubSequenceSearchPage});
             return newState;
@@ -121,6 +81,12 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithNewSequenceToFetch});
             return newState;
 
+        case ActionConstants.SPINNER_DIRECT_STATE_CHANGE:
+            let newPageWithSpinnerState = objectAssign({}, state._geneSearcherPage, {});
+            newPageWithSpinnerState._loaded = action["spinnerStateLoaded"];
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithSpinnerState});
+            return newState;
+
         case ActionConstants.WRITE_GENES_TO_FETCH_ON_DIRECT_SEARCH_INPUT_TEXT:
             let newPageWithGenesToFetch = objectAssign({}, state._geneSearcherPage, {});
             let newInputFromTextBoxWithGenes: string = action["textFromInputTextBox"];
@@ -137,14 +103,48 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
                 let arrayOfGenesDTOs = new Array<GeneDTO>();
                 for (let stringGen of stringArrayOfGenes) {
                     let geneDTO = new GeneDTO();
-                    geneDTO._id = stringGen;
+                    geneDTO._gene_id = stringGen;
                     arrayOfGenesDTOs.push(geneDTO);
                 }
                 newPageWithGenesToFetch._geneSubSequenceSearcher._geneListArray = arrayOfGenesDTOs;
             }
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithGenesToFetch});
+            return newState;
 
+        case ActionConstants.BUILD_JSON_WITH_GENES_TO_DIRECT:
+            let newPageWithGenesToTable = objectAssign({}, state._geneSearcherPage, {});
+            let newGenesInJson: any = action["jsonWithGenes"];
 
+            let geneSubSequenceListFound: Array<GeneSubsequenceResultDTO>;
+            let singleSequenceGene: GeneSubsequenceResultDTO;
+
+            geneSubSequenceListFound = new Array<GeneSubsequenceResultDTO>();
+
+            for (let key in newGenesInJson) {
+                if (newGenesInJson.hasOwnProperty(key)) {
+                    singleSequenceGene = new GeneSubsequenceResultDTO();
+                    singleSequenceGene._geneId = key;
+                    if (newGenesInJson[key] === 1) {
+                        singleSequenceGene._haveSequence = "+"
+                    }
+
+                    else {
+                        singleSequenceGene._haveSequence = "-"
+                    }
+                    // singleSequenceGene._haveSequence = newGenesInJson[key];
+                    geneSubSequenceListFound.push(singleSequenceGene);
+                }
+            }
+            newPageWithGenesToTable._geneSubSequenceResultFound = geneSubSequenceListFound;
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithGenesToTable});
+            return newState;
+
+        case ActionConstants.WRITE_EMAIL_DIRECT_SEARCH:
+            let newPageWithEmail = objectAssign({}, state._geneSearcherPage, {});
+            let email: string = action["textFromInputTextBox"];
+            newPageWithEmail._emailToDownloadFromDirect = email;
+
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithEmail});
             return newState;
 
         default:

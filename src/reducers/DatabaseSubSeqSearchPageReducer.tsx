@@ -112,14 +112,13 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithDatabaseSequenceToFetch});
             return newState;
 
-        case ActionConstants.SPINNER_STATE_CHANGE:
+        case ActionConstants.SPINNER_DATABASE_STATE_CHANGE:
             let newPageWithSpinnerState = objectAssign({}, state._geneSearcherPage, {});
             newPageWithSpinnerState._loaded = action["spinnerStateLoaded"];
-            console.log("ESTADO DE LOADED" , newPageWithSpinnerState._loaded);
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithSpinnerState});
             return newState;
 
-        case ActionConstants.BUILD_JSON_WITH_GENES:
+        case ActionConstants.BUILD_JSON_WITH_GENES_TO_DATABASE:
             let newPageWithGenesToTable = objectAssign({}, state._geneSearcherPage, {});
             let newGenesInJson: any = action["jsonWithGenes"];
 

@@ -8,6 +8,7 @@ export class GeneSearchPageDTO {
     public _geneTableResultHeaderColumns: Array<TableHeaderColumnDTO>;
     public _showModalDialogSearchRequest: boolean;
     public _loaded : boolean;
+    public _emailToDownloadFromDirect: string;
 
     public constructor() {
         this._geneSubSequenceResultFound = null;
@@ -15,5 +16,6 @@ export class GeneSearchPageDTO {
         this._geneTableResultHeaderColumns = null;
         this._showModalDialogSearchRequest = null;
         this._loaded = null;
+        this._emailToDownloadFromDirect = null;
     }
 }

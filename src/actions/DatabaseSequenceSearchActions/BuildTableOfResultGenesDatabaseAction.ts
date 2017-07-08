@@ -5,9 +5,9 @@ export interface IBuildTableOfResultGenesAction {
     jsonWithGenes: boolean;
 }
 
-export function BuildTableOfResultGenesAction(jsonWithGenes: any): IBuildTableOfResultGenesAction {
+export function BuildTableOfResultGenesDatabaseAction(jsonWithGenes: any): IBuildTableOfResultGenesAction {
     return {
-        type: ActionConstants.BUILD_JSON_WITH_GENES,
+        type: ActionConstants.BUILD_JSON_WITH_GENES_TO_DATABASE,
         jsonWithGenes: jsonWithGenes
     };
 }

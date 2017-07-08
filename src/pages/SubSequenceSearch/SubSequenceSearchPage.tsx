@@ -11,7 +11,8 @@ import {store} from "../../components/AppPipeline";
 import {ShowModalDialogSearchRequestAction} from "../../actions/SubSequenceSearchActions/ShowModalDialogSearchRequestAction";
 import {Constants} from "../../common/Constants";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
-import {GeneDTO} from "../../domain/GeneDTO";
+import Spinner from 'react-spinner-children';
+import {DownloadGenesDirectSearchAction} from "../../actions/SubSequenceSearchActions/DownloadGenesDirectSearchAction";
 
 export interface ISubSequenceSearchPageProps {
     geneSearcherPage: GeneSearchPageDTO;
@@ -22,6 +23,8 @@ export interface ISubSequenceSearchPageDispatchProps {
     initializeSubSequenceGeneListFound: () => any;
     onSequenceInputTextBox: (sequenceToFetch) => any;
     onGenesInputTexBox: (genesToFetch) => any;
+    onSearchButtonPressed: (sequenceToFetch, genesToFetch) => any;
+    onEmailTextBox: (email) => any;
 }
 
 
@@ -46,15 +49,18 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
         this.props.onGenesInputTexBox(newValue);
     }
 
+    private manageEmailTextBox(event: object, newValue: string) {
+        this.props.onEmailTextBox(newValue);
+    }
+
     private manageOnClickModal(option: any) {
         let showModal: boolean;
-
-        console.log("WTF!: ", option);
-
         showModal = false;
 
         if (option == Constants.SUBMIT_BUTTON_PRESSED_VALUE) {
-            showModal = true;
+            showModal = false;
+            store.dispatch(DownloadGenesDirectSearchAction(this.props.geneSearcherPage._geneSubSequenceSearcher._geneListArray,
+                this.props.geneSearcherPage._emailToDownloadFromDirect))
         } else if (option == Constants.CANCEL_BUTTON_PRESSED_VALUE) {
             showModal = false;
         }
@@ -65,16 +71,8 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
     }
 
     private onSearch(event) {
-        store.dispatch(ShowModalDialogSearchRequestAction(
-            true
-        ));
+        this.props.onSearchButtonPressed(this.props.geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind, this.props.geneSearcherPage._geneSubSequenceSearcher._geneListArray);
     }
-
-    // private genListPrinter(genList: Array<GeneDTO>) :string {
-    //     this.props.geneSearcherPage._geneSubSequenceSearcher._geneListText = genList;
-    //     return "hola";
-    // }
-
 
     public render() {
         return (
@@ -107,14 +105,17 @@ export class SubSequenceSearchPage extends React.Component<ISubSequenceSearchPag
                             floatingLabelText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_FLOATING_LABEL_TEXT})}
                             hintText={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_EMAIL_HINT_TEXT})}
                             acceptButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_ACCEPT_BUTTON})}
-                            cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}/>
+                            cancelButtonLabel={this.props.intl.formatMessage({id: MessagesConstants.DIALOG_CANCEL_BUTTON})}
+                            onChangeText={this.manageEmailTextBox.bind(this)}/>
                     </div>
                     <div className="row gene-result-component">
-                        <SubSequenceInDNATableResult
-                            columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
-                            dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
-                            intl={this.props.intl}
-                            noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}/>
+                        <Spinner loaded={this.props.geneSearcherPage._loaded}>
+                            <SubSequenceInDNATableResult
+                                columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
+                                dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
+                                intl={this.props.intl}
+                                noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}/>
+                        </Spinner>
                     </div>
                 </CSSTransitionGroup>
             </div>

@@ -1,14 +1,14 @@
-import {BuildTableOfResultGenesAction} from "./BuildTableOfResultGenesAction";
+import {BuildTableOfResultGenesDatabaseAction} from "./BuildTableOfResultGenesDatabaseAction";
 import {SubSequenceSearch} from "../../access-data/dao/SubSequenceSearch";
-import {SpinnerStateChangeAction} from "./SpinnerStateChangeAction";
+import {SpinnerDatabaseStateChangeAction} from "./SpinnerDatabaseStateChangeAction";
 
 export function SearchDatabaseAction(sequenceToFetch) {
     return function (dispatch) {
-        dispatch(SpinnerStateChangeAction(false));
+        dispatch(SpinnerDatabaseStateChangeAction(false));
         return new SubSequenceSearch().databaseSubSequence(sequenceToFetch)
             .then((jsonOfGenes) => {
-                dispatch(BuildTableOfResultGenesAction(jsonOfGenes));
-                dispatch(SpinnerStateChangeAction(true));
+                dispatch(BuildTableOfResultGenesDatabaseAction(jsonOfGenes));
+                dispatch(SpinnerDatabaseStateChangeAction(true));
             }).catch(error => {
                 throw (error);
             })

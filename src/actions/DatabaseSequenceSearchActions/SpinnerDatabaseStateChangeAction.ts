@@ -5,9 +5,9 @@ export interface ISpinnerStateChangeAction {
     spinnerStateLoaded: boolean;
 }
 
-export function SpinnerStateChangeAction(spinnerStateLoaded: boolean): ISpinnerStateChangeAction {
+export function SpinnerDatabaseStateChangeAction(spinnerStateLoaded: boolean): ISpinnerStateChangeAction {
     return {
-        type: ActionConstants.SPINNER_STATE_CHANGE,
+        type: ActionConstants.SPINNER_DATABASE_STATE_CHANGE,
         spinnerStateLoaded: spinnerStateLoaded
     };
 }
