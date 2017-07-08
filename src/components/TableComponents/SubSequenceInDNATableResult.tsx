@@ -8,11 +8,20 @@ export interface ISubSequenceInDNATableResultProps {
     columnList: Array<TableHeaderColumnDTO>;
     dataList: Array<GeneSubsequenceResultDTO>;
     noDataText: string;
+    intl?: ReactIntl.InjectedIntl
 }
 
 export class SubSequenceInDNATableResult extends InputTableBase {
     public constructor(props: ISubSequenceInDNATableResultProps) {
+        //TODO: Mirar como cambiar o texto con intl aqui
+        console.log("HOLAAAAALALALALALLALALALAL", props.dataList);
+        let newGenesInJson = props.dataList;
+        for (let key in newGenesInJson) {
+            if (newGenesInJson.hasOwnProperty(key)) {
+
+            }
+
+        }
         super(props)
     }
-
 }

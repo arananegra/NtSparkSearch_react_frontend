@@ -1,6 +1,6 @@
 export class GeneSubsequenceResultDTO {
     public _geneId: string;
-    public _haveSequence: number;
+    public _haveSequence: string;
 
     public constructor() {
         this._geneId = null;

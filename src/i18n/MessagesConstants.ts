@@ -54,6 +54,8 @@ export class MessagesConstants {
     public static SNACKBAR_FILTERED_REMOVED_TEXT = "snackBarFilteredRemovedText";
     public static SNACKBAR_UPLOADED_EXCEL_TEXT = "snackBarUploadedExcelText";
     public static SNACKBAR_UPLOADED_FASTA_TEXT = "snackBarUploadedFastaText";
+    public static HAVE_SEQUENCE_TEXT = "haveSequenceText";
+    public static DONT_HAVE_SEQUENCE_TEXT = "dontHaveSequenceText";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -113,7 +115,9 @@ export class MessagesConstants {
         snackBarUnfilteredRemovedText: "Colección de genes no filtrados borrada con éxito",
         snackBarFilteredRemovedText: "Colección de genes filtrados borrada con éxito",
         snackBarUploadedExcelText: "Fichero excel con secuencias subido con éxito",
-        snackBarUploadedFastaText: "Fichero FASTA con secuencias subido con éxito"
+        snackBarUploadedFastaText: "Fichero FASTA con secuencias subido con éxito",
+        haveSequenceText: "Positivo",
+        dontHaveSequenceText: "Negativo"
     };
 
     public static enGbMessages = {
@@ -173,6 +177,8 @@ export class MessagesConstants {
         snackBarUnfilteredRemovedText: "Collection of unfiltered genes successfully removed",
         snackBarFilteredRemovedText: "Collection of filtered genes successfully removed",
         snackBarUploadedExcelText: "Excel file with sequences uploaded successfully",
-        snackBarUploadedFastaText: "FASTA file with sequences uploaded successfully"
+        snackBarUploadedFastaText: "FASTA file with sequences uploaded successfully",
+        haveSequenceText: "Positive",
+        dontHaveSequenceText: "Negative",
     };
 }

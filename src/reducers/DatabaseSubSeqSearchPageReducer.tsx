@@ -122,9 +122,15 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
             for (let key in newGenesInJson) {
                 if (newGenesInJson.hasOwnProperty(key)) {
                     singleSequenceGene = new GeneSubsequenceResultDTO();
-                    console.log(key + " -> " + newGenesInJson[key]);
                     singleSequenceGene._geneId = key;
-                    singleSequenceGene._haveSequence = newGenesInJson[key];
+                    if (newGenesInJson[key] === 1) {
+                        singleSequenceGene._haveSequence = "+"
+                    }
+
+                    else {
+                        singleSequenceGene._haveSequence = "-"
+                    }
+                    // singleSequenceGene._haveSequence = newGenesInJson[key];
                     geneSubSequenceListFound.push(singleSequenceGene);
                 }
             }

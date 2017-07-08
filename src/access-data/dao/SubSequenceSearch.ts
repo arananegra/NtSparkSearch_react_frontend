@@ -12,7 +12,6 @@ export class SubSequenceSearch {
             timeout: 1000000,
         }).then((response) => {
             if (response.status === 200) {
-                console.log("",response.data);
                 return response.data;
             }
         });
