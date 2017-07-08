@@ -6,6 +6,7 @@ import {SubSequenceInDNATableResult} from "../../components/TableComponents/SubS
 import {GeneSearchPageDTO} from "../../domain/SearchPage/GeneSearchPageDTO";
 import {GeneSubSequenceDatabaseSearcherComponent} from "../../components/SearcherBarComponents/GeneSubSequenceDatabaseSearcherComponent";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
+import Spinner from 'react-spinner-children';
 
 
 export interface IDatabaseSubSeqSearchPageProps {
@@ -61,11 +62,13 @@ export class DatabaseSubSeqSearchPage extends React.Component<IDatabaseSubSeqSea
 
                     </div>
                     <div className="row gene-result-component">
-                        <SubSequenceInDNATableResult
-                            columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
-                            dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
-                            intl={this.props.intl}
-                            noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}/>
+                        <Spinner loaded={this.props.geneSearcherPage._loaded}>
+                            <SubSequenceInDNATableResult
+                                columnList={this.props.geneSearcherPage._geneTableResultHeaderColumns}
+                                dataList={this.props.geneSearcherPage._geneSubSequenceResultFound}
+                                intl={this.props.intl}
+                                noDataText={this.props.intl.formatMessage({id: MessagesConstants.NO_DATA_TO_SHOW})}/>
+                        </Spinner>
                     </div>
                 </CSSTransitionGroup>
             </div>

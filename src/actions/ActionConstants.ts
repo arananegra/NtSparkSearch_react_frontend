@@ -20,4 +20,5 @@ export class ActionConstants {
     public static WRITE_EMAIL_UPLOAD_INPUT_TEXT: string = "WRITE_EMAIL_UPLOAD_INPUT_TEXT";
     public static SEARCH_DATABASE : string = "SEARCH_DATABASE";
     public static BUILD_JSON_WITH_GENES: string = "BUILD_JSON_WITH_GENES";
+    public static SPINNER_STATE_CHANGE: string = "SPINNER_STATE_CHANGE";
 }

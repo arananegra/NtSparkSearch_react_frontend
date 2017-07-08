@@ -22,6 +22,8 @@ export class DatabaseSubSeqSearchPageState {
         this._geneSearcherPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
         this._geneSearcherPage._geneSubSequenceSearcher._geneListArray = new Array<GeneDTO>();
 
+        this._geneSearcherPage._loaded = true;
+
         let singleHeader: TableHeaderColumnDTO;
 
         singleHeader = new TableHeaderColumnDTO();
@@ -108,6 +110,13 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
                 newPageWithDatabaseSequenceToFetch._geneSubSequenceSearcher._dnaSequenceToFind = newInputFromTextBox;
             }
             newState = objectAssign({}, state, {_geneSearcherPage: newPageWithDatabaseSequenceToFetch});
+            return newState;
+
+        case ActionConstants.SPINNER_STATE_CHANGE:
+            let newPageWithSpinnerState = objectAssign({}, state._geneSearcherPage, {});
+            newPageWithSpinnerState._loaded = action["spinnerStateLoaded"];
+            console.log("ESTADO DE LOADED" , newPageWithSpinnerState._loaded);
+            newState = objectAssign({}, state, {_geneSearcherPage: newPageWithSpinnerState});
             return newState;
 
         case ActionConstants.BUILD_JSON_WITH_GENES:
