@@ -1,5 +1,5 @@
 export class GeneSubsequenceResultDTO {
-    public _geneId: number;
+    public _geneId: string;
     public _haveSequence: number;
 
     public constructor() {

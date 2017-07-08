@@ -6,7 +6,6 @@ export class SubSequenceSearch {
     }
 
     public databaseSubSequence(sequenceToFetch: string) {
-        console.log("Sequencia " + sequenceToFetch);
         return axios({
             method: 'get',
             url: "http://0.0.0.0:5000/genefilter/sparkmatchall?sequence="+sequenceToFetch,

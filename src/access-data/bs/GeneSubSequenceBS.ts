@@ -1,6 +1,6 @@
 import {GeneSubsequenceResultDTO} from "../../domain/GeneSubsequenceResultDTO";
 import {GeneSubSequenceSearcherDTO} from "../../domain/GeneSubSequenceSearcherDTO";
-import {GeneSubSequenceDAO} from "../dao/GeneSubSequenceDAO";
+//import {GeneSubSequenceDAO} from "../dao/GeneSubSequenceDAO";
 
 export class GeneSubSequenceBS {
 
@@ -9,13 +9,13 @@ export class GeneSubSequenceBS {
     }
 
     public findSubSequenceInGeneList(geneSubSequenceToSearch: GeneSubSequenceSearcherDTO) {
-        let geneSubSequenceDAO: GeneSubSequenceDAO;
+        //let geneSubSequenceDAO: GeneSubSequenceDAO;
 
         try {
-            geneSubSequenceDAO = new GeneSubSequenceDAO();
-            geneSubSequenceDAO.findSubSequenceInGeneList(geneSubSequenceToSearch);
-
-            //Llamar al STORE
+            // geneSubSequenceDAO = new GeneSubSequenceDAO();
+            // geneSubSequenceDAO.findSubSequenceInGeneList(geneSubSequenceToSearch);
+            //
+            // //Llamar al STORE
         } catch(Exception) {
             throw Exception;
         }

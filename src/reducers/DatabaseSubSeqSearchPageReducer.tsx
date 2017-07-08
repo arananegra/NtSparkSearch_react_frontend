@@ -119,12 +119,11 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
 
             geneSubSequenceListFound = new Array<GeneSubsequenceResultDTO>();
 
-            console.log("JSONNNN ", newGenesInJson);
             for (let key in newGenesInJson) {
                 if (newGenesInJson.hasOwnProperty(key)) {
                     singleSequenceGene = new GeneSubsequenceResultDTO();
                     console.log(key + " -> " + newGenesInJson[key]);
-                    singleSequenceGene._geneId = Number(key);
+                    singleSequenceGene._geneId = key;
                     singleSequenceGene._haveSequence = newGenesInJson[key];
                     geneSubSequenceListFound.push(singleSequenceGene);
                 }
