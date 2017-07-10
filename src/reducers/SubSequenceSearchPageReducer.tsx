@@ -53,10 +53,13 @@ export function SubSequenceSearchPageReducer(state: SubSequenceSearchPageState =
 
     switch (action.type) {
         case ActionConstants.INITIALIZE_SUB_SEQUENCE_SEARCH_PAGE:
-            let initialSubSequenceSearchPage: GeneSearchPageDTO;
-            initialSubSequenceSearchPage = objectAssign({}, state._geneSearcherPage, {});
+            let initialSubSequenceSearchPage: SubSequenceSearchPageState;
+            initialSubSequenceSearchPage = objectAssign({}, state, {});
+            initialSubSequenceSearchPage = new SubSequenceSearchPageState();
 
-            newState = objectAssign({}, state, {_geneSearcherPage: initialSubSequenceSearchPage});
+            let initialSubSequenceSearchPageGeneDTO = initialSubSequenceSearchPage._geneSearcherPage;
+
+            newState = objectAssign({}, state, {_geneSearcherPage: initialSubSequenceSearchPageGeneDTO});
             return newState;
 
         case ActionConstants.SHOW_MODAL_DIALOG_SEARCH_REQUEST:

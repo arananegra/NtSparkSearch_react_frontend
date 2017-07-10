@@ -40,6 +40,8 @@ export class DatabaseSubSeqSearchPageState {
         singleHeader._value = MessagesConstants.RESULT_COLUMN_NAME;
         singleHeader._width = "100";
         this._geneSearcherPage._geneTableResultHeaderColumns.push(singleHeader);
+
+        this._geneSearcherPage._showModalDialogSearchRequest = false;
     }
 }
 
@@ -50,52 +52,13 @@ export function DatabaseSubSeqSearchPageReducer(state: DatabaseSubSeqSearchPageS
 
     switch (action.type) {
         case ActionConstants.INITIALIZE_DATABASE_SUB_SEQUENCE_SEARCH_PAGE:
-            let initialDatabaseSubSeqSearchPage: GeneSearchPageDTO;
+            let initialDatabaseSearchPage: DatabaseSubSeqSearchPageState;
+            initialDatabaseSearchPage = objectAssign({}, state, {});
+            initialDatabaseSearchPage = new DatabaseSubSeqSearchPageState();
 
-            initialDatabaseSubSeqSearchPage = objectAssign({}, state._geneSearcherPage, {});
+            let initialDatabaseSearchPageGeneDTO = initialDatabaseSearchPage._geneSearcherPage;
 
-            // initialDatabaseSubSeqSearchPage = new GeneSearchPageDTO();
-            // initialDatabaseSubSeqSearchPage._geneSubSequenceResultFound = new Array<GeneSubsequenceResultDTO>();
-            // initialDatabaseSubSeqSearchPage._geneSubSequenceSearcher = new GeneSubSequenceSearcherDTO();
-            // initialDatabaseSubSeqSearchPage._geneTableResultHeaderColumns = new Array<TableHeaderColumnDTO>();
-            //
-            // initialDatabaseSubSeqSearchPage._geneSubSequenceSearcher._geneListText = new Array<GeneDTO>();
-            // initialDatabaseSubSeqSearchPage._geneSubSequenceSearcher._dnaSequenceToFind = "";
-            //
-            // let singleHeader: TableHeaderColumnDTO;
-            //
-            // singleHeader = new TableHeaderColumnDTO();
-            // singleHeader._isKey = true;
-            // singleHeader._columnName = "_geneId";
-            // //singleHeader._value = "Gen";
-            // singleHeader._width = "100";
-            // initialDatabaseSubSeqSearchPage._geneTableResultHeaderColumns.push(singleHeader);
-            //
-            // singleHeader = new TableHeaderColumnDTO();
-            // singleHeader._isKey = false;
-            // singleHeader._columnName = "_haveSequence";
-            // //singleHeader._value = "Result";
-            //
-            // singleHeader._width = "100";
-            // initialDatabaseSubSeqSearchPage._geneTableResultHeaderColumns.push(singleHeader);
-            //
-            // let geneSubSequenceListFound: Array<GeneSubsequenceResultDTO>;
-            // let singleSequenceGene: GeneSubsequenceResultDTO;
-            //
-            // geneSubSequenceListFound = new Array<GeneSubsequenceResultDTO>();
-            //
-            // // singleSequenceGene = new GeneSubsequenceResultDTO();
-            // // singleSequenceGene._geneId = 234;
-            // // singleSequenceGene._haveSequence = 1;
-            // // initialDatabaseSubSeqSearchPage._geneSubSequenceResultFound.push(singleSequenceGene);
-            // //
-            // // singleSequenceGene = new GeneSubsequenceResultDTO();
-            // // singleSequenceGene._geneId = 534;
-            // // singleSequenceGene._haveSequence = 1;
-            // // initialDatabaseSubSeqSearchPage._geneSubSequenceResultFound.push(singleSequenceGene);
-
-            initialDatabaseSubSeqSearchPage._showModalDialogSearchRequest = false;
-            newState = objectAssign({}, state, {_geneSearcherPage: initialDatabaseSubSeqSearchPage});
+            newState = objectAssign({}, state, {_geneSearcherPage: initialDatabaseSearchPageGeneDTO});
             return newState;
 
         case ActionConstants.WRITE_SEQUENCE_TO_FETCH_ON_DATABASE_SEARCH_INPUT_TEXT:

@@ -22,9 +22,8 @@ export class SubSequenceSearch {
             url: "http://0.0.0.0:5000/genefilter/sparkmatchall?sequence=" + sequenceToFetch,
             timeout: 1000000,
         }).then((response) => {
-            if (response.status === 200) {
-                return response.data;
-            }
+            return response;
+
         });
     }
 
