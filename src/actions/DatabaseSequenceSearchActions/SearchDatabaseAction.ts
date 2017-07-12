@@ -1,7 +1,7 @@
 import {BuildTableOfResultGenesDatabaseAction} from "./BuildTableOfResultGenesDatabaseAction";
 import {SubSequenceSearch} from "../../access-data/dao/SubSequenceSearch";
 import {SpinnerDatabaseStateChangeAction} from "./SpinnerDatabaseStateChangeAction";
-import {GeneHandlerDAO} from "../../access-data/dao/GeneHandlerDAO";
+import {GeneHandlerDAO} from "../../access-data/dao/GeneHandler";
 import {InitializeDatabaseSubSeqSearchPageAction} from "../InitializeActions/InitializeDatabaseSubSeqSearchPageAction";
 
 export function SearchDatabaseAction(sequenceToFetch) {

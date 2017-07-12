@@ -1,4 +1,4 @@
-import {GeneHandlerDAO} from "../../access-data/dao/GeneHandlerDAO";
+import {GeneHandlerDAO} from "../../access-data/dao/GeneHandler";
 
 export function DownloadUnfilteredIdsAction() {
     return function () {

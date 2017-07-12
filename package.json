@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --env=pre-compilation --hot --inline",
-    "deploy": "webpack -p --env=pro-compilation"
+    "build": "webpack --env=pro-compilation"
   },
   "author": "Alvaro Gómez Jáuregui",
   "license": "ISC",

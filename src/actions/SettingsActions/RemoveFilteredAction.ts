@@ -1,4 +1,4 @@
-import {GeneHandlerDAO} from "../../access-data/dao/GeneHandlerDAO";
+import {GeneHandlerDAO} from "../../access-data/dao/GeneHandler";
 import {ShowSnackBarRemoveFilteredAction} from "./ShowSnackBarRemoveFilteredAction";
 
 export function RemoveFilteredAction() {
