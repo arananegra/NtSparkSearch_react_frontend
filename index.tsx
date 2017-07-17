@@ -45,8 +45,14 @@ class Index {
     }
 
     private setInitialLanguage() {
+        let userLang = navigator.language;
         let languageBS = new LanguageBS();
-        languageBS.changeEnglishLanguage();
+        if (userLang === "es") {
+            languageBS.changeSpanishLanguage();
+        } else {
+            languageBS.changeEnglishLanguage();
+        }
+
     }
 }
 
