@@ -2,6 +2,7 @@ import * as React from "react";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import {FormattedMessage} from "react-intl";
 import {MessagesConstants} from "../../i18n/MessagesConstants";
+import {ButtonComponent} from "../CommonComponents/ButtonComponent";
 
 export interface IInputTableProps {
     dataList: any[];
@@ -77,7 +78,9 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
         let extraRowOptionsConfiguration;
 
         extraRowOptionsConfiguration = {
-            noDataText: this.props.noDataText
+            noDataText: this.props.noDataText,
+            exportCSVText: this.props.intl.formatMessage({id: MessagesConstants.EXPORT_CSV}),
+            exportCSVBtn: this.createCustomExportCSVButton,
         };
 
         extraRowOptionsConfiguration.paginationShowsTotal = this.renderShowsTotal;
@@ -94,6 +97,18 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
         return jsonToLoad;
     }
 
+    createCustomExportCSVButton = (onClick) => {
+        return (
+            <div className="csv-export-button">
+                <ButtonComponent label={this.props.intl.formatMessage({id: MessagesConstants.EXPORT_CSV})}
+                                 value={"texto"}
+                                 primary={true}
+                                 onButtonPressed={onClick}/>
+            </div>
+
+        );
+    };
+
     render() {
         return (
             <div>
@@ -101,7 +116,9 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
                                 options={this.rowOptionsConfiguration()}
                                 pagination={ true }
                                 striped hover
-                                ignoreSinglePage>
+                                ignoreSinglePage
+                                exportCSV
+                                csvFileName='genes-export.csv'>
                     {this.buildTableColumn()}
                 </BootstrapTable>
             </div>
