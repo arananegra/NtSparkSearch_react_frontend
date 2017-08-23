@@ -97,7 +97,7 @@ export class InputTableBase extends React.Component<IInputTableProps, IInputTabl
         return jsonToLoad;
     }
 
-    createCustomExportCSVButton = (onClick) => {
+    private createCustomExportCSVButton = (onClick) => {
         return (
             <div className="csv-export-button">
                 <ButtonComponent label={this.props.intl.formatMessage({id: MessagesConstants.EXPORT_CSV})}
