@@ -11,7 +11,7 @@ import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFilesToProc
 import {DownloadPageContainer} from "./src/pages/Download/DownloadPageContainer";
 import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";
 import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearch/DatabaseSubSeqSearchPageContainer";
-import {LoginForm} from "./src/components/LoginRegisterForm";
+import {LoginRegisterForm} from "./src/components/LoginRegisterForm";
 import {history} from "./src/components/AppPipeline"
 
 class Index {
@@ -24,7 +24,7 @@ class Index {
         const Start = () => (
             <Router history={history}>
 
-                <Route path="/" component={AppPipeline}>
+                <Route path="/" component={LoginRegisterForm}>
                     <IndexRoute component={SubSequenceSearchPageContainer}/>
                     <Route path={RoutesConstants.DATABASE_SEARCH_ROUTE_PATH}
                            component={DatabaseSubSeqSearchPageContainer}/>

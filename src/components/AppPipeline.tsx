@@ -11,7 +11,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import logger from 'redux-logger'
 import {ConnectedRouter, routerReducer, routerMiddleware, push, syncHistoryWithStore} from 'react-router-redux'
 import {NavigationBarComponent} from "./NavigationBarComponent";
-import {LoginForm} from "./LoginRegisterForm";
+import {LoginRegisterForm} from "./LoginRegisterForm";
 import {LanguageBS} from "../access-data/bs/LanguageBS";
 import {browserHistory} from "react-router";
 
