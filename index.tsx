@@ -6,7 +6,7 @@ import {AppPipeline, store} from "./src/components/AppPipeline";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
 import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearch/SubSequenceSearchPageContainer";
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
-import {RoutesConstants} from "./src/common/BackendConstants";
+import {RoutesConstants} from "./src/common/RoutesConstants";
 import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFilesToProcessing/UploadFileToProcessingPageContainer";
 import {DownloadPageContainer} from "./src/pages/Download/DownloadPageContainer";
 import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";

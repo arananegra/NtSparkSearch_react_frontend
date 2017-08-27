@@ -41,7 +41,7 @@ export class LoginRegisterForm extends React.Component<ILoginFormProps, IState> 
             <div>
                 <MuiThemeProvider>
                     <div className="container-fluid login-register-component">
-                        <Paper zDepth={2}>
+                        <Paper zDepth={5}>
                             <span className="login-title">Access page</span>
                             <div className="login-register-div">
                                 <InputText

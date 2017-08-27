@@ -17,7 +17,7 @@ const AppSettings = <Settings/>;
 const SearchFromDatabase = <SearchDatabase/>;
 
 import {browserHistory} from 'react-router';
-import {RoutesConstants} from "../common/BackendConstants";
+import {RoutesConstants} from "../common/RoutesConstants";
 import {MessagesConstants} from "../i18n/MessagesConstants";
 import {Constants} from "../common/Constants"
 

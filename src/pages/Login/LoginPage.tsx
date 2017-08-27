@@ -4,6 +4,7 @@ import {LoginRegisterForm} from "../../components/LoginRegisterForm";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 
+
 export interface ILoginPageProps {
     intl?: any
 }
