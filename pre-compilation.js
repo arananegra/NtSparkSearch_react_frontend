@@ -36,6 +36,7 @@ module.exports = function(env) {
         },
 
         devServer: {
+            historyApiFallback: true,
             disableHostCheck: true,
             contentBase: './dist',
             inline: true,

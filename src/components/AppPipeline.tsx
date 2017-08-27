@@ -9,14 +9,18 @@ import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import logger from 'redux-logger'
-import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-router-redux'
+import {ConnectedRouter, routerReducer, routerMiddleware, push, syncHistoryWithStore} from 'react-router-redux'
 import {NavigationBarComponent} from "./NavigationBarComponent";
+import {LoginForm} from "./LoginRegisterForm";
+import {LanguageBS} from "../access-data/bs/LanguageBS";
+import {browserHistory} from "react-router";
 
 addLocaleData([...spanish, ...english]);
 
 const reducer = combineReducers({
     reducers,
     intl: intlReducer,
+    routing: routerReducer
 });
 
 const middlewares = [ReduxThunk["default"], logger];
@@ -25,6 +29,8 @@ export const store = createStore(reducer,
     composeWithDevTools(
         applyMiddleware(...middlewares)),
 );
+
+export const history = syncHistoryWithStore(browserHistory, store);
 
 export class AppPipeline extends React.Component<{}, {}> {
 
@@ -40,6 +46,17 @@ export class AppPipeline extends React.Component<{}, {}> {
                 </IntlProvider>
             </Provider>
         );
+    }
+
+    private setInitialLanguage() {
+        let userLang = navigator.language;
+        let languageBS = new LanguageBS();
+        if (userLang === "es") {
+            languageBS.changeSpanishLanguage();
+        } else {
+            languageBS.changeEnglishLanguage();
+        }
+
     }
 
 }
