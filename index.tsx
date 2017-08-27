@@ -11,7 +11,6 @@ import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFilesToProc
 import {DownloadPageContainer} from "./src/pages/Download/DownloadPageContainer";
 import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";
 import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearch/DatabaseSubSeqSearchPageContainer";
-import {LoginRegisterForm} from "./src/components/LoginRegisterForm";
 import {history} from "./src/components/AppPipeline"
 import {LoginPage} from "./src/pages/Login/LoginPage";
 

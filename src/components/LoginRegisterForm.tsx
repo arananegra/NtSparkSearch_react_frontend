@@ -6,10 +6,15 @@ import ReactSignupLoginComponent from 'react-signup-login-component';
 import {ButtonComponent} from "./CommonComponents/ButtonComponent";
 
 export interface ILoginFormProps {
-    onChangeText?: (event: object, newValue: string) => any;
-    hintText?: string;
-    floatingLabelText?: string;
-    valueToText?: string;
+    onChangeTextEmail?: (event: object, newValue: string) => any;
+    hintTextEmail?: string;
+    floatingLabelTextEmail?: string;
+    valueToTextEmail?: string;
+
+    onChangeTextPassword?: (event: object, newValue: string) => any;
+    hintTextPassword?: string;
+    floatingLabelTextPassword?: string;
+    valueToTextPassword?: string;
 
     onButtonPressed?: (value) => any;
     label?: string;
@@ -21,15 +26,6 @@ export interface ILoginFormProps {
 export interface IState {
 
 }
-//'http://img11.deviantart.net/6316/i/2013/113/6/e/jump_hurdles_by_zoranphoto-d62pl6q.jpg'
-//../../assets/images/dna.jpg
-let imgUrl = 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Cadena_de_ADN.jpg';
-const styles = {
-    root: {
-        background: 'url(' + imgUrl + ') noRepeat center center fixed',
-        backgroundSize: 'cover',
-    }
-};
 
 export class LoginRegisterForm extends React.Component<ILoginFormProps, IState> {
     public constructor(props: ILoginFormProps) {
@@ -45,17 +41,17 @@ export class LoginRegisterForm extends React.Component<ILoginFormProps, IState> 
                             <span className="login-title">Access page</span>
                             <div className="login-register-div">
                                 <InputText
-                                    onChangeText={this.props.onChangeText}
-                                    hintText={this.props.hintText}
-                                    floatingLabelText={this.props.floatingLabelText}
-                                    valueToText={this.props.valueToText}/>
+                                    onChangeText={this.props.onChangeTextEmail}
+                                    hintText={this.props.hintTextEmail}
+                                    floatingLabelText={this.props.floatingLabelTextEmail}
+                                    valueToText={this.props.valueToTextEmail}/>
                             </div>
                             <div className="login-register-div">
                                 <InputText
-                                    onChangeText={this.props.onChangeText}
-                                    hintText={this.props.hintText}
-                                    floatingLabelText={this.props.floatingLabelText}
-                                    valueToText={this.props.valueToText}/>
+                                    onChangeText={this.props.onChangeTextPassword}
+                                    hintText={this.props.hintTextPassword}
+                                    floatingLabelText={this.props.floatingLabelTextPassword}
+                                    valueToText={this.props.valueToTextPassword}/>
                             </div>
 
                             <div className="login-register-button-login">

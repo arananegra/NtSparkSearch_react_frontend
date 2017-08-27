@@ -2,7 +2,7 @@ const Axios = require("axios");
 
 class testAxiosJWT {
 
-    loginUser(email,password) {
+    loginUser(email, password) {
         return Axios({
             data: {
                 "email": email,
@@ -15,13 +15,21 @@ class testAxiosJWT {
                 'Content-Type': 'application/json'
             }
         }).then((response) => {
-            console.log(response.data.response.user.authentication_token);
+            return (response.data.response.user.authentication_token);
         });
     }
 }
 
 let testing = new testAxiosJWT();
 
-testing.loginUser("arananegrayeye@gmail.com","alvaro");
+let token = testing.loginUser("arananegrayeye@gmail.com", "alvaro");
+token.then((token) => {
+    console.log("El token directo es: " + token)
+});
+sessionStorage.setItem("jwt", token);
+
+console.log("El token guardado en la sesion es " + sessionStorage.getItem("jwt"));
+
+
 
 
