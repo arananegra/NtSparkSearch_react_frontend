@@ -12,15 +12,24 @@ export interface ILoginFormProps {
     valueToText?: string;
 
     onButtonPressed?: (value) => any;
-    label: string;
-    value: string;
-    primary: boolean
+    label?: string;
+    value?: string;
+    primary?: boolean
     secondary?: boolean
 }
 
 export interface IState {
 
 }
+//'http://img11.deviantart.net/6316/i/2013/113/6/e/jump_hurdles_by_zoranphoto-d62pl6q.jpg'
+//../../assets/images/dna.jpg
+let imgUrl = 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Cadena_de_ADN.jpg';
+const styles = {
+    root: {
+        background: 'url(' + imgUrl + ') noRepeat center center fixed',
+        backgroundSize: 'cover',
+    }
+};
 
 export class LoginRegisterForm extends React.Component<ILoginFormProps, IState> {
     public constructor(props: ILoginFormProps) {
