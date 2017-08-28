@@ -12,8 +12,17 @@ import {DownloadPageContainer} from "./src/pages/Download/DownloadPageContainer"
 import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";
 import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearch/DatabaseSubSeqSearchPageContainer";
 import {history} from "./src/components/AppPipeline"
-import {LoginPage} from "./src/pages/Login/LoginPage";
 import {LoginPageContainer} from "./src/pages/Login/LoginPageContainer";
+
+function requireAuth(nextState, replace) {
+    if (sessionStorage.getItem("token") === null) {
+        replace({
+            pathname: RoutesConstants.LOGIN_ROUTE_PATH,
+            state: {nextPathname: nextState.location.pathname}
+        })
+    }
+}
+
 
 class Index {
     public constructor() {
@@ -26,15 +35,15 @@ class Index {
             <Router history={history}>
 
                 <Route path="/" component={AppPipeline}>
-                    <IndexRoute component={SubSequenceSearchPageContainer}/>
+                    <IndexRoute component={SubSequenceSearchPageContainer} onEnter={requireAuth}/>
                     <Route path={RoutesConstants.DATABASE_SEARCH_ROUTE_PATH}
-                           component={DatabaseSubSeqSearchPageContainer}/>
+                           component={DatabaseSubSeqSearchPageContainer} onEnter={requireAuth}/>
                     <Route path={RoutesConstants.UPLOAD_FILES_ROUTE_PATH}
-                           component={UploadFileToProcessingPageContainer}/>
+                           component={UploadFileToProcessingPageContainer} onEnter={requireAuth}/>
                     <Route path={RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH}
-                           component={DownloadPageContainer}/>
+                           component={DownloadPageContainer} onEnter={requireAuth}/>
                     <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
-                           component={SettingsContainer}/>
+                           component={SettingsContainer} onEnter={requireAuth}/>
                     <Route path={RoutesConstants.LOGIN_ROUTE_PATH}
                            component={LoginPageContainer}/>
                 </Route>

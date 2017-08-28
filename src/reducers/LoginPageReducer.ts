@@ -33,6 +33,9 @@ export function LoginPageReducer(state: LoginPageState = new LoginPageState(),
             newState = objectAssign({}, state, {_loginPage: newPageWithPassword});
             return newState;
 
+        case ActionConstants.LOGIN_SUCCESS:
+
+
     }
     return state;
 }
