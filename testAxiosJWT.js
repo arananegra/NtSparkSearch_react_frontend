@@ -15,18 +15,18 @@ class testAxiosJWT {
                 'Content-Type': 'application/json'
             }
         }).then((response) => {
-            return (response.data.response.user.authentication_token);
+            return (response.data);
         });
     }
 }
 
 let testing = new testAxiosJWT();
 
-let token = testing.loginUser("arananegrayeye@gmail.om", "alvaro");
-token.then((token) => {
-    console.log("El token directo es: " + token)
+let token = testing.loginUser("arananegrayeye@gmail.co", "alvaro");
+token.then((response) => {
+    console.log(response)
 }).catch((error) => {
-    console.log(error.response.status);
+    console.log(error.response);
 });
 
 

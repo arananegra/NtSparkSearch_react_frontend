@@ -27,4 +27,7 @@ export class ActionConstants {
     public static SHOW_SNACKBAR_DOWNLOAD_DIRECT_SEARCH: string = "SHOW_SNACKBAR_DOWNLOAD_DIRECT_SEARCH";
     public static WRITE_LOGIN_EMAIL: string = "WRITE_LOGIN_EMAIL";
     public static WRITE_LOGIN_PASSWORD: string = "WRITE_LOGIN_PASSWORD";
+    //public static LOGIN_REQUEST: string = "LOGIN_REQUEST";
+    public static LOGIN_SUCCESS: string = "LOGIN_SUCCESS";
+    public static LOGIN_FAILED: string = "LOGIN_FAILED";
 }
