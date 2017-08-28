@@ -1,27 +1,26 @@
 import * as React from 'react';
-import FontIcon from 'material-ui/FontIcon';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import UploadFiles from 'material-ui/svg-icons/file/cloud-upload';
 import Settings from 'material-ui/svg-icons/action/settings'
 import FindInPage from 'material-ui/svg-icons/action/find-in-page';
 import DownloadFiles from 'material-ui/svg-icons/file/file-download';
+import Logout from 'material-ui/svg-icons/action/alarm-off'
 import SearchDatabase from 'material-ui/svg-icons/action/youtube-searched-for'
 import {FormattedMessage} from "react-intl";
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
+
 const SearchDnaSequences = <FindInPage/>;
 const UploadFilesToProcess = <UploadFiles/>;
 const DownloadFilesToLocal = <DownloadFiles/>;
 const AppSettings = <Settings/>;
 const SearchFromDatabase = <SearchDatabase/>;
+const LogoutSystem = <Logout/>;
 
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../common/RoutesConstants";
 import {MessagesConstants} from "../i18n/MessagesConstants";
 import {Constants} from "../common/Constants"
 
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 

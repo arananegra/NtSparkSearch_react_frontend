@@ -4,6 +4,8 @@ import {LoginRegisterForm} from "../../components/LoginRegisterForm";
 import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {LoginPageDTO} from "../../domain/LoginPage/LoginPageDTO";
+import {store} from "../../components/AppPipeline";
+import {SpinnerLoginChangeAction} from "../../actions/LoginActions/SpinnerLoginChangeAction";
 
 
 export interface ILoginPageProps {
@@ -52,6 +54,7 @@ export class LoginPage extends React.Component<ILoginPageProps & ILoginPageDispa
 
     private onLoginClick(event) {
         this.props.onLoginClicked(this.props.loginPage._email, this.props.loginPage._password);
+        store.dispatch(SpinnerLoginChangeAction(false));
     }
 
 
@@ -60,11 +63,14 @@ export class LoginPage extends React.Component<ILoginPageProps & ILoginPageDispa
             <div style={divStyle}>
                 <LoginRegisterForm
                     loginAccessText={this.props.intl.formatMessage({id: MessagesConstants.LOGIN_ACCESS_TITTLE})}
-                    floatingLabelTextEmail={this.props.intl.formatMessage({id: MessagesConstants.LOGIN_EMAIL})}
-                    floatingLabelTextPassword={this.props.intl.formatMessage({id: MessagesConstants.LOGIN_PASSWORD})}
+                    textEmail={this.props.intl.formatMessage({id: MessagesConstants.LOGIN_EMAIL})}
+                    textPassword={this.props.intl.formatMessage({id: MessagesConstants.LOGIN_PASSWORD})}
+                    valueToTextEmail={this.props.loginPage._email}
+                    valueToTextPassword={this.props.loginPage._password}
                     onButtonPressed={this.onLoginClick.bind(this)}
                     onChangeTextEmail={this.onEmail.bind(this)}
                     onChangeTextPassword={this.onPassword.bind(this)}
+                    spinnerLoaded={this.props.loginPage._spinnerLoaded}
                     >
                 </LoginRegisterForm>
             </div>

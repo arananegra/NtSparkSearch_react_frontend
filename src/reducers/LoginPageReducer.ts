@@ -12,6 +12,7 @@ export class LoginPageState {
         this._loginPage = new LoginPageDTO();
         this._loginPage._email = "";
         this._loginPage._password = "";
+        this._loginPage._spinnerLoaded = true;
     }
 }
 
@@ -33,9 +34,11 @@ export function LoginPageReducer(state: LoginPageState = new LoginPageState(),
             newState = objectAssign({}, state, {_loginPage: newPageWithPassword});
             return newState;
 
-        case ActionConstants.LOGIN_SUCCESS:
-
-
+        case ActionConstants.SPINNER_LOGIN_STATE_CHANGE:
+            let newPageWithSpinnerState = objectAssign({}, state._loginPage, {});
+            newPageWithSpinnerState._spinnerLoaded = action["spinnerStateLoaded"];
+            newState = objectAssign({}, state, {_loginPage: newPageWithSpinnerState});
+            return newState;
     }
     return state;
 }

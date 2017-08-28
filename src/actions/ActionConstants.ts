@@ -29,4 +29,5 @@ export class ActionConstants {
     public static WRITE_LOGIN_PASSWORD: string = "WRITE_LOGIN_PASSWORD";
     public static LOGIN_SUCCESS: string = "LOGIN_SUCCESS";
     public static LOGIN_FAILED: string = "LOGIN_FAILED";
+    public static SPINNER_LOGIN_STATE_CHANGE: string = "SPINNER_DATABASE_STATE_CHANGE";
 }

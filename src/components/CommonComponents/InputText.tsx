@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 export interface IInputTextProps {
     onChangeText: (event: object, newValue: string) => any;
     hintText?: string;
-    floatingLabelText: string;
+    floatingLabelText?: string;
     valueToText?: string;
     passwordField?: string;
 }

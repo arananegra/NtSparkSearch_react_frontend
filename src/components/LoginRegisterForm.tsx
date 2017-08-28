@@ -2,19 +2,19 @@ import * as React from "react";
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {InputText} from "./CommonComponents/InputText";
-import ReactSignupLoginComponent from 'react-signup-login-component';
 import {ButtonComponent} from "./CommonComponents/ButtonComponent";
+import Spinner from 'react-spinner-children';
 
 export interface ILoginFormProps {
 
     loginAccessText: string,
 
     onChangeTextEmail: (event: object, newValue: string) => any;
-    floatingLabelTextEmail: string;
+    textEmail: string;
     valueToTextEmail?: string;
 
     onChangeTextPassword: (event: object, newValue: string) => any;
-    floatingLabelTextPassword: string;
+    textPassword: string;
     valueToTextPassword?: string;
 
     onButtonPressed: (value) => any;
@@ -22,6 +22,8 @@ export interface ILoginFormProps {
     value?: string;
     primary?: boolean
     secondary?: boolean
+
+    spinnerLoaded: boolean
 }
 
 export interface IState {
@@ -46,24 +48,29 @@ export class LoginRegisterForm extends React.Component<ILoginFormProps, IState> 
                             <div className="login-register-div">
                                 <InputText
                                     onChangeText={this.props.onChangeTextEmail}
-                                    floatingLabelText={this.props.floatingLabelTextEmail}
-                                    valueToText={this.props.valueToTextEmail}/>
+                                    hintText={this.props.textEmail}
+                                    valueToText={this.props.valueToTextEmail}
+                                    floatingLabelText={this.props.textEmail}/>
                             </div>
                             <div className="login-register-div">
                                 <InputText
                                     onChangeText={this.props.onChangeTextPassword}
-                                    floatingLabelText={this.props.floatingLabelTextPassword}
+                                    hintText={this.props.textPassword}
                                     valueToText={this.props.valueToTextPassword}
+                                    floatingLabelText={this.props.textPassword}
                                     passwordField="password"/>
                             </div>
 
+
                             <div className="login-register-button-login">
-                                <ButtonComponent
-                                    onButtonPressed={this.props.onButtonPressed}
-                                    label="Login"
-                                    value="Login"
-                                    primary={true}>
-                                </ButtonComponent>
+                                <Spinner loaded={this.props.spinnerLoaded}>
+                                    <ButtonComponent
+                                        onButtonPressed={this.props.onButtonPressed}
+                                        label="Login"
+                                        value="Login"
+                                        primary={true}>
+                                    </ButtonComponent>
+                                </Spinner>
                             </div>
                         </Paper>
                     </div>
