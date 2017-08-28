@@ -4,6 +4,7 @@ import {LoginFailedAction} from "./LoginFailedAction";
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../../common/RoutesConstants";
 import {SpinnerLoginChangeAction} from "./SpinnerLoginChangeAction";
+import {ShowSnackBarLoginFailedAction} from "./ShowSnackBarLoginFailedAction";
 
 export function LoginRequestAction(email, password) {
     return function (dispatch) {
@@ -16,6 +17,7 @@ export function LoginRequestAction(email, password) {
             }).catch(error => {
                 dispatch(LoginFailedAction());
                 dispatch(SpinnerLoginChangeAction(true));
+                dispatch(ShowSnackBarLoginFailedAction(true));
                 if (sessionStorage.getItem("token") != null) {
                     sessionStorage.removeItem("token");
                 }

@@ -18,9 +18,9 @@ export interface ILoginFormProps {
     valueToTextPassword?: string;
 
     onButtonPressed: (value) => any;
-    label?: string;
-    value?: string;
+    labelButton?: string;
     primary?: boolean
+    valueButton? : string
     secondary?: boolean
 
     spinnerLoaded: boolean
@@ -61,17 +61,19 @@ export class LoginRegisterForm extends React.Component<ILoginFormProps, IState> 
                                     passwordField="password"/>
                             </div>
 
-
-                            <div className="login-register-button-login">
-                                <Spinner loaded={this.props.spinnerLoaded}>
-                                    <ButtonComponent
-                                        onButtonPressed={this.props.onButtonPressed}
-                                        label="Login"
-                                        value="Login"
-                                        primary={true}>
-                                    </ButtonComponent>
-                                </Spinner>
+                            <div className="col-lg-12">
+                                <div className="login-register-button-login">
+                                    <Spinner loaded={this.props.spinnerLoaded}>
+                                        <ButtonComponent
+                                            onButtonPressed={this.props.onButtonPressed}
+                                            label={this.props.labelButton}
+                                            value={this.props.valueButton}
+                                            primary={true}>
+                                        </ButtonComponent>
+                                    </Spinner>
+                                </div>
                             </div>
+
                         </Paper>
                     </div>
                 </MuiThemeProvider>

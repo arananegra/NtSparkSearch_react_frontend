@@ -30,4 +30,5 @@ export class ActionConstants {
     public static LOGIN_SUCCESS: string = "LOGIN_SUCCESS";
     public static LOGIN_FAILED: string = "LOGIN_FAILED";
     public static SPINNER_LOGIN_STATE_CHANGE: string = "SPINNER_DATABASE_STATE_CHANGE";
+    public static SHOW_SNACKBAR_LOGIN_FAILED: string = "SHOW_SNACKBAR_LOGIN_FAILED";
 }

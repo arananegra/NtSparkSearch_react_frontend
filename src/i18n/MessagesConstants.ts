@@ -59,6 +59,8 @@ export class MessagesConstants {
     public static LOGIN_ACCESS_TITTLE = "loginAccessTittle";
     public static LOGIN_EMAIL = "loginEmail";
     public static LOGIN_PASSWORD = "loginPassword";
+    public static LOGIN_BUTTON = "loginButton";
+    public static SNACKBAR_LOGIN_FAILED = "snackBarLoginFailed";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -122,8 +124,10 @@ export class MessagesConstants {
         snackBarDirectDownloadStarted: "Descarga de genes requeridos comenzada",
         exportTableToCSV: "Exportar tabla en CSV",
         loginAccessTittle: "Página de acceso",
-        loginEmail: "email",
+        loginEmail: "correo electrónico",
         loginPassword: "contraseña",
+        loginButton: "Iniciar sesión",
+        snackBarLoginFailed: "El correo o la contraseña son incorrectos"
     };
 
     public static enGbMessages = {
@@ -189,5 +193,7 @@ export class MessagesConstants {
         loginAccessTittle: "Access page",
         loginEmail: "email",
         loginPassword: "password",
+        loginButton: "Login",
+        snackBarLoginFailed: "The email or the password are incorrect"
     };
 }

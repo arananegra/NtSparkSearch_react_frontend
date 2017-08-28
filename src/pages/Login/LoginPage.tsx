@@ -6,6 +6,9 @@ import {MessagesConstants} from "../../i18n/MessagesConstants";
 import {LoginPageDTO} from "../../domain/LoginPage/LoginPageDTO";
 import {store} from "../../components/AppPipeline";
 import {SpinnerLoginChangeAction} from "../../actions/LoginActions/SpinnerLoginChangeAction";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Snackbar from 'material-ui/Snackbar';
+import {ShowSnackBarLoginFailedAction} from "../../actions/LoginActions/ShowSnackBarLoginFailedAction";
 
 
 export interface ILoginPageProps {
@@ -57,6 +60,9 @@ export class LoginPage extends React.Component<ILoginPageProps & ILoginPageDispa
         store.dispatch(SpinnerLoginChangeAction(false));
     }
 
+    private manageSnackBarLoginFailed() {
+        store.dispatch(ShowSnackBarLoginFailedAction(false));
+    }
 
     public render() {
         return (
@@ -71,8 +77,19 @@ export class LoginPage extends React.Component<ILoginPageProps & ILoginPageDispa
                     onChangeTextEmail={this.onEmail.bind(this)}
                     onChangeTextPassword={this.onPassword.bind(this)}
                     spinnerLoaded={this.props.loginPage._spinnerLoaded}
+                    labelButton={this.props.intl.formatMessage({id: MessagesConstants.LOGIN_BUTTON})}
+                    valueButton={this.props.intl.formatMessage({id: MessagesConstants.LOGIN_BUTTON})}
                     >
                 </LoginRegisterForm>
+
+                <MuiThemeProvider>
+                    <Snackbar
+                        open={this.props.loginPage._showSnackBarLoginFailed}
+                        message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_LOGIN_FAILED})}
+                        autoHideDuration={4000}
+                        onRequestClose={this.manageSnackBarLoginFailed.bind(this)}
+                    />
+                </MuiThemeProvider>
             </div>
         );
     }

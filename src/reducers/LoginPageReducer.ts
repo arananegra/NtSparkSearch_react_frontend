@@ -13,6 +13,7 @@ export class LoginPageState {
         this._loginPage._email = "";
         this._loginPage._password = "";
         this._loginPage._spinnerLoaded = true;
+        this._loginPage._showSnackBarLoginFailed = false;
     }
 }
 
@@ -38,6 +39,13 @@ export function LoginPageReducer(state: LoginPageState = new LoginPageState(),
             let newPageWithSpinnerState = objectAssign({}, state._loginPage, {});
             newPageWithSpinnerState._spinnerLoaded = action["spinnerStateLoaded"];
             newState = objectAssign({}, state, {_loginPage: newPageWithSpinnerState});
+            return newState;
+
+        case ActionConstants.SHOW_SNACKBAR_LOGIN_FAILED:
+
+            let newPageShowingLoginFailedSnackbar = objectAssign({}, state._loginPage, {});
+            newPageShowingLoginFailedSnackbar._showSnackBarLoginFailed = action["showSnackBarLoginFailed"];
+            newState = objectAssign({}, state, {_loginPage: newPageShowingLoginFailedSnackbar});
             return newState;
     }
     return state;
