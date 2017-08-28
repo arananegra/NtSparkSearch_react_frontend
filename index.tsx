@@ -13,6 +13,7 @@ import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";
 import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearch/DatabaseSubSeqSearchPageContainer";
 import {history} from "./src/components/AppPipeline"
 import {LoginPage} from "./src/pages/Login/LoginPage";
+import {LoginPageContainer} from "./src/pages/Login/LoginPageContainer";
 
 class Index {
     public constructor() {
@@ -24,7 +25,7 @@ class Index {
         const Start = () => (
             <Router history={history}>
 
-                <Route path="/" component={LoginPage}>
+                <Route path="/" component={AppPipeline}>
                     <IndexRoute component={SubSequenceSearchPageContainer}/>
                     <Route path={RoutesConstants.DATABASE_SEARCH_ROUTE_PATH}
                            component={DatabaseSubSeqSearchPageContainer}/>
@@ -34,6 +35,8 @@ class Index {
                            component={DownloadPageContainer}/>
                     <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
                            component={SettingsContainer}/>
+                    <Route path={RoutesConstants.LOGIN_ROUTE_PATH}
+                           component={LoginPageContainer}/>
                 </Route>
             </Router>
         );

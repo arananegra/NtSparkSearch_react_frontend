@@ -35,28 +35,17 @@ export const history = syncHistoryWithStore(browserHistory, store);
 export class AppPipeline extends React.Component<{}, {}> {
 
     public render(): JSX.Element {
-
+        let currentPath = window.location.pathname;
         return (
             <Provider store={store}>
                 <IntlProvider>
                     <div className="container-fluid">
-                        <NavigationBarComponent/>
+                        {!currentPath.includes('login') ? <NavigationBarComponent/> : null }
                         {this.props.children}
                     </div>
                 </IntlProvider>
             </Provider>
         );
-    }
-
-    private setInitialLanguage() {
-        let userLang = navigator.language;
-        let languageBS = new LanguageBS();
-        if (userLang === "es") {
-            languageBS.changeSpanishLanguage();
-        } else {
-            languageBS.changeEnglishLanguage();
-        }
-
     }
 
 }
