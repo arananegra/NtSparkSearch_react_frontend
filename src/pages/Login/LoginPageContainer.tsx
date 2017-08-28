@@ -1,15 +1,21 @@
 import {connect} from "react-redux";
 import {IReducers} from "../../reducers/IndexReducers";
 import {injectIntl} from "react-intl";
-import {ILoginPagePageState, ILoginPageProps, LoginPage} from "./LoginPage";
+import {ILoginPageDispatchProps, ILoginPagePageState, ILoginPageProps, LoginPage} from "./LoginPage";
+import {WriteEmailLoginAction} from "../../actions/LoginActions/WriteEmailLoginAction";
+import {WritePasswordLoginAction} from "../../actions/LoginActions/WritePasswordLoginAction";
 
-const mapStateToProp = (state: IReducers): ILoginPageProps => ({});
-
-const mapDispatchToProps = (dispatch): ILoginPagePageState => ({
-
+const mapStateToProp = (state: IReducers): ILoginPageProps => ({
+    loginPage: state['reducers'].LoginPageReducer._loginPage
 });
 
-export const LoginPageContainer = connect<ILoginPageProps, ILoginPagePageState, {}>(
+const mapDispatchToProps = (dispatch): ILoginPageDispatchProps => ({
+    onMailChange: (email) => dispatch(WriteEmailLoginAction(email)),
+    onPasswordChage: (password) => dispatch(WritePasswordLoginAction(password)),
+    onLoginClicked: (email, password) => null,
+});
+
+export const LoginPageContainer = connect<ILoginPageProps, ILoginPageDispatchProps, {}>(
     mapStateToProp,
     mapDispatchToProps
 )(injectIntl(LoginPage));

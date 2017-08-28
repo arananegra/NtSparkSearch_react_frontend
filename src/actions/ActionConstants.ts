@@ -25,4 +25,6 @@ export class ActionConstants {
     public static SPINNER_DIRECT_STATE_CHANGE: string = "SPINNER_DIRECT_STATE_CHANGE";
     public static WRITE_EMAIL_DIRECT_SEARCH: string = "WRITE_EMAIL_DIRECT_SEARCH";
     public static SHOW_SNACKBAR_DOWNLOAD_DIRECT_SEARCH: string = "SHOW_SNACKBAR_DOWNLOAD_DIRECT_SEARCH";
+    public static WRITE_LOGIN_EMAIL: string = "WRITE_LOGIN_EMAIL";
+    public static WRITE_LOGIN_PASSWORD: string = "WRITE_LOGIN_PASSWORD";
 }

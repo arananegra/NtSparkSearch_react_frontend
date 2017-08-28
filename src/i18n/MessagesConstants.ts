@@ -56,6 +56,9 @@ export class MessagesConstants {
     public static SNACKBAR_UPLOADED_FASTA_TEXT = "snackBarUploadedFastaText";
     public static SNACKBAR_DIRECT_DOWNLOAD_STARTED = "snackBarDirectDownloadStarted";
     public static EXPORT_CSV = "exportTableToCSV";
+    public static LOGIN_ACCESS_TITTLE = "loginAccessTittle";
+    public static LOGIN_EMAIL = "loginEmail";
+    public static LOGIN_PASSWORD = "loginPassword";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -118,6 +121,9 @@ export class MessagesConstants {
         snackBarUploadedFastaText: "Fichero FASTA con secuencias subido con éxito",
         snackBarDirectDownloadStarted: "Descarga de genes requeridos comenzada",
         exportTableToCSV: "Exportar tabla en CSV",
+        loginAccessTittle: "Página de acceso",
+        loginEmail: "email",
+        loginPassword: "contraseña",
     };
 
     public static enGbMessages = {
@@ -179,6 +185,9 @@ export class MessagesConstants {
         snackBarUploadedExcelText: "Excel file with sequences uploaded successfully",
         snackBarUploadedFastaText: "FASTA file with sequences uploaded successfully",
         snackBarDirectDownloadStarted: "Download of required genes started",
-        exportTableToCSV: "Exportar to CSV",
+        exportTableToCSV: "Export to CSV",
+        loginAccessTittle: "Access page",
+        loginEmail: "email",
+        loginPassword: "password",
     };
 }

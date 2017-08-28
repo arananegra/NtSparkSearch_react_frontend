@@ -6,17 +6,18 @@ import ReactSignupLoginComponent from 'react-signup-login-component';
 import {ButtonComponent} from "./CommonComponents/ButtonComponent";
 
 export interface ILoginFormProps {
-    onChangeTextEmail?: (event: object, newValue: string) => any;
-    hintTextEmail?: string;
-    floatingLabelTextEmail?: string;
+
+    loginAccessText: string,
+
+    onChangeTextEmail: (event: object, newValue: string) => any;
+    floatingLabelTextEmail: string;
     valueToTextEmail?: string;
 
-    onChangeTextPassword?: (event: object, newValue: string) => any;
-    hintTextPassword?: string;
-    floatingLabelTextPassword?: string;
+    onChangeTextPassword: (event: object, newValue: string) => any;
+    floatingLabelTextPassword: string;
     valueToTextPassword?: string;
 
-    onButtonPressed?: (value) => any;
+    onButtonPressed: (value) => any;
     label?: string;
     value?: string;
     primary?: boolean
@@ -38,20 +39,22 @@ export class LoginRegisterForm extends React.Component<ILoginFormProps, IState> 
                 <MuiThemeProvider>
                     <div className="container-fluid login-register-component">
                         <Paper zDepth={5}>
-                            <span className="login-title">Access page</span>
+                            <div className="col-md-10">
+                                <span className="login-title">{this.props.loginAccessText}</span>
+                            </div>
+
                             <div className="login-register-div">
                                 <InputText
                                     onChangeText={this.props.onChangeTextEmail}
-                                    hintText={this.props.hintTextEmail}
                                     floatingLabelText={this.props.floatingLabelTextEmail}
                                     valueToText={this.props.valueToTextEmail}/>
                             </div>
                             <div className="login-register-div">
                                 <InputText
                                     onChangeText={this.props.onChangeTextPassword}
-                                    hintText={this.props.hintTextPassword}
                                     floatingLabelText={this.props.floatingLabelTextPassword}
-                                    valueToText={this.props.valueToTextPassword}/>
+                                    valueToText={this.props.valueToTextPassword}
+                                    passwordField="password"/>
                             </div>
 
                             <div className="login-register-button-login">

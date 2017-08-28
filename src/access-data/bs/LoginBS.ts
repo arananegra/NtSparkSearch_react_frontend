@@ -1,9 +1,13 @@
-const Axios = require("axios");
+import axios from 'axios';
 
-class testAxiosJWT {
+export class LoginBS {
 
-    loginUser(email, password) {
-        return Axios({
+    public constructor() {
+
+    }
+
+    public loginUser(email, password) {
+        return axios({
             data: {
                 "email": email,
                 "password": password
@@ -19,16 +23,3 @@ class testAxiosJWT {
         });
     }
 }
-
-let testing = new testAxiosJWT();
-
-let token = testing.loginUser("arananegrayeye@gmail.om", "alvaro");
-token.then((token) => {
-    console.log("El token directo es: " + token)
-}).catch((error) => {
-    console.log(error.response.status);
-});
-
-
-
-

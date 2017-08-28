@@ -4,9 +4,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export interface IInputTextProps {
     onChangeText: (event: object, newValue: string) => any;
-    hintText: string;
+    hintText?: string;
     floatingLabelText: string;
     valueToText?: string;
+    passwordField?: string;
 }
 
 export interface IState {
@@ -24,7 +25,7 @@ export class InputText extends React.Component<IInputTextProps, IState> {
                 <MuiThemeProvider>
                     <TextField
                         id="text-field-controlled"
-                        type="text"
+                        type={this.props.passwordField}
                         hintText={this.props.hintText}
                         floatingLabelText={this.props.floatingLabelText}
                         onChange={this.props.onChangeText}
