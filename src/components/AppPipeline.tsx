@@ -25,7 +25,7 @@ const reducer = combineReducers({
 
 const routerMid = routerMiddleware(browserHistory);
 
-const middlewares = [ReduxThunk["default"], logger, routerMid];
+const middlewares = [ReduxThunk["default"], logger, /*routerMid*/];
 
 export const store = createStore(reducer,
     composeWithDevTools(

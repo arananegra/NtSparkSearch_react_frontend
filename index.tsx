@@ -2,9 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {IndexRoute, Route, Router} from "react-router";
 import {replace, routeActions, routerActions} from "react-router-redux";
-import {connectedRouterRedirect} from "redux-auth-wrapper/history3/redirect";
-import locationHelperBuilder from "redux-auth-wrapper/history3/locationHelper";
-import {AppPipeline, history} from "./src/components/AppPipeline";
+import {AppPipeline} from "./src/components/AppPipeline";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
 import {SubSequenceSearchPageContainer} from "./src/pages/SubSequenceSearch/SubSequenceSearchPageContainer";
 import {LanguageBS} from "./src/access-data/bs/LanguageBS";
@@ -14,29 +12,8 @@ import {DownloadPageContainer} from "./src/pages/Download/DownloadPageContainer"
 import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";
 import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearch/DatabaseSubSeqSearchPageContainer";
 import {LoginPageContainer} from "./src/pages/Login/LoginPageContainer";
-
-
-function requireAuth(nextState, replace) {
-    if (sessionStorage.getItem("token") === null) {
-        replace({
-            pathname: RoutesConstants.LOGIN_ROUTE_PATH,
-            state: {nextPathname: nextState.location.pathname}
-        })
-    }
-}
-
-const locationHelper = locationHelperBuilder({});
-
-
-const userIsAuthenticated = connectedRouterRedirect({
-    // The url to redirect user to if they fail
-    redirectPath: '/login',
-    // Determine if the user is authenticated or not
-    authenticatedSelector: () => sessionStorage.getItem("token") !== null,
-    // A nice display name for this check
-    wrapperDisplayName: 'UserIsAuthenticated',
-});
-
+import {history} from "./src/components/AppPipeline";
+import {userIsAuthenticated, userIsNotAuthenticated} from "./src/access-data/bs/AuthBS";
 
 class Index {
     public constructor() {
@@ -58,7 +35,7 @@ class Index {
                     <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
                            component={userIsAuthenticated(SettingsContainer)}/>
                     <Route path={RoutesConstants.LOGIN_ROUTE_PATH}
-                           component={LoginPageContainer}/>
+                           component={userIsNotAuthenticated(LoginPageContainer)}/>
                 </Route>
             </Router>
         );

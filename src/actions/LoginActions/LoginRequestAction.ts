@@ -14,7 +14,7 @@ export function LoginRequestAction(email, password) {
                 sessionStorage.setItem("token",response);
                 dispatch(LoginSuccessAction());
                 dispatch(SpinnerLoginChangeAction(true));
-                browserHistory.push(RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH);
+                //browserHistory.push(RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH);
             }).catch(error => {
                 dispatch(LoginFailedAction());
                 dispatch(SpinnerLoginChangeAction(true));
