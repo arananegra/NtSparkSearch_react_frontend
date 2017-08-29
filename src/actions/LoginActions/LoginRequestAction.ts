@@ -1,10 +1,11 @@
 import {LoginBS} from "../../access-data/bs/LoginBS";
 import {LoginSuccessAction} from "./LoginSuccessAction";
 import {LoginFailedAction} from "./LoginFailedAction";
-import {browserHistory} from 'react-router';
+import {browserHistory} from "react-router";
 import {RoutesConstants} from "../../common/RoutesConstants";
 import {SpinnerLoginChangeAction} from "./SpinnerLoginChangeAction";
 import {ShowSnackBarLoginFailedAction} from "./ShowSnackBarLoginFailedAction";
+
 
 export function LoginRequestAction(email, password) {
     return function (dispatch) {
@@ -12,7 +13,7 @@ export function LoginRequestAction(email, password) {
             .then((response) => {
                 sessionStorage.setItem("token",response);
                 dispatch(LoginSuccessAction());
-                dispatch(SpinnerLoginChangeAction(false));
+                dispatch(SpinnerLoginChangeAction(true));
                 browserHistory.push(RoutesConstants.SUB_SEQUENCE_SEARCH_ROUTE_PATH);
             }).catch(error => {
                 dispatch(LoginFailedAction());

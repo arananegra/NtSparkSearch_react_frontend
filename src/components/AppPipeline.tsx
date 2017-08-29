@@ -23,7 +23,9 @@ const reducer = combineReducers({
     routing: routerReducer
 });
 
-const middlewares = [ReduxThunk["default"], logger];
+const routerMid = routerMiddleware(browserHistory);
+
+const middlewares = [ReduxThunk["default"], logger, routerMid];
 
 export const store = createStore(reducer,
     composeWithDevTools(

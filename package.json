@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.41",
-    "@types/redux-auth-wrapper": "^2.0.1",
     "@types/object-assign": "^4.0.30",
     "@types/q": "^1.0.0",
     "@types/react": "^15.0.22",
