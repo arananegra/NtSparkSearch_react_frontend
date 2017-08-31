@@ -6,6 +6,26 @@ export class LoginBS {
 
     }
 
+    public getJWTtokenFromSession() {
+        try {
+            return sessionStorage.getItem("token");
+        } catch (Exception) {
+            throw Exception;
+        }
+    }
+
+    public setJWTtokenFromSession(tokenString) {
+        return sessionStorage.setItem("token", tokenString);
+    }
+
+    public removeJWTtokenFromSession() {
+        try {
+            return sessionStorage.removeItem("token");
+        } catch (Exception) {
+            throw Exception;
+        }
+    }
+
     public loginUser(email, password) {
         return axios({
             data: {

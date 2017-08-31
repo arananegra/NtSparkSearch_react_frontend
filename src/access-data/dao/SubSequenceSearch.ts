@@ -1,9 +1,12 @@
 import axios from 'axios';
 import {GeneDTO} from "../../domain/GeneDTO";
+import {LoginBS} from "../bs/LoginBS";
 
 export class SubSequenceSearch {
-    public constructor() {
+    private token: string = null;
 
+    public constructor() {
+        this.token = new LoginBS().getJWTtokenFromSession();
     }
 
     private encodeQueryData(data) {
@@ -21,6 +24,9 @@ export class SubSequenceSearch {
             method: 'get',
             url: "http://0.0.0.0:5000/genefilter/sparkmatchall?sequence=" + sequenceToFetch,
             timeout: 1000000,
+            headers: {
+                'authentication_token': this.token
+            },
         }).then((response) => {
             return response;
 
@@ -32,6 +38,9 @@ export class SubSequenceSearch {
             method: 'get',
             url: "http://0.0.0.0:5000/genefilter/genes-checker?" + this.encodeQueryData(arrayOfGenesToFetch) + "&sequence=" + sequenceToFetch,
             timeout: 1000000,
+            headers: {
+                'authentication_token': this.token
+            },
         }).then((response) => {
             return response;
         });
@@ -42,6 +51,9 @@ export class SubSequenceSearch {
             method: 'get',
             url: "http://0.0.0.0:5000/genefilter/genes-downloader?" + this.encodeQueryData(arrayOfGenesToFetch) + "&email=" + email,
             timeout: 1000000,
+            headers: {
+                'authentication_token': this.token
+            },
         }).then((response) => {
             if (response) {
                 return response;

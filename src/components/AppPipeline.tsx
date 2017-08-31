@@ -11,8 +11,6 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import logger from 'redux-logger'
 import {ConnectedRouter, routerReducer, routerMiddleware, push, syncHistoryWithStore} from 'react-router-redux'
 import {NavigationBarComponent} from "./NavigationBarComponent";
-import {LoginRegisterForm} from "./LoginRegisterForm";
-import {LanguageBS} from "../access-data/bs/LanguageBS";
 import {browserHistory} from "react-router";
 
 addLocaleData([...spanish, ...english]);
@@ -25,7 +23,7 @@ const reducer = combineReducers({
 
 const routerMid = routerMiddleware(browserHistory);
 
-const middlewares = [ReduxThunk["default"], logger, /*routerMid*/];
+const middlewares = [ReduxThunk["default"], logger, routerMid];
 
 export const store = createStore(reducer,
     composeWithDevTools(

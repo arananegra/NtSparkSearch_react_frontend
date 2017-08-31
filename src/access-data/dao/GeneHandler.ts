@@ -1,19 +1,25 @@
 import axios from 'axios';
+import {LoginBS} from "../bs/LoginBS";
 const FileDownload = require('react-file-download');
 
 export class GeneHandlerDAO {
 
-    public constructor() {
+    private token : string = null;
 
+    public constructor() {
+        this.token = new LoginBS().getJWTtokenFromSession();
     }
 
     public uploadExcelFileRequest(formData: any, email: any) {
 
-        if(email===""){
+        if (email === "") {
             return axios({
                 method: 'post',
                 url: "http://0.0.0.0:5000/genehandler/upload-excel",
                 timeout: 100000,
+                headers: {
+                    'authentication_token': this.token
+                },
                 data: formData,
             }).then((response) => {
                 if (response.status === 202) {
@@ -24,9 +30,12 @@ export class GeneHandlerDAO {
         else {
             return axios({
                 method: 'post',
-                url: "http://0.0.0.0:5000/genehandler/upload-excel?email="+email,
+                url: "http://0.0.0.0:5000/genehandler/upload-excel?email=" + email,
                 timeout: 100000,
                 data: formData,
+                headers: {
+                    'authentication_token': this.token
+                },
             }).then((response) => {
                 if (response.status === 202) {
                     return 202;
@@ -41,6 +50,9 @@ export class GeneHandlerDAO {
             url: "http://0.0.0.0:5000/genehandler/upload-fasta",
             timeout: 100000,
             data: formData,
+            headers: {
+                'authentication_token': this.token
+            },
         }).then((response) => {
             if (response.status === 202) {
                 return 202;
@@ -52,7 +64,10 @@ export class GeneHandlerDAO {
         return axios({
             method: 'delete',
             url: "http://0.0.0.0:5000/genehandler/delete-unfiltered",
-            timeout: 1000
+            timeout: 1000,
+            headers: {
+                'authentication_token': this.token
+            },
         }).then((response) => {
             let showSnackBarUnfiltered: boolean = false;
             if (response) {
@@ -68,7 +83,10 @@ export class GeneHandlerDAO {
         return axios({
             method: 'delete',
             url: "http://0.0.0.0:5000/genehandler/delete-filtered",
-            timeout: 1000
+            timeout: 1000,
+            headers: {
+                'authentication_token': this.token
+            },
         }).then((response) => {
             let showSnackBarFiltered: boolean = false;
             if (response) {
@@ -86,7 +104,8 @@ export class GeneHandlerDAO {
             url: "http://0.0.0.0:5000/genehandler/download-fasta-unfiltered",
             timeout: 1000000,
             headers: {
-                "cache-control": "no-cache"
+                "cache-control": "no-cache",
+                'authentication_token': this.token
             }
         }).then((response) => {
             if (response) {
@@ -103,7 +122,8 @@ export class GeneHandlerDAO {
             url: "http://0.0.0.0:5000/genehandler/download-fasta-filtered",
             timeout: 1000000,
             headers: {
-                "cache-control": "no-cache"
+                "cache-control": "no-cache",
+                'authentication_token': this.token
             }
         }).then((response) => {
             if (response) {
@@ -120,7 +140,8 @@ export class GeneHandlerDAO {
             url: "http://0.0.0.0:5000/genehandler/download-id-unfiltered",
             timeout: 1000000,
             headers: {
-                "cache-control": "no-cache"
+                "cache-control": "no-cache",
+                'authentication_token': this.token
             }
         }).then((response) => {
             if (response) {
@@ -137,7 +158,8 @@ export class GeneHandlerDAO {
             url: "http://0.0.0.0:5000/genehandler/download-id-filtered",
             timeout: 1000000,
             headers: {
-                "cache-control": "no-cache"
+                "cache-control": "no-cache",
+                'authentication_token': this.token
             }
         }).then((response) => {
             if (response) {
