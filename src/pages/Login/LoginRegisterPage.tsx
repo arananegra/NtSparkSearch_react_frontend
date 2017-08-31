@@ -113,14 +113,14 @@ export class LoginRegisterPage extends React.Component<ILoginRegisterPageProps &
                         />
                         <Snackbar
                             open={this.props.loginPage._showSnackBarRegisterFailed}
-                            message="Ya existe una cuenta vinculada con ese email"
+                            message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_REGISTER_FAILED})}
                             autoHideDuration={5000}
                             onRequestClose={this.manageSnackBarRegisterFailed.bind(this)}
                         />
 
                         <Snackbar
                             open={this.props.loginPage._showSnackBarLoginRequiredConfirmation}
-                            message="Confirmación email necesaria"
+                            message={this.props.intl.formatMessage({id: MessagesConstants.SNACKBAR_CONFIRMATION_REQUIRED})}
                             autoHideDuration={5000}
                             onRequestClose={this.manageSnackBarLoginFailedConfirmAccount.bind(this)}
                         />

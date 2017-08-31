@@ -61,6 +61,8 @@ export class MessagesConstants {
     public static LOGIN_PASSWORD = "loginPassword";
     public static LOGIN_BUTTON = "loginButton";
     public static SNACKBAR_LOGIN_FAILED = "snackBarLoginFailed";
+    public static SNACKBAR_REGISTER_FAILED = "snackBarRegisterFailed";
+    public static SNACKBAR_CONFIRMATION_REQUIRED = "snackBarConfirmationRequired";
     public static REGISTER_BUTTON = "registerButton";
 
     public static esEsMessages = {
@@ -129,7 +131,10 @@ export class MessagesConstants {
         loginPassword: "contraseña",
         loginButton: "Iniciar sesión",
         snackBarLoginFailed: "El correo o la contraseña son incorrectos",
-        registerButton: "Registrarse"
+        snackBarRegisterFailed: "Ya existe un usuario con ese correo",
+        snackBarConfirmationRequired: "Confirme primero su cuenta para acceder",
+        registerButton: "Registrarse",
+
     };
 
     public static enGbMessages = {
@@ -197,6 +202,8 @@ export class MessagesConstants {
         loginPassword: "password",
         loginButton: "Log in",
         snackBarLoginFailed: "The email or the password are incorrect",
+        snackBarRegisterFailed: "A user with this email already exists",
+        snackBarConfirmationRequired: "Confirm your account first to access",
         registerButton: "Sign in"
     };
 }
