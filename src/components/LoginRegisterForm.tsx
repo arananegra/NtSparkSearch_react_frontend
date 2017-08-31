@@ -5,6 +5,7 @@ import {InputText} from "./CommonComponents/InputText";
 import {ButtonComponent} from "./CommonComponents/ButtonComponent";
 import Spinner from 'react-spinner-children';
 import PasswordField from 'material-ui-password-field'
+import ReCAPTCHA from "react-google-recaptcha"
 
 export interface ILoginRegisterFormProps {
 
@@ -22,20 +23,25 @@ export interface ILoginRegisterFormProps {
     onButtonPressedRegister: (value) => any;
     labelButtonLogin: string;
     labelButtonRegister?: string;
-    valueButtonLogin?: string
-    valueButtonRegister?: string
+    valueButtonLogin?: string;
+    valueButtonRegister?: string;
 
-    spinnerLoadedLogin: boolean
-    spinnerLoadedRegister: boolean
+    spinnerLoadedLogin: boolean;
+    spinnerLoadedRegister: boolean;
 }
 
 export interface IState {
-
+    disabled: boolean;
 }
 
 export class LoginRegisterForm extends React.Component<ILoginRegisterFormProps, IState> {
-    public constructor(props: ILoginRegisterFormProps) {
-        super(props);
+
+    state = {
+        disabled: true,
+    };
+
+    private onChange(value) {
+        this.setState({disabled: false});
     }
 
     public render() {
@@ -62,13 +68,22 @@ export class LoginRegisterForm extends React.Component<ILoginRegisterFormProps, 
                                     floatingLabelText={this.props.textPassword}/>
                             </div>
 
+                            <div className="login-register-captch">
+                                <ReCAPTCHA
+                                    ref="recaptcha"
+                                    sitekey="6Lds8C4UAAAAAN-mE13rAttX8kgGyzD_yD5ryKNr"
+                                    onChange={this.onChange.bind(this)}
+                                />
+                            </div>
+
                             <div className="login-register-button-login">
                                 <Spinner loaded={this.props.spinnerLoadedLogin}>
                                     <ButtonComponent
                                         onButtonPressed={this.props.onButtonPressedLogin}
                                         label={this.props.labelButtonLogin}
                                         value={this.props.valueButtonLogin}
-                                        primary={true}>
+                                        primary={true}
+                                        disabled={this.state.disabled}>
                                     </ButtonComponent>
                                 </Spinner>
                             </div>
@@ -79,10 +94,12 @@ export class LoginRegisterForm extends React.Component<ILoginRegisterFormProps, 
                                         onButtonPressed={this.props.onButtonPressedRegister}
                                         label={this.props.labelButtonRegister}
                                         value={this.props.valueButtonRegister}
-                                        primary={true}>
+                                        primary={true}
+                                        disabled={this.state.disabled}>
                                     </ButtonComponent>
                                 </Spinner>
                             </div>
+
                         </Paper>
                     </div>
                 </MuiThemeProvider>
