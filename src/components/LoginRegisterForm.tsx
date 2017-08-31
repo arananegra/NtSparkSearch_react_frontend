@@ -40,8 +40,12 @@ export class LoginRegisterForm extends React.Component<ILoginRegisterFormProps, 
         disabled: true,
     };
 
-    private onChange(value) {
+    private onCaptchadAccepted() {
         this.setState({disabled: false});
+    }
+
+    private onCaptchadExpired() {
+        this.setState({disabled: true});
     }
 
     public render() {
@@ -72,7 +76,8 @@ export class LoginRegisterForm extends React.Component<ILoginRegisterFormProps, 
                                 <ReCAPTCHA
                                     ref="recaptcha"
                                     sitekey="6Lds8C4UAAAAAN-mE13rAttX8kgGyzD_yD5ryKNr"
-                                    onChange={this.onChange.bind(this)}
+                                    onChange={this.onCaptchadAccepted.bind(this)}
+                                    onExpired={this.onCaptchadExpired.bind(this)}
                                 />
                             </div>
 
