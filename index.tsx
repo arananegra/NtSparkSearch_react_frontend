@@ -11,7 +11,7 @@ import {UploadFileToProcessingPageContainer} from "./src/pages/UploadFilesToProc
 import {DownloadPageContainer} from "./src/pages/Download/DownloadPageContainer";
 import {SettingsContainer} from "./src/pages/Settings/SettingsContainer";
 import {DatabaseSubSeqSearchPageContainer} from "./src/pages/DatabaseSubSeqSearch/DatabaseSubSeqSearchPageContainer";
-import {LoginPageContainer} from "./src/pages/Login/LoginPageContainer";
+import {LoginRegisterPageContainer} from "./src/pages/Login/LoginRegisterPageContainer";
 import {history} from "./src/components/AppPipeline";
 import {userIsAuthenticated, userIsNotAuthenticated} from "./src/access-data/bs/AuthBS";
 
@@ -35,7 +35,7 @@ class Index {
                     <Route path={RoutesConstants.SETTINGS_ROUTE_PATH}
                            component={userIsAuthenticated(SettingsContainer)}/>
                     <Route path={RoutesConstants.LOGIN_ROUTE_PATH}
-                           component={userIsNotAuthenticated(LoginPageContainer)}/>
+                           component={userIsNotAuthenticated(LoginRegisterPageContainer)}/>
                 </Route>
             </Router>
         );

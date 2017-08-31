@@ -61,6 +61,7 @@ export class MessagesConstants {
     public static LOGIN_PASSWORD = "loginPassword";
     public static LOGIN_BUTTON = "loginButton";
     public static SNACKBAR_LOGIN_FAILED = "snackBarLoginFailed";
+    public static REGISTER_BUTTON = "registerButton";
 
     public static esEsMessages = {
         searchDnaSubSequencesInGenes: "Búsqueda de Secuencias ADN",
@@ -127,7 +128,8 @@ export class MessagesConstants {
         loginEmail: "correo electrónico",
         loginPassword: "contraseña",
         loginButton: "Iniciar sesión",
-        snackBarLoginFailed: "El correo o la contraseña son incorrectos"
+        snackBarLoginFailed: "El correo o la contraseña son incorrectos",
+        registerButton: "Registrarse"
     };
 
     public static enGbMessages = {
@@ -193,7 +195,8 @@ export class MessagesConstants {
         loginAccessTittle: "Access page",
         loginEmail: "email",
         loginPassword: "password",
-        loginButton: "Login",
-        snackBarLoginFailed: "The email or the password are incorrect"
+        loginButton: "Log in",
+        snackBarLoginFailed: "The email or the password are incorrect",
+        registerButton: "Sign in"
     };
 }

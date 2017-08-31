@@ -1,28 +1,28 @@
-import {LoginBS} from "../../access-data/bs/LoginBS";
-import {LoginSuccessAction} from "./LoginSuccessAction";
-import {LoginFailedAction} from "./LoginFailedAction";
-import {browserHistory} from "react-router";
-import {RoutesConstants} from "../../common/RoutesConstants";
+import {LoginRegisterBS} from "../../access-data/bs/LoginRegisterBS";
 import {SpinnerLoginChangeAction} from "./SpinnerLoginChangeAction";
 import {ShowSnackBarLoginFailedAction} from "./ShowSnackBarLoginFailedAction";
+import {Constants} from "../../common/Constants";
+import {ShowSnackBarLoginFailedConfirmAccountAction} from "./ShowSnackBarLoginFailedConfirmAccountAction";
 
 
 export function LoginRequestAction(email, password) {
 
-    let loginBS = new LoginBS();
+    let loginRegisterBS = new LoginRegisterBS();
 
     return function (dispatch) {
-        return loginBS.loginUser(email, password)
-            .then((token) => {
-                loginBS.setJWTtokenFromSession(token);
-                dispatch(LoginSuccessAction());
+        return loginRegisterBS.loginUser(email, password)
+            .then((dataFromResponse) => {
+                loginRegisterBS.setJWTtokenFromSession(dataFromResponse.response.user.authentication_token);
                 dispatch(SpinnerLoginChangeAction(true));
             }).catch(error => {
-                dispatch(LoginFailedAction());
                 dispatch(SpinnerLoginChangeAction(true));
-                dispatch(ShowSnackBarLoginFailedAction(true));
-                if (loginBS.getJWTtokenFromSession() != null) {
-                    loginBS.removeJWTtokenFromSession();
+                if (error.response.data.response.errors.email[0] === Constants.REQUIRE_ACCOUNT_ACTIVATION) {
+                    dispatch(ShowSnackBarLoginFailedConfirmAccountAction(true));
+                } else {
+                    dispatch(ShowSnackBarLoginFailedAction(true));
+                }
+                if (loginRegisterBS.getJWTtokenFromSession() !== null) {
+                    loginRegisterBS.removeJWTtokenFromSession();
                 }
             })
     }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LoginBS} from "../bs/LoginBS";
+import {LoginRegisterBS} from "../bs/LoginRegisterBS";
 const FileDownload = require('react-file-download');
 
 export class GeneHandlerDAO {
@@ -7,7 +7,7 @@ export class GeneHandlerDAO {
     private token : string = null;
 
     public constructor() {
-        this.token = new LoginBS().getJWTtokenFromSession();
+        this.token = new LoginRegisterBS().getJWTtokenFromSession();
     }
 
     public uploadExcelFileRequest(formData: any, email: any) {

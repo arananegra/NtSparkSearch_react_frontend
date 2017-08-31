@@ -1,12 +1,12 @@
 import axios from 'axios';
 import {GeneDTO} from "../../domain/GeneDTO";
-import {LoginBS} from "../bs/LoginBS";
+import {LoginRegisterBS} from "../bs/LoginRegisterBS";
 
 export class SubSequenceSearch {
     private token: string = null;
 
     public constructor() {
-        this.token = new LoginBS().getJWTtokenFromSession();
+        this.token = new LoginRegisterBS().getJWTtokenFromSession();
     }
 
     private encodeQueryData(data) {

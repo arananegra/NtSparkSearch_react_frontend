@@ -4,7 +4,7 @@ import {UploadFilesToProcessingPageReducer, UploadPageState} from "./UploadFiles
 import {DatabaseSubSeqSearchPageReducer, DatabaseSubSeqSearchPageState} from "./DatabaseSubSeqSearchPageReducer";
 import {SettingsPageReducer, SettingsPageState} from "./SettingsReducer";
 import {DownloadPageReducer, DownloadPageState} from "./DownloadPageReducer";
-import {LoginPageReducer, LoginPageState} from "./LoginPageReducer";
+import {LoginRegisterPageReducer, LoginRegisterPageState} from "./LoginRegisterPageReducer";
 
 export default combineReducers <IReducers> ({
     SubSequenceSearchPageReducer,
@@ -12,7 +12,7 @@ export default combineReducers <IReducers> ({
     DatabaseSubSeqSearchPageReducer,
     SettingsPageReducer,
     DownloadPageReducer,
-    LoginPageReducer
+    LoginRegisterPageReducer
 });
 
 export interface IReducers {
@@ -21,6 +21,6 @@ export interface IReducers {
     DatabaseSubSeqSearchPageReducer : DatabaseSubSeqSearchPageState;
     SettingsPageReducer : SettingsPageState;
     DownloadPageReducer : DownloadPageState;
-    LoginPageReducer : LoginPageState;
+    LoginRegisterPageReducer : LoginRegisterPageState;
 
 }
