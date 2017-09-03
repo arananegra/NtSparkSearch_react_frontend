@@ -204,6 +204,6 @@ export class MessagesConstants {
         snackBarLoginFailed: "The email or the password are incorrect",
         snackBarRegisterFailed: "A user with this email already exists",
         snackBarConfirmationRequired: "Confirm your account first to access",
-        registerButton: "Sign in"
+        registerButton: "Sign up"
     };
 }
