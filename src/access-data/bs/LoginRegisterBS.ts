@@ -28,13 +28,14 @@ export class LoginRegisterBS {
     }
 
     public loginUser(email, password) {
+        console.log("IP " + Constants.IP_ADDRESS);
         return axios({
             data: {
                 "email": email,
                 "password": password
             },
             method: 'post',
-            url: "http://0.0.0.0:5000/login",
+            url: "http://" + Constants.IP_ADDRESS + ":5000/login",
             timeout: 10000,
             headers: {
                 'Content-Type': 'application/json'
@@ -51,8 +52,8 @@ export class LoginRegisterBS {
                 "password": password
             },
             method: 'post',
-            url: "http://0.0.0.0:5000/register",
-            timeout: 10000,
+            url: "http://" + Constants.IP_ADDRESS + ":5000/register",
+            timeout: 100000,
             headers: {
                 'Content-Type': 'application/json'
             }

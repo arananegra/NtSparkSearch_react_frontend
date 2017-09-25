@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {LoginRegisterBS} from "../bs/LoginRegisterBS";
+import {Constants} from "../../common/Constants";
 const FileDownload = require('react-file-download');
 
 export class GeneHandlerDAO {
@@ -15,7 +16,7 @@ export class GeneHandlerDAO {
         if (email === "") {
             return axios({
                 method: 'post',
-                url: "http://0.0.0.0:5000/genehandler/upload-excel",
+                url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/upload-excel",
                 timeout: 100000,
                 headers: {
                     'authentication_token': this.token
@@ -30,7 +31,7 @@ export class GeneHandlerDAO {
         else {
             return axios({
                 method: 'post',
-                url: "http://0.0.0.0:5000/genehandler/upload-excel?email=" + email,
+                url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/upload-excel?email=" + email,
                 timeout: 100000,
                 data: formData,
                 headers: {
@@ -47,7 +48,7 @@ export class GeneHandlerDAO {
     public uploadFastaFileRequest(formData: any) {
         return axios({
             method: 'post',
-            url: "http://0.0.0.0:5000/genehandler/upload-fasta",
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/upload-fasta",
             timeout: 100000,
             data: formData,
             headers: {
@@ -63,8 +64,8 @@ export class GeneHandlerDAO {
     public removeUnfilteredCollection() {
         return axios({
             method: 'delete',
-            url: "http://0.0.0.0:5000/genehandler/delete-unfiltered",
-            timeout: 1000,
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/delete-unfiltered",
+            timeout: 100000,
             headers: {
                 'authentication_token': this.token
             },
@@ -82,8 +83,8 @@ export class GeneHandlerDAO {
     public removeFilteredCollection() {
         return axios({
             method: 'delete',
-            url: "http://0.0.0.0:5000/genehandler/delete-filtered",
-            timeout: 1000,
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/delete-filtered",
+            timeout: 100000,
             headers: {
                 'authentication_token': this.token
             },
@@ -101,7 +102,7 @@ export class GeneHandlerDAO {
     public downloadUnfilteredFasta() {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genehandler/download-fasta-unfiltered",
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/download-fasta-unfiltered",
             timeout: 1000000,
             headers: {
                 "cache-control": "no-cache",
@@ -119,7 +120,7 @@ export class GeneHandlerDAO {
     public downloadFilteredFasta() {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genehandler/download-fasta-filtered",
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/download-fasta-filtered",
             timeout: 1000000,
             headers: {
                 "cache-control": "no-cache",
@@ -137,7 +138,7 @@ export class GeneHandlerDAO {
     public downloadUnfilteredIds() {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genehandler/download-id-unfiltered",
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/download-id-unfiltered",
             timeout: 1000000,
             headers: {
                 "cache-control": "no-cache",
@@ -155,7 +156,7 @@ export class GeneHandlerDAO {
     public downloadFilteredIds() {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genehandler/download-id-filtered",
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genehandler/download-id-filtered",
             timeout: 1000000,
             headers: {
                 "cache-control": "no-cache",

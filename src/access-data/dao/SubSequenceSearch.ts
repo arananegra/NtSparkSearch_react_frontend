@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {GeneDTO} from "../../domain/GeneDTO";
 import {LoginRegisterBS} from "../bs/LoginRegisterBS";
+import {Constants} from "../../common/Constants";
 
 export class SubSequenceSearch {
     private token: string = null;
@@ -20,9 +21,10 @@ export class SubSequenceSearch {
     }
 
     public databaseSubSequence(sequenceToFetch: string) {
+        console.log("LA DIRECCION " + Constants.IP_ADDRESS);
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genefilter/sparkmatchall?sequence=" + sequenceToFetch,
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genefilter/sparkmatchall?sequence=" + sequenceToFetch,
             timeout: 1000000,
             headers: {
                 'authentication_token': this.token
@@ -36,7 +38,7 @@ export class SubSequenceSearch {
     public genesChecker(sequenceToFetch: string, arrayOfGenesToFetch: Array<GeneDTO>) {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genefilter/genes-checker?" + this.encodeQueryData(arrayOfGenesToFetch) + "&sequence=" + sequenceToFetch,
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genefilter/genes-checker?" + this.encodeQueryData(arrayOfGenesToFetch) + "&sequence=" + sequenceToFetch,
             timeout: 1000000,
             headers: {
                 'authentication_token': this.token
@@ -49,7 +51,7 @@ export class SubSequenceSearch {
     public downloadGenesFromListToUnfiltered(arrayOfGenesToFetch: Array<GeneDTO>, email: string) {
         return axios({
             method: 'get',
-            url: "http://0.0.0.0:5000/genefilter/genes-downloader?" + this.encodeQueryData(arrayOfGenesToFetch) + "&email=" + email,
+            url: "http://" + Constants.IP_ADDRESS + ":5000/genefilter/genes-downloader?" + this.encodeQueryData(arrayOfGenesToFetch) + "&email=" + email,
             timeout: 1000000,
             headers: {
                 'authentication_token': this.token
