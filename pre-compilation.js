@@ -6,7 +6,7 @@ let CleanWebpackPlugin = require('clean-webpack-plugin');
 
 let basePath = __dirname;
 
-module.exports = function(env) {
+module.exports = function (env) {
     return {
         context: path.join(basePath, 'src'),
         resolve: {
@@ -77,8 +77,8 @@ module.exports = function(env) {
                     loader: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
                         use: [
-                            { loader: 'css-loader', },
-                            { loader: 'sass-loader', },
+                            {loader: 'css-loader',},
+                            {loader: 'sass-loader',},
                         ],
                     })
                 },
@@ -107,6 +107,10 @@ module.exports = function(env) {
                 {
                     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                     loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
+                },
+                {
+                    test: /\.jpg(\?v=\d+\.\d+\.\d+)?$/,
+                    loader: "url-loader?mimetype=image/jpg"
                 },
             ]
         },

@@ -30,6 +30,8 @@ export interface ILoginPagePageState {
 
 }
 
+let image = require("../../../assets/images/dna.jpg");
+
 let divStyle = {
     minHeight: "100%",
     minWidth: "100%",
@@ -42,7 +44,7 @@ let divStyle = {
     position: "fixed" as "fixed",
     top: "0",
     left: "0",
-    backgroundImage: "url(https://upload.wikimedia.org/wikipedia/commons/e/e2/Cadena_de_ADN.jpg)"
+    backgroundImage: 'url(' + image + ')'
 };
 
 
