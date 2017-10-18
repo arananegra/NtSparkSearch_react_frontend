@@ -2,6 +2,7 @@ import * as React from "react";
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
+import {Constants} from "../../common/Constants";
 
 export interface IRowComponentProps {
     onButtonPressed?: (value) => any;
@@ -25,7 +26,7 @@ export class RowComponent extends React.Component<IRowComponentProps, IRowCompon
                     <h2>
                         {this.props.headerText}
                     </h2>
-                    <MuiThemeProvider>
+                    <MuiThemeProvider muiTheme={Constants.muiTheme}>
                         <RaisedButton className="row row-button"
                                       label={this.props.buttonText}
                                       value={this.props.buttonText}

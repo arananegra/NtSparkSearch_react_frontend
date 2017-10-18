@@ -1,6 +1,7 @@
 import * as React from "react";
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Constants} from "../../common/Constants";
 
 export interface IInputTextProps {
     onChangeText: (event: object, newValue: string) => any;
@@ -22,7 +23,7 @@ export class InputText extends React.Component<IInputTextProps, IState> {
     public render() {
         return (
             <div>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={Constants.muiTheme}>
                     <TextField
                         id="text-field-controlled"
                         type={this.props.passwordField}

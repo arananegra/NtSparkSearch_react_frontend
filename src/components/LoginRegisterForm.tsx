@@ -6,6 +6,7 @@ import {ButtonComponent} from "./CommonComponents/ButtonComponent";
 import Spinner from 'react-spinner-children';
 import PasswordField from 'material-ui-password-field'
 import ReCAPTCHA from "react-google-recaptcha"
+import {Constants} from "../common/Constants";
 
 export interface ILoginRegisterFormProps {
 
@@ -51,7 +52,7 @@ export class LoginRegisterForm extends React.Component<ILoginRegisterFormProps, 
     public render() {
         return (
             <div>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={Constants.muiTheme}>
                     <div className="container-fluid login-register-component">
                         <Paper zDepth={5}>
                             <div className="col-md-10">
@@ -93,17 +94,17 @@ export class LoginRegisterForm extends React.Component<ILoginRegisterFormProps, 
                                 </Spinner>
                             </div>
 
-                            <div className="login-register-button-login">
-                                <Spinner loaded={this.props.spinnerLoadedRegister}>
-                                    <ButtonComponent
-                                        onButtonPressed={this.props.onButtonPressedRegister}
-                                        label={this.props.labelButtonRegister}
-                                        value={this.props.valueButtonRegister}
-                                        primary={true}
-                                        disabled={this.state.disabled}>
-                                    </ButtonComponent>
-                                </Spinner>
-                            </div>
+                            {/*<div className="login-register-button-login">*/}
+                                {/*<Spinner loaded={this.props.spinnerLoadedRegister}>*/}
+                                    {/*<ButtonComponent*/}
+                                        {/*onButtonPressed={this.props.onButtonPressedRegister}*/}
+                                        {/*label={this.props.labelButtonRegister}*/}
+                                        {/*value={this.props.valueButtonRegister}*/}
+                                        {/*primary={true}*/}
+                                        {/*disabled={this.state.disabled}>*/}
+                                    {/*</ButtonComponent>*/}
+                                {/*</Spinner>*/}
+                            {/*</div>*/}
 
                         </Paper>
                     </div>

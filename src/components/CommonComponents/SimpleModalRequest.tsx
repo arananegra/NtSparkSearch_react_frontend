@@ -48,7 +48,7 @@ export class SimpleModalRequest extends React.Component<ISimpleModalRequest,
 
         return (
             <div>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={Constants.muiTheme}>
                     <Dialog
                         title={this.props.dialogTitle}
                         actions={actions}

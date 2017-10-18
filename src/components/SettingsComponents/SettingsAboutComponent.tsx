@@ -46,7 +46,7 @@ export class SettingsAboutComponent extends React.Component<ISettingsAboutCompon
         ];
 
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={Constants.muiTheme}>
                 <div className="container-fluid component-margins">
                     <div>
                         <FlatButton primary={true}

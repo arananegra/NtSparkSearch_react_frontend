@@ -22,12 +22,6 @@ import {MessagesConstants} from "../i18n/MessagesConstants";
 import {Constants} from "../common/Constants"
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-import {cyan500, cyan700,
-    pinkA200,
-    grey100, grey300, grey400, grey500, deepOrange500, deepOrange700,
-    white, darkBlack, fullBlack,} from 'material-ui/styles/colors';
 
 export class NavigationBarComponent extends React.Component<{}, {}> {
     state = {
@@ -56,30 +50,10 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
             height: "70px"
         };
 
-        const muiTheme = getMuiTheme({
-            // palette: {
-            //     primary1Color: deepOrange500,
-            //     primary2Color: deepOrange700,
-            //     primary3Color: grey400,
-            //     accent1Color: pinkA200,
-            //     accent2Color: grey100,
-            //     accent3Color: grey500,
-            //     textColor: darkBlack,
-            //     alternateTextColor: white,
-            //     canvasColor: white,
-            //     borderColor: grey300,
-            //     pickerHeaderColor: cyan500,
-            //     shadowColor: fullBlack,
-            // },
-            // appBar: {
-            //     height: 50,
-            // },
-        });
-
         return (
 
             <div className="container-fluid navigation-bar-component">
-                <MuiThemeProvider muiTheme={muiTheme}>
+                <MuiThemeProvider muiTheme={Constants.muiTheme}>
                     <Paper zDepth={2} style={style}>
                         <BottomNavigation selectedIndex={this.state.selectedIndex}>
                             <span className="application-title">{Constants.APP_NAME}</span>

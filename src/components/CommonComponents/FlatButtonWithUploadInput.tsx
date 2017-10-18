@@ -2,6 +2,7 @@ import * as React from "react";
 import FlatButton from 'material-ui/FlatButton';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Constants} from "../../common/Constants";
 
 export interface IFlatButtonWithUploadInputProps {
     buttonLabel: string;
@@ -23,7 +24,7 @@ export class FlatButtonWithUploadInput extends React.Component<IFlatButtonWithUp
     public render() {
         return (
             <div>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={Constants.muiTheme}>
                     <FlatButton
                         label={this.props.buttonLabel}
                         primary={true}

@@ -71,7 +71,7 @@ export class ModalRequestWithUploadButton extends React.Component<IModalRequestW
 
         return (
             <div>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={Constants.muiTheme}>
                     <Dialog
                         title={this.props.dialogTitle}
                         actions={actions}

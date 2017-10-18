@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {FormattedMessage} from "react-intl";
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Constants} from "../../common/Constants";
 
 export interface ISettingsPaperProps {
     onButtonPressed: (event: any) => any;
@@ -28,14 +29,18 @@ export class SettingsPaperComponent extends React.Component<ISettingsPaperProps,
             height: "150px",
         };
 
+        const titleColor = {
+            color: "#fd8609",
+        };
+
         return (
             <div className="container-fluid component-margins">
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={Constants.muiTheme}>
                     <Paper style={paperStyle} zDepth={5}>
 
                         <div className="row">
                             <div className="col-xs-offset-3">
-                                <h2 className="text-danger">{this.props.paperMainText}</h2>
+                                <h2 style={titleColor}>{this.props.paperMainText}</h2>
                             </div>
                         </div>
 
@@ -44,8 +49,7 @@ export class SettingsPaperComponent extends React.Component<ISettingsPaperProps,
                                           value={this.props.paperButtonText}
                                           label={this.props.paperButtonText}
                                           onClick={this.props.onButtonPressed}
-                                          primary={false}
-                                          secondary={true}/>
+                                          primary={true}/>
                         </div>
                     </Paper>
                 </MuiThemeProvider>
