@@ -15,6 +15,8 @@ import {LoginRegisterPageContainer} from "./src/pages/Login/LoginRegisterPageCon
 import {history} from "./src/components/AppPipeline";
 import {userIsAuthenticated, userIsNotAuthenticated} from "./src/access-data/bs/AuthBS";
 
+require('./assets/images/favicon.ico');
+
 class Index {
     public constructor() {
 

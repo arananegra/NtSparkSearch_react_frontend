@@ -36,7 +36,12 @@ module.exports = function (env) {
         },
 
         devServer: {
-            historyApiFallback: true,
+            historyApiFallback: {
+                rewrites: [
+                    // shows favicon
+                    { from: /favicon.ico/, to: './assets/images/favicon.ico' }
+                ]
+            },
             disableHostCheck: true,
             contentBase: './dist',
             inline: true,
@@ -109,8 +114,8 @@ module.exports = function (env) {
                     loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
                 },
                 {
-                    test: /\.jpg(\?v=\d+\.\d+\.\d+)?$/,
-                    loader: "url-loader?mimetype=image/jpg"
+                    test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+                    loader: 'file-loader?name=[name].[ext]'
                 },
             ]
         },
