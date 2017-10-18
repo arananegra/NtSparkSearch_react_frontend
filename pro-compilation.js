@@ -87,6 +87,10 @@ module.exports = function(env) {
                     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                     loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
                 },
+                {
+                    test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+                    loader: 'file-loader?name=[name].[ext]'
+                }
             ]
         },
         plugins: [
