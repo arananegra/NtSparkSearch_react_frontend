@@ -14,7 +14,6 @@ const UploadFilesToProcess = <UploadFiles/>;
 const DownloadFilesToLocal = <DownloadFiles/>;
 const AppSettings = <Settings/>;
 const SearchFromDatabase = <SearchDatabase/>;
-const LogoutSystem = <Logout/>;
 
 import {browserHistory} from 'react-router';
 import {RoutesConstants} from "../common/RoutesConstants";
@@ -22,6 +21,8 @@ import {MessagesConstants} from "../i18n/MessagesConstants";
 import {Constants} from "../common/Constants"
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+let khaosImage = require("../../assets/images/khaos.png");
 
 export class NavigationBarComponent extends React.Component<{}, {}> {
     state = {
@@ -40,6 +41,8 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
             browserHistory.push(RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH);
         } else if (index == 5) {
             browserHistory.push(RoutesConstants.SETTINGS_ROUTE_PATH);
+        } else if (index == 6) {
+            window.open("http://www.khaos.uma.es/", '_blank');
         }
 
     };
@@ -48,6 +51,11 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
 
         const style = {
             height: "70px"
+        };
+
+        const khaosImageStyle = {
+            width: 40,
+            height:40,
         };
 
         return (
@@ -90,6 +98,11 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
                                     id={MessagesConstants.SETTINGS_PAGE}/>}
                                 icon={AppSettings}
                                 onTouchTap={() => this.select(5)}
+                            />
+
+                            <BottomNavigationItem
+                                icon={<img style={khaosImageStyle} className="khaos-icon" src={khaosImage}/>}
+                                onTouchTap={() => this.select(6)}
                             />
                         </BottomNavigation>
                     </Paper>
