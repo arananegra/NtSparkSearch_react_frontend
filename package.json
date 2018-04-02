@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Alicia Fernandez Rovira",
+  "author": "Álvaro Gómez Jáuregui",
   "license": "ISC",
   "dependencies": {
     "@types/react-intl-redux": "^0.1.2",
