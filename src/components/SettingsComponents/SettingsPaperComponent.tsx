@@ -30,7 +30,7 @@ export class SettingsPaperComponent extends React.Component<ISettingsPaperProps,
         };
 
         const titleColor = {
-            color: "#fd8609",
+            color: "#66bb6a",
         };
 
         return (

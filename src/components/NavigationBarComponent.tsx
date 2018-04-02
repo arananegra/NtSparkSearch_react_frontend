@@ -22,8 +22,6 @@ import {Constants} from "../common/Constants"
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-let khaosImage = require("../../assets/images/khaos.png");
-
 export class NavigationBarComponent extends React.Component<{}, {}> {
     state = {
         selectedIndex: 0,
@@ -41,10 +39,7 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
             browserHistory.push(RoutesConstants.DOWNLOAD_FILES_ROUTE_PATH);
         } else if (index == 5) {
             browserHistory.push(RoutesConstants.SETTINGS_ROUTE_PATH);
-        } else if (index == 6) {
-            window.open("http://www.khaos.uma.es/", '_blank');
         }
-
     };
 
     public render() {
@@ -98,11 +93,6 @@ export class NavigationBarComponent extends React.Component<{}, {}> {
                                     id={MessagesConstants.SETTINGS_PAGE}/>}
                                 icon={AppSettings}
                                 onTouchTap={() => this.select(5)}
-                            />
-
-                            <BottomNavigationItem
-                                icon={<img style={khaosImageStyle} className="khaos-icon" src={khaosImage}/>}
-                                onTouchTap={() => this.select(6)}
                             />
                         </BottomNavigation>
                     </Paper>

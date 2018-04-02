@@ -1,4 +1,4 @@
-import {deepOrange400, deepOrange600} from 'material-ui/styles/colors';
+import {green400, green600} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 export class Constants {
@@ -10,8 +10,8 @@ export class Constants {
     public static IP_ADDRESS: string = "0.0.0.0";
     public static muiTheme = getMuiTheme({
         palette: {
-            primary1Color: deepOrange400,
-            primary2Color: deepOrange600,
+            primary1Color: green400,
+            primary2Color: green600,
         },
     });
 }
