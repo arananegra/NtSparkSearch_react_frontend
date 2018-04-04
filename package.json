@@ -8,8 +8,8 @@
     "start": "webpack-dev-server --env=pre-compilation --hot --inline",
     "build": "webpack --env=pro-compilation"
   },
-  "author": "Alvaro Gómez Jáuregui",
-  "license": "ISC",
+  "author": "Álvaro Gómez Jáuregui",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
     "babel-core": "^6.25.0",
