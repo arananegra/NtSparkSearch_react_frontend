@@ -1,1 +1,14 @@
+@import "./color";
 @import "./GeneSearcherComponent";
+@import "./NavigationBarComponent";
+@import "./SubSequenceSearchPage";
+@import "./GeneResultTable";
+@import "/UploadFile";
+@import "/DownloadFile";
+@import "/Settings";
+@import "/DialogUploadRequest";
+@import "login_register";
+.footer{
+  text-align: right;
+  margin-right: 1%;
+}

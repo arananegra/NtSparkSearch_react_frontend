@@ -1,0 +1,34 @@
+.login-register-component {
+  margin-top: 1%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;
+}
+
+.login-register-div {
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+
+.login-title {
+  font-size: 30px;
+  color: $dashboard-top-component-title-color;
+  margin-left: 10%;
+
+}
+
+
+.login-register-button-login {
+  margin-top: 30px;
+  margin-left: 30%;
+  margin-bottom: 10px;
+}
+
+.login-register-captch {
+  margin-left: 26px;
+  margin-top: 50px;
+  margin-bottom: 5px;
+}

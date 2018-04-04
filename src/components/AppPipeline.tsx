@@ -7,31 +7,45 @@ import {IntlProvider, intlReducer} from "react-intl-redux";
 import {addLocaleData} from "react-intl";
 import * as spanish from "react-intl/locale-data/es";
 import * as english from "react-intl/locale-data/en";
+import {composeWithDevTools} from 'redux-devtools-extension';
+import logger from 'redux-logger'
+import {ConnectedRouter, routerReducer, routerMiddleware, push, syncHistoryWithStore} from 'react-router-redux'
+import {NavigationBarComponent} from "./NavigationBarComponent";
+import {browserHistory} from "react-router";
 
 addLocaleData([...spanish, ...english]);
 
 const reducer = combineReducers({
-    reducers, 
-    intl: intlReducer
+    reducers,
+    intl: intlReducer,
+    routing: routerReducer
 });
 
-export const store = createStore(
-    reducer,
-    applyMiddleware(ReduxThunk["default"])
+const routerMid = routerMiddleware(browserHistory);
+
+const middlewares = [ReduxThunk["default"], logger, routerMid];
+
+export const store = createStore(reducer,
+    composeWithDevTools(
+        applyMiddleware(...middlewares)),
 );
+
+export const history = syncHistoryWithStore(browserHistory, store);
 
 export class AppPipeline extends React.Component<{}, {}> {
 
-public render(): JSX.Element {
-
+    public render(): JSX.Element {
+        let currentPath = window.location.pathname;
         return (
-        <Provider store={store}>
-          <IntlProvider>
-              <div className="container-fluid">
-                  {this.props.children}
-              </div>
-          </IntlProvider>
-        </Provider>
-    );
-}
+            <Provider store={store}>
+                <IntlProvider>
+                    <div className="container-fluid">
+                        {!currentPath.includes('login') ? <NavigationBarComponent/> : null }
+                        {this.props.children}
+                    </div>
+                </IntlProvider>
+            </Provider>
+        );
+    }
+
 }
